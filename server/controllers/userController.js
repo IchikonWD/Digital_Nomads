@@ -1,5 +1,5 @@
 import asyncHandler from 'express-async-handler';
-import User from '../models/userModel.js';
+import User from '../models/userSchema.js';
 import generateToken from '../utils/generateToken.js';
 
 // @desc    Auth user & get token
@@ -14,8 +14,15 @@ const authUsers = asyncHandler(async (req, res) => {
   if (user && (await user.matchPassword(password))) {
     res.status(200).json({
       _id: user._id,
+      nickname: user.nickname,
       name: user.name,
+      lastName: user.lastName,
+      age: user.age,
       email: user.email,
+      language: user.language,
+      ocupation: user.ocupation,
+      country: user.country,
+      avatar: user.avatar,
       token: generateToken(user._id),
     });
   } else {
@@ -30,13 +37,20 @@ const authUsers = asyncHandler(async (req, res) => {
 // @access  Private
 
 const getUserProfile = asyncHandler(async (req, res) => {
-  const user = await User.findById(req.user._id);
+  const user = await User.findOne({ nickname: req.user.nickname });
 
   if (user) {
     res.status(200).json({
       _id: user._id,
+      nickname: user.nickname,
       name: user.name,
+      lastName: user.lastName,
+      age: user.age,
       email: user.email,
+      language: user.language,
+      ocupation: user.ocupation,
+      country: user.country,
+      avatar: user.avatar,
     });
   } else {
     res.status(404).json({
@@ -50,7 +64,18 @@ const getUserProfile = asyncHandler(async (req, res) => {
 // @access  Public
 
 const registerUser = asyncHandler(async (req, res) => {
-  const { name, email, password } = req.body;
+  const {
+    nickname,
+    name,
+    lastName,
+    age,
+    email,
+    language,
+    ocupation,
+    country,
+    avatar,
+    password,
+  } = req.body;
 
   const userExists = await User.findOne({ email: email });
 
@@ -60,15 +85,29 @@ const registerUser = asyncHandler(async (req, res) => {
     });
   } else {
     const user = await User.create({
+      nickname: nickname,
       name: name,
+      lastName: lastName,
+      age: age,
       email: email,
+      language: language,
+      ocupation: ocupation,
+      country: country,
+      avatar: avatar,
       password: password,
     });
 
     res.status(201).json({
       _id: user._id,
+      nickname: user.nickname,
       name: user.name,
+      lastName: user.lastName,
+      age: user.age,
       email: user.email,
+      language: user.language,
+      ocupation: user.ocupation,
+      country: user.country,
+      avatar: user.avatar,
       token: generateToken(user._id),
     });
   }
@@ -82,8 +121,16 @@ const updateUserProfile = asyncHandler(async (req, res) => {
   const user = await User.findById(req.user._id);
 
   if (user) {
+    user.nickname = req.body.nickname || user.nickname;
     user.name = req.body.name || user.name;
+    user.lastName = req.body.lastName || user.lastName;
+    user.age = req.body.age || user.age;
     user.email = req.body.email || user.email;
+    user.language = req.body.language || user.language;
+    user.ocupation = req.body.ocupation || user.ocupation;
+    user.country = req.body.country || user.country;
+    user.avatar = req.body.avatar || user.avatar;
+
     if (req.body.password) {
       user.password = req.body.password;
     }
@@ -91,8 +138,15 @@ const updateUserProfile = asyncHandler(async (req, res) => {
 
     res.status(200).json({
       _id: updatedUser._id,
+      nickname: updatedUser.nickname,
       name: updatedUser.name,
+      lastName: updatedUser.lastName,
+      age: updatedUser.age,
       email: updatedUser.email,
+      language: updatedUser.language,
+      ocupation: updatedUser.ocupation,
+      country: updatedUser.country,
+      avatar: updatedUser.avatar,
       token: generateToken(updatedUser._id),
     });
   } else {

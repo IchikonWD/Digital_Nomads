@@ -3,6 +3,7 @@ import { config } from 'dotenv';
 import colors from 'colors';
 import connectDB from './config/mongodb.js';
 import userRoutes from './routes/userRoutes.js';
+import { notFound, errorHandler } from './middlewares/errorMiddleware.js';
 
 config();
 connectDB();
