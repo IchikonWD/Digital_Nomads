@@ -1,13 +1,16 @@
 import express from 'express';
 import { config } from 'dotenv';
 import colors from 'colors';
+import connectDB from './config/mongodb.js';
+import userRoutes from './routes/userRoutes.js';
 
 config();
+connectDB();
 
 const app = express();
 app.use(express.json());
 
-const PORT = process.env.PORT || 5000;
+app.use('/api/users', userRoutes);
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
@@ -19,6 +22,11 @@ if (process.env.NODE_ENV === 'production') {
     res.send('API is running...');
   });
 }
+
+app.use(notFound);
+app.use(errorHandler);
+
+const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
   console.log(
