@@ -8,7 +8,7 @@ import Error from '../Error';
 
 const Main = () => {
   return (
-    <main>
+    <main className='main'>
       <Router>
         <Switch>
           <Route path='/' component={Home} exact />
