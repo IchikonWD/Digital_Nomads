@@ -62,17 +62,7 @@ const getUserProfile = asyncHandler(async (req, res) => {
 // @access  Public
 
 const registerUser = asyncHandler(async (req, res) => {
-  const {
-    nickname,
-    name,
-    age,
-    email,
-    language,
-    ocupation,
-    country,
-    avatar,
-    password,
-  } = req.body;
+  const { name, email, password } = req.body;
 
   const userExists = await User.findOne({ email: email });
 
@@ -82,27 +72,17 @@ const registerUser = asyncHandler(async (req, res) => {
     });
   } else {
     const user = await User.create({
-      nickname: nickname,
       name: name,
-      age: age,
       email: email,
-      language: language,
-      ocupation: ocupation,
-      country: country,
-      avatar: avatar,
       password: password,
+      nickname: name,
     });
 
     res.status(201).json({
       _id: user._id,
-      nickname: user.nickname,
+      nickname: user.name,
       name: user.name,
-      age: user.age,
       email: user.email,
-      language: user.language,
-      ocupation: user.ocupation,
-      country: user.country,
-      avatar: user.avatar,
       token: generateToken(user._id),
     });
   }
