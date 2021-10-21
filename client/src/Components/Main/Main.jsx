@@ -10,6 +10,7 @@ import Home from '../Home';
 import Register from '../Register';
 import Login from '../Login';
 import Error from '../Error';
+import ScrollButton from '../ScrollButton/ScrollButton';
 
 const Main = () => {
   return (
@@ -25,6 +26,7 @@ const Main = () => {
           <Route component={Error} />
         </Switch>
       </Router>
+      <ScrollButton />
     </main>
   );
 };
