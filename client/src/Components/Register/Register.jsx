@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../Contexts/userContext';
+import axios from 'axios';
 
 const Register = ({ location, history }) => {
   const { user, setUser } = useContext(UserContext);

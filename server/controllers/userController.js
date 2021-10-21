@@ -16,7 +16,6 @@ const authUsers = asyncHandler(async (req, res) => {
       _id: user._id,
       nickname: user.nickname,
       name: user.name,
-      lastName: user.lastName,
       age: user.age,
       email: user.email,
       language: user.language,
@@ -44,7 +43,6 @@ const getUserProfile = asyncHandler(async (req, res) => {
       _id: user._id,
       nickname: user.nickname,
       name: user.name,
-      lastName: user.lastName,
       age: user.age,
       email: user.email,
       language: user.language,
@@ -67,7 +65,6 @@ const registerUser = asyncHandler(async (req, res) => {
   const {
     nickname,
     name,
-    lastName,
     age,
     email,
     language,
@@ -87,7 +84,6 @@ const registerUser = asyncHandler(async (req, res) => {
     const user = await User.create({
       nickname: nickname,
       name: name,
-      lastName: lastName,
       age: age,
       email: email,
       language: language,
@@ -101,7 +97,6 @@ const registerUser = asyncHandler(async (req, res) => {
       _id: user._id,
       nickname: user.nickname,
       name: user.name,
-      lastName: user.lastName,
       age: user.age,
       email: user.email,
       language: user.language,
@@ -123,7 +118,6 @@ const updateUserProfile = asyncHandler(async (req, res) => {
   if (user) {
     user.nickname = req.body.nickname || user.nickname;
     user.name = req.body.name || user.name;
-    user.lastName = req.body.lastName || user.lastName;
     user.age = req.body.age || user.age;
     user.email = req.body.email || user.email;
     user.language = req.body.language || user.language;
@@ -140,7 +134,6 @@ const updateUserProfile = asyncHandler(async (req, res) => {
       _id: updatedUser._id,
       nickname: updatedUser.nickname,
       name: updatedUser.name,
-      lastName: updatedUser.lastName,
       age: updatedUser.age,
       email: updatedUser.email,
       language: updatedUser.language,
