@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 
 const Register = ({ location, history }) => {
   const [name, setName] = useState('');
@@ -9,14 +8,6 @@ const Register = ({ location, history }) => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [passwordShown, setPasswordShown] = useState(false);
   const [confirmPasswordShown, setConfirmPasswordShown] = useState(false);
-
-  const register = () => {
-    axios.post('/api/users/register', {
-      name: name,
-      email: email,
-      password: password,
-    });
-  };
 
   const togglePassword = () => {
     setPasswordShown(!passwordShown);
