@@ -6,6 +6,7 @@ import Register from '../Register';
 import Login from '../Login';
 import Error from '../Error';
 import ScrollButton from "../ScrollButton/ScrollButton";
+import Map from '../Map/Map'
 
 
 const Main = () => {
@@ -14,6 +15,7 @@ const Main = () => {
       <Router>
         <Switch>
           <Route path='/' component={Home} exact />
+          <Route path='/map' component={Map} /> 
           <Route path='/register' component={Register} />
           <Route path='/login' component={Login} />
           <Route component={Error} />
