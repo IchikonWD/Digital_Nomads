@@ -1,3 +1,26 @@
+// Fonts
+
+@font-face {
+  font-family: 'DIN';
+  src: local('DINLight'),
+    url('./assets/fonts/DINPro-Light.otf') format('opentype');
+}
+@font-face {
+  font-family: 'DIN';
+  src: local('DINBold'),
+    url('./assets/fonts/DINPro-Bold.otf') format('opentype');
+}
+@font-face {
+  font-family: 'DIN';
+  src: local('DINBlack'),
+    url('./assets/fonts/DINPro-Black.otf') format('opentype');
+}
+@font-face {
+  font-family: 'DIN';
+  src: local('DINAltBold'),
+    url('./assets/fonts/DIN\ Alternate\ Bold.ttf') format('trueType');
+}
+
 // Primary Colors
 
 $primary-color: #88a39a;
@@ -41,4 +64,4 @@ $dark-gray: #252b42;
 // Gradients
 
 $gradient-primary-horizontal: linear-gradient(to right, #ff9679, #fe8248);
-$gradient-primary-vertical: linear-gradient(to top, #ff9679, #fe8248);
+$gradient-primary-vertical: linear-gradient(to bottom, #ff9679, #fe8248);
