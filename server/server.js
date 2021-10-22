@@ -4,11 +4,14 @@ import colors from 'colors';
 import connectDB from './config/mongodb.js';
 import userRoutes from './routes/userRoutes.js';
 import { notFound, errorHandler } from './middlewares/errorMiddleware.js';
+import cors from 'cors';
 
 config();
 connectDB();
 
 const app = express();
+app.use(cors());
+
 app.use(express.json());
 
 app.use('/api/users', userRoutes);
