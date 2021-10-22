@@ -1,21 +1,17 @@
-// views imports
+// Utils imports
+@import './utils/variables';
+@import './utils/mixins';
+
+// Views imports
 @import './views/App';
 @import './views/Index';
 
-
-// components imports
-// @import './components/burguermenu';
+// Components imports
 @import './components/error';
 @import './components/footer';
 @import './components/header';
 @import './components/home';
 @import './components/login';
 @import './components/main';
-// @import './components/map';
 @import './components/nav';
-// @import './components/profile';
 @import './components/register';
-
-
-
-
