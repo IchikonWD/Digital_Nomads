@@ -4,20 +4,15 @@ import bcrypt from 'bcrypt';
 const userSchema = Mongoose.Schema({
   nickname: {
     type: String,
-    required: true,
-    unique: true,
+    required: false,
   },
   name: {
     type: String,
     required: true,
   },
-  lastName: {
-    type: String,
-    required: true,
-  },
   age: {
     type: Date,
-    required: true,
+    required: false,
   },
   email: {
     type: String,
@@ -30,15 +25,15 @@ const userSchema = Mongoose.Schema({
   },
   language: {
     type: String,
-    required: true,
+    required: false,
   },
   ocupation: {
     type: String,
-    required: true,
+    required: false,
   },
   country: {
     type: String,
-    required: true,
+    required: false,
   },
   avatar: {
     type: String,
