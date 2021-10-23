@@ -12,7 +12,7 @@ const RegisterStep3 = ({ history }) => {
 
   // Redirect to home if user is not logged in
   useEffect(() => {
-    if (!user) {
+    if (user.isLoggedIn === false) {
       history.push('/');
     }
   }, [user, history]);
@@ -27,19 +27,43 @@ const RegisterStep3 = ({ history }) => {
         extraInfo.ocupation
       ) {
         const { age, language, country, ocupation } = extraInfo;
-        const id = user._id || user.id;
+        const config = {
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${user.token}`,
+          },
+        };
         try {
-          const url = 'http://localhost:5000/api/users/profile';
-          const res = await axios.put(url, {
-            id,
-            age,
-            language,
-            country,
-            ocupation,
-          });
+          const url = `http://localhost:5000/api/users/profile/`;
+          const res = await axios.put(
+            url,
+            {
+              age,
+              language,
+              country,
+              ocupation,
+            },
+            config
+          );
           if (res.data) {
-            setUser(res.data);
-            setExtraInfo({});
+            setUser({
+              ...user,
+              age: res.data.age,
+              language: res.data.language,
+              country: res.data.country,
+              ocupation: res.data.ocupation,
+            });
+            localStorage.setItem(
+              'user',
+              JSON.stringify({
+                ...user,
+                age: res.data.age,
+                language: res.data.language,
+                country: res.data.country,
+                ocupation: res.data.ocupation,
+              })
+            );
+            history.push('/infostep1');
           } else {
             alert('Error');
             setExtraInfo({});
@@ -75,9 +99,11 @@ const RegisterStep3 = ({ history }) => {
         <input
           type='number'
           name='age'
+          min='1'
+          max='100'
           id='age'
           value={age}
-          placeholder='Age'
+          placeholder='Your Age'
           onChange={(e) => setAge(e.target.value)}
         />
         <select

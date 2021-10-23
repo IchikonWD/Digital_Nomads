@@ -8,6 +8,12 @@ function App() {
   const [user, setUser] = useState({});
 
   useEffect(() => {
+    setUser({
+      isLoggedIn: false,
+    });
+  }, []);
+
+  useEffect(() => {
     const user = localStorage.getItem('user');
     if (user) {
       setUser(JSON.parse(user));

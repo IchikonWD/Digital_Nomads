@@ -16,7 +16,7 @@ const Login = ({ history }) => {
 
   // Redirect to home if user is already logged in
   useEffect(() => {
-    if (user) {
+    if (user.isLoggedIn === true) {
       history.push('/');
     }
   }, [user, history]);

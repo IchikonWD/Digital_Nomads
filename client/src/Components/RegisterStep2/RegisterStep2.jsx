@@ -7,7 +7,7 @@ const RegisterStep2 = ({ history }) => {
 
   // Redirect to home if user is not logged in
   useEffect(() => {
-    if (!user) {
+    if (user.isLoggedIn === false) {
       history.push('/');
     }
   }, [user, history]);
