@@ -1,5 +1,5 @@
 import asyncHandler from 'express-async-handler';
-import { getAllCities } from '../models/citiesSchema.js';
+import { getAllCities, getOneCity } from '../models/citiesSchema.js';
 
 const getCities = asyncHandler(async (req, res) => {
     try {
@@ -11,5 +11,16 @@ const getCities = asyncHandler(async (req, res) => {
         });
     }
 })
+const getCityByName = asyncHandler(async (req, res) => {
+    try {
+        let param = req.params.city
+        const data = await getOneCity(param)
+        res.status(200).json(data);
+    } catch (error) {
+        res.status(400).json({
+            error: error.message
+        });
+    }
+})
 
-export { getCities }
+export { getCities, getCityByName }
