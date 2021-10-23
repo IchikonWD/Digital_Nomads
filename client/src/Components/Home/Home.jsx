@@ -1,11 +1,15 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
+import { DataContext } from '../../Contexts/dataContext';
 
 const Home = ({ history }) => {
-  const [search, setSearch] = useState('');
-
+  const {data, setData} = useContext(DataContext);
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log('submit');
+    setData(e.target.city.value)
+    history.push(`/map/${e.target.city.value}`)
+    console.log(data);
+    console.log(e.target.city.value)
+
   };
 
   return (
@@ -13,6 +17,7 @@ const Home = ({ history }) => {
       <div className='home1'>
         <form onSubmit={submitHandler}>
           <input type='text' name='city' />
+
           <p>Choose your next destination according to your nomad wantings</p>
           <button>Explore!</button>
         </form>
