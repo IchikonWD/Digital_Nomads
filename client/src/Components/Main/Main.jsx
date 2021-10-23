@@ -19,7 +19,7 @@ const Main = () => {
       <Router>
         <Switch>
           <Route path='/' component={Home} exact />
-          <Route path='/map' component={Map} />
+          <Route path='/map/:id?' component={Map} />
           <Route path='/register' component={Register} />
           <Route path='/registerstep2' component={RegisterStep2} />
           <Route path='/registerstep3' component={RegisterStep3} />
