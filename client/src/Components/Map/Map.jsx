@@ -11,8 +11,6 @@ const Map = ({ history, match }) => {
 
   const route = match.params.id;
 
-  useEffect(() => {}, []);
-
   const markerIcon = new Icon({
     iconUrl: markerType,
   });
