@@ -13,9 +13,6 @@ const Register = ({ location, history }) => {
   const [confirmPasswordShown, setConfirmPasswordShown] = useState(false);
   const [registerInfo, setRegisterInfo] = useState({});
 
-  const contextValue = useContext(UserContext);
-  console.log(contextValue.user);
-
   // Change visibility of password
   const togglePassword = () => {
     setPasswordShown(!passwordShown);

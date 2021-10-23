@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { Link } from 'react-router-dom';
 import { UserContext } from '../../Contexts/userContext';
 import axios from 'axios';
 
@@ -8,21 +7,68 @@ const Login = ({ history }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordShown, setPasswordShown] = useState(false);
+  const [loginInfo, setLoginInfo] = useState('');
 
   // Change visibility of password
   const togglePassword = () => {
     setPasswordShown(!passwordShown);
   };
 
+  // Redirect to home if user is already logged in
   useEffect(() => {
     if (user.userInfo) {
       history.push('/');
     }
   }, [user, history]);
 
+  // Post login info to server
+  useEffect(() => {
+    async function fetchData() {
+      if (loginInfo.email && loginInfo.password) {
+        const { email, password } = loginInfo;
+        try {
+          const url = 'http://localhost:5000/api/users/login/';
+          const res = await axios.post(url, {
+            email: email,
+            password: password,
+          });
+          if (res.data) {
+            const userInfo = {
+              isLoggedIn: true,
+              name: res.data.name,
+              email: res.data.email,
+              id: res.data._id,
+              token: res.data.token,
+            };
+            setUser({
+              userInfo,
+            });
+            //Save user to localStorage
+            localStorage.setItem('user', JSON.stringify(userInfo));
+            setLoginInfo({});
+          } else {
+            setLoginInfo({});
+          }
+        } catch (error) {
+          console.log(error.response.data.message);
+        }
+      }
+    }
+    fetchData();
+  }, [loginInfo, setUser]);
+
+  // Form submit handler
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(email, password);
+    if (email && password) {
+      const userData = {
+        email,
+        password,
+      };
+      setLoginInfo(userData);
+    } else {
+      alert('Please fill in all fields');
+    }
   };
 
   return (
