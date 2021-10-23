@@ -16,7 +16,7 @@ const Login = ({ history }) => {
 
   // Redirect to home if user is already logged in
   useEffect(() => {
-    if (user.userInfo) {
+    if (user.isLoggedIn === true) {
       history.push('/');
     }
   }, [user, history]);
@@ -33,18 +33,24 @@ const Login = ({ history }) => {
             password: password,
           });
           if (res.data) {
-            const userInfo = {
+            setUser({
               isLoggedIn: true,
               name: res.data.name,
               email: res.data.email,
-              id: res.data._id,
+              _id: res.data._id,
               token: res.data.token,
-            };
-            setUser({
-              userInfo,
             });
             //Save user to localStorage
-            localStorage.setItem('user', JSON.stringify(userInfo));
+            localStorage.setItem(
+              'user',
+              JSON.stringify({
+                isLoggedIn: true,
+                name: res.data.name,
+                email: res.data.email,
+                _id: res.data._id,
+                token: res.data.token,
+              })
+            );
             setLoginInfo({});
           } else {
             setLoginInfo({});

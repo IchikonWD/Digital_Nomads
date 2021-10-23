@@ -11,7 +11,7 @@ const userSchema = Mongoose.Schema({
     required: true,
   },
   age: {
-    type: Date,
+    type: Number,
     required: false,
   },
   email: {
