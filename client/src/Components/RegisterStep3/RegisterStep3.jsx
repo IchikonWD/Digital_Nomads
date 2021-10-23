@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState, useEffect, useContext } from 'react';
 import { UserContext } from '../../Contexts/userContext';
 
@@ -16,6 +17,41 @@ const RegisterStep3 = ({ history }) => {
     }
   }, [user, history]);
 
+  // Post extra info to server
+  useEffect(() => {
+    async function postExtraInfo() {
+      if (
+        extraInfo.age &&
+        extraInfo.language &&
+        extraInfo.country &&
+        extraInfo.ocupation
+      ) {
+        const { age, language, country, ocupation } = extraInfo;
+        const id = user._id || user.id;
+        try {
+          const url = 'http://localhost:5000/api/users/profile';
+          const res = await axios.put(url, {
+            id,
+            age,
+            language,
+            country,
+            ocupation,
+          });
+          if (res.data) {
+            setUser(res.data);
+            setExtraInfo({});
+          } else {
+            alert('Error');
+            setExtraInfo({});
+          }
+        } catch (error) {
+          console.log(error.response.data.message);
+        }
+      }
+    }
+    postExtraInfo();
+  }, [extraInfo, history, setUser, user]);
+
   // Form submit handler
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -31,6 +67,7 @@ const RegisterStep3 = ({ history }) => {
       alert('Please fill all fields');
     }
   };
+
   return (
     <div className='register3'>
       <h2>We want to know you better</h2>

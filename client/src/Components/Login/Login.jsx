@@ -37,7 +37,7 @@ const Login = ({ history }) => {
               isLoggedIn: true,
               name: res.data.name,
               email: res.data.email,
-              id: res.data._id,
+              _id: res.data._id,
               token: res.data.token,
             });
             //Save user to localStorage
@@ -47,7 +47,7 @@ const Login = ({ history }) => {
                 isLoggedIn: true,
                 name: res.data.name,
                 email: res.data.email,
-                id: res.data._id,
+                _id: res.data._id,
                 token: res.data.token,
               })
             );
