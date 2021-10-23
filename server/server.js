@@ -2,12 +2,15 @@ import express from 'express';
 import { config } from 'dotenv';
 import colors from 'colors';
 import connectDB from './config/mongodb.js';
+import { pool, client } from './config/sqldb.js'
 import userRoutes from './routes/userRoutes.js';
+import dataRoutes from './routes/dataRoutes.js';
 import { notFound, errorHandler } from './middlewares/errorMiddleware.js';
 import cors from 'cors';
 
 config();
 connectDB();
+pool.connect();
 
 const app = express();
 app.use(cors());
@@ -15,6 +18,8 @@ app.use(cors());
 app.use(express.json());
 
 app.use('/api/users', userRoutes);
+app.use('/api/data', dataRoutes);
+
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
