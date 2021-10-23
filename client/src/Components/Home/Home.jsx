@@ -1,17 +1,42 @@
-import React from "react";
+import React, { useState } from 'react';
 
-import Home1 from "../Home1/Home1"
-import Home2 from "../Home2/Home2"
-import Home3 from "../Home3/Home3"
+const Home = ({ history }) => {
+  const [search, setSearch] = useState('');
 
-const Home = () => {
+  const submitHandler = (e) => {
+    e.preventDefault();
+    console.log('submit');
+  };
+
   return (
-    <div className="home">
-      <Home1 />
-      <Home2 />
-      <Home3 />
+    <div className='home'>
+      <div className='home1'>
+        <form onSubmit={submitHandler}>
+          <input type='text' name='city' />
+          <p>Choose your next destination according to your nomad wantings</p>
+          <button>Explore!</button>
+        </form>
+      </div>
+      <div className='home2'>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate,
+          cum.
+        </p>
+        <ul>
+          <li>Internet</li>
+          <li>Safety</li>
+          <li>Places</li>
+          <li>Living costs</li>
+          <li>Community</li>
+          <li>Hobbies</li>
+        </ul>
+      </div>
+      <div className='home3'>
+        <p>Best nomad places</p>
+        {/* COMPONENTE QUE RENDERICE 9 TARJETAS CON EL TOP RATED */}
+      </div>
     </div>
-  )
-}
+  );
+};
 
 export default Home;
