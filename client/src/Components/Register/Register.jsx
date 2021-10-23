@@ -13,9 +13,6 @@ const Register = ({ location, history }) => {
   const [confirmPasswordShown, setConfirmPasswordShown] = useState(false);
   const [registerInfo, setRegisterInfo] = useState({});
 
-  const contextValue = useContext(UserContext);
-  console.log(contextValue.user);
-
   // Change visibility of password
   const togglePassword = () => {
     setPasswordShown(!passwordShown);
@@ -26,7 +23,7 @@ const Register = ({ location, history }) => {
 
   // Redirect to home if user is already logged in
   useEffect(() => {
-    if (user.userInfo) {
+    if (user.isLoggedIn === true) {
       history.push('/');
     }
   }, [user, history]);
@@ -44,19 +41,26 @@ const Register = ({ location, history }) => {
             password: password,
           });
           if (res.data) {
-            const userInfo = {
+            setUser({
               isLoggedIn: true,
               name: res.data.name,
               email: res.data.email,
-              id: res.data._id,
+              _id: res.data._id,
               token: res.data.token,
-            };
-            setUser({
-              userInfo,
             });
             //Save user to localStorage
-            localStorage.setItem('user', JSON.stringify(userInfo));
+            localStorage.setItem(
+              'user',
+              JSON.stringify({
+                isLoggedIn: true,
+                name: res.data.name,
+                email: res.data.email,
+                _id: res.data._id,
+                token: res.data.token,
+              })
+            );
             setRegisterInfo({});
+            history.push('/register/step2');
           } else {
             setRegisterInfo({});
           }
@@ -66,7 +70,7 @@ const Register = ({ location, history }) => {
       }
     }
     fetchData();
-  }, [registerInfo, setUser]);
+  }, [registerInfo, setUser, history]);
 
   // Button click handler
   const handleGoHome = () => {

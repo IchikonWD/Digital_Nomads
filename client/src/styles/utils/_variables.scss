@@ -1,0 +1,67 @@
+// Fonts
+
+@font-face {
+  font-family: 'DIN';
+  src: local('DINLight'),
+    url('../../assets/fonts/DINPro-Light.otf') format('opentype');
+}
+@font-face {
+  font-family: 'DIN';
+  src: local('DINBold'),
+    url('../../assets/fonts/DINPro-Bold.otf') format('opentype');
+}
+@font-face {
+  font-family: 'DIN';
+  src: local('DINBlack'),
+    url('../../assets/fonts/DINPro-Black.otf') format('opentype');
+}
+@font-face {
+  font-family: 'DIN';
+  src: local('DINAltBold'),
+    url('../../assets/fonts/DIN\ Alternate\ Bold.ttf') format('trueType');
+}
+
+// Primary Colors
+
+$primary-color: #88a39a;
+$primary-color-light: #b2cdc4;
+$neutral-color: #f4f2eb;
+$secondary-color: #e59848;
+$accent-color: #ff9679;
+$accent-color-light: #fe8248;
+
+// Neutral colors
+
+$neutrals-color-lighter: #fbfbf8;
+$neutrals-color-light: #f4f2eb;
+$neutrals-color-light-medium: #ebe7db;
+$neutrals-color-medium: #dad2bb;
+$neutrals-color-medium-dark: #c7bb99;
+$neutrals-color-dark: #beb088;
+
+// Text colors
+
+$text-color: #fafafa;
+$text-color-light: #f0f0f0;
+$text-color-medium: #cbcbcb;
+$text-color-medium-dark: #808080;
+$text-color-dark: #4d4d4d;
+$text-color-darkest: #1a1a1a;
+
+// Semantic Colors
+
+$light-orange: #fff6ef;
+$dark-orange: #e77c40;
+$light-red: #ffdede;
+$dark-red: #df1e1e;
+$light-green: #f2fff7;
+$dark-green: #2dc071;
+$light-blue: #f8faff;
+$dark-blue: #23a6f0;
+$light-gray: #f3f3f3;
+$dark-gray: #252b42;
+
+// Gradients
+
+$gradient-primary-horizontal: linear-gradient(to right, #ff9679, #fe8248);
+$gradient-primary-vertical: linear-gradient(to bottom, #ff9679, #fe8248);
