@@ -45,7 +45,7 @@ const Register = ({ location, history }) => {
               isLoggedIn: true,
               name: res.data.name,
               email: res.data.email,
-              id: res.data._id,
+              _id: res.data._id,
               token: res.data.token,
             });
             //Save user to localStorage
@@ -55,7 +55,7 @@ const Register = ({ location, history }) => {
                 isLoggedIn: true,
                 name: res.data.name,
                 email: res.data.email,
-                id: res.data._id,
+                _id: res.data._id,
                 token: res.data.token,
               })
             );
