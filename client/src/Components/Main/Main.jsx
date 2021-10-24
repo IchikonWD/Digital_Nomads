@@ -13,6 +13,8 @@ import Login from '../Login';
 import Error from '../Error';
 import ScrollButton from '../ScrollButton/ScrollButton';
 import Map from '../Map/Map';
+import Explore1 from '../Explore1/Explore1';
+import Explore2 from '../Explore2/Explore2';
 
 const Main = () => {
   return (
@@ -29,6 +31,8 @@ const Main = () => {
           <Route path='/infostep3' component={InfoStep3} />
           <Route path='/infostep4' component={InfoStep4} />
           <Route path='/login' component={Login} />
+          <Route path='/explore' component={Explore1} />
+          <Route path='/explore2' component={Explore2} />
           <Route component={Error} />
         </Switch>
       </Router>

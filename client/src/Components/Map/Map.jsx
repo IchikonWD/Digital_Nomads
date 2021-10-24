@@ -12,8 +12,8 @@ const Map = ({ history, match }) => {
   const [cityName, setCityName] = React.useState("The Bridge");
   const [position, setPosition] = React.useState([lat, lng]);
   const geolocation = useGeolocation()
-  const route = match.params.id;
 
+  const route = match.params.id;
   useEffect(() => {
     if (geolocation.loaded) {
       const geoLat = JSON.stringify(geolocation.coordinates.lat)
@@ -49,12 +49,7 @@ const Map = ({ history, match }) => {
       fetchData()
     }
   }, [route || geolocation.loaded]);
-  /* https://localhost.com/map/Madrid
-  En este caso route es Madrid
-  Esto se lo pasarias al fetch rollo: axios.get(`https://localhost.com:5000/api/data/${route}`)
-  y te traeria los datos de la bbdd de madrid
-  Madrid -> /map/Madrid 
-  */
+
   const markerIcon = new Icon({
     iconUrl: markerType,
   });
@@ -64,8 +59,6 @@ const Map = ({ history, match }) => {
     return null;
   }
   return (
-    <>
-      {/* <div>{geolocation.loaded ? JSON.stringify(geolocation) : "Data not available"}</div> */}
       <MapContainer
         center={position}
         // zoom={13}
@@ -81,9 +74,6 @@ const Map = ({ history, match }) => {
           <Popup>{cityName}</Popup>
         </Marker>
       </MapContainer>
-    </>
-
   );
 };
-
 export default Map;
