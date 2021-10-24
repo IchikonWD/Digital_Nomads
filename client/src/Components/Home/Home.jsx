@@ -8,6 +8,7 @@ const Home = ({ history }) => {
   const [text, setText] = useState("")
   const [suggestions, setSuggestions] = useState([])
   useEffect(() => {
+    // Get's all city names and loads them for the suggestion section
     const loadCities = async () => {
       const url = `http://localhost:5000/api/data`
       const res = await axios.get(url)
@@ -16,6 +17,7 @@ const Home = ({ history }) => {
     }
     loadCities()
   }, [])
+  // Filters all city names and matches it with the input text
   const onChangeHandler = (text) => {
     let modText = text.charAt(0).toUpperCase() + text.substr(1).toLowerCase();
     let matches = []
@@ -29,19 +31,23 @@ const Home = ({ history }) => {
     setSuggestions(matches)
     setText(text)
   }
+  // Sets the suggestion value to the input value
   const onSuggestHandler = (text) => {
     let modText = text.charAt(0).toUpperCase() + text.substr(1).toLowerCase();
     setText(modText)
     setSuggestions([])
-
-
   }
+  // Redirects to /map/city where city = input text or suggestion
   const submitHandler = (e) => {
     e.preventDefault();
     setData(e.target.city.value)
     history.push(`/map/${e.target.city.value}`)
     console.log(data);
     console.log(e.target.city.value)
+  };
+  // Button click handler
+  const handleGoExplore = () => {
+    history.push('/explore');
   };
 
   return (
@@ -52,24 +58,19 @@ const Home = ({ history }) => {
           {
             suggestions ? suggestions.map((suggestions, i) => <div key={i} onClick={() => onSuggestHandler(suggestions.name)}>{suggestions.name}</div>) : ""
           }
-          <div></div>
-
-          <p>Choose your next destination according to your nomad wantings</p>
-          <button>Explore!</button>
+          <p>Choose your next nomad destination according to your needs</p>
         </form>
+        <button onClick={handleGoExplore}>Explore now</button>
       </div>
       <div className='home2'>
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate,
-          cum.
-        </p>
+        <p>Matching the needs of digital nomads and remote workers to the best place in Spain</p>
         <ul>
-          <li>Internet</li>
+          <li>Sunny places</li>
           <li>Safety</li>
-          <li>Places</li>
+          <li>Surf places</li>
           <li>Living costs</li>
-          <li>Community</li>
-          <li>Hobbies</li>
+          <li>Internet places</li>
+          <li>Meet other nomads</li>
         </ul>
       </div>
       <div className='home3'>
