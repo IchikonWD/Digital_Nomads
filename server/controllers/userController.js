@@ -57,6 +57,33 @@ const getUserProfile = asyncHandler(async (req, res) => {
   }
 });
 
+// @desc    Get all users interests
+// @route   GET /api/users/interests
+// @access  Public
+
+const getUserInterests = asyncHandler(async (req, res) => {
+  const filter = {};
+  const users = await User.find(filter);
+  console.log(users);
+
+  // Response only the fields that we need: _id, interests
+
+  if (users) {
+    res.status(200).json({
+      users: users.map((user) => {
+        return {
+          _id: user._id,
+          interests: user.interests,
+        };
+      }),
+    });
+  } else {
+    res.status(404).json({
+      message: 'No users found',
+    });
+  }
+});
+
 // @desc    Register new user
 // @route   POST /api/users
 // @access  Public
@@ -104,6 +131,7 @@ const updateUserProfile = asyncHandler(async (req, res) => {
     user.ocupation = req.body.ocupation || user.ocupation;
     user.country = req.body.country || user.country;
     user.avatar = req.body.avatar || user.avatar;
+    user.interests = req.body.interests || user.interests;
 
     if (req.body.password) {
       user.password = req.body.password;
@@ -120,6 +148,7 @@ const updateUserProfile = asyncHandler(async (req, res) => {
       ocupation: updatedUser.ocupation,
       country: updatedUser.country,
       avatar: updatedUser.avatar,
+      interests: updatedUser.interests,
       token: generateToken(updatedUser._id),
     });
   } else {
@@ -129,4 +158,10 @@ const updateUserProfile = asyncHandler(async (req, res) => {
   }
 });
 
-export { authUsers, getUserProfile, registerUser, updateUserProfile };
+export {
+  authUsers,
+  getUserProfile,
+  getUserInterests,
+  registerUser,
+  updateUserProfile,
+};
