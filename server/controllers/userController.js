@@ -57,33 +57,6 @@ const getUserProfile = asyncHandler(async (req, res) => {
   }
 });
 
-// @desc    Get all users interests
-// @route   GET /api/users/interests
-// @access  Public
-
-const getUserInterests = asyncHandler(async (req, res) => {
-  const filter = {};
-  const users = await User.find(filter);
-  console.log(users);
-
-  // Response only the fields that we need: _id, interests
-
-  if (users) {
-    res.status(200).json({
-      users: users.map((user) => {
-        return {
-          _id: user._id,
-          interests: user.interests,
-        };
-      }),
-    });
-  } else {
-    res.status(404).json({
-      message: 'No users found',
-    });
-  }
-});
-
 // @desc    Register new user
 // @route   POST /api/users
 // @access  Public
@@ -158,10 +131,4 @@ const updateUserProfile = asyncHandler(async (req, res) => {
   }
 });
 
-export {
-  authUsers,
-  getUserProfile,
-  getUserInterests,
-  registerUser,
-  updateUserProfile,
-};
+export { authUsers, getUserProfile, registerUser, updateUserProfile };

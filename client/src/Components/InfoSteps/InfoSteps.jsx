@@ -1,26 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 const InfoSteps = ({ step1, step2 }) => {
   return (
     <div className='infoSteps'>
       {step1 ? (
-        <Link to='/infostep3'>
-          <i className='fas fa-circle'></i>
-        </Link>
+        <i className='fas fa-circle'></i>
       ) : (
-        <Link to='/infostep2'>
-          <i className='far fa-circle'></i>
-        </Link>
+        <i className='far fa-circle'></i>
       )}
       {step2 ? (
-        <Link to='/infostep2'>
-          <i className='fas fa-circle'></i>
-        </Link>
+        <i className='fas fa-circle'></i>
       ) : (
-        <Link to='/infostep3'>
-          <i className='far fa-circle'></i>
-        </Link>
+        <i className='far fa-circle'></i>
       )}
     </div>
   );

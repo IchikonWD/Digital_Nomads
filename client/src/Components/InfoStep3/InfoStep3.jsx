@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
+import axios from 'axios';
 import { UserContext } from '../../Contexts/userContext';
 import InfoSteps from '../InfoSteps/InfoSteps';
 
@@ -16,6 +17,8 @@ const InfoStep3 = ({ history }) => {
   const [coffee, setCoffee] = useState(false);
   const [sunsets, setSunsets] = useState(false);
   const [parties, setParties] = useState(false);
+
+  //!TODO: Add an axios to Data Science API to get the user's interests
 
   // Redirect to home if user is not logged in
   useEffect(() => {
@@ -74,7 +77,64 @@ const InfoStep3 = ({ history }) => {
         },
       });
     }
-  }, [user]);
+  }, [user, setUser, history]);
+
+  useEffect(() => {
+    async function saveInterests() {
+      if (user.interests) {
+        const config = {
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${user.token}`,
+          },
+        };
+        try {
+          const url = `http://localhost:5000/api/users/profile/`;
+          const res = await axios.put(
+            url,
+            {
+              _id: user._id,
+              interests: {
+                burguers: user.interests.burguers,
+                mediterranean: user.interests.mediterranean,
+                indian: user.interests.indian,
+                sushi: user.interests.sushi,
+                italian: user.interests.italian,
+                chinese: user.interests.chinese,
+                drinks: user.interests.drinks,
+                coffee: user.interests.coffee,
+                sunsets: user.interests.sunsets,
+                parties: user.interests.parties,
+                surf: user.interests.surf,
+                fitness: user.interests.fitness,
+                volley: user.interests.volley,
+                paddle: user.interests.paddle,
+                climbing: user.interests.climbing,
+                running: user.interests.running,
+                football: user.interests.football,
+                trecking: user.interests.trecking,
+                museums: user.interests.museums,
+                bookstores: user.interests.bookstores,
+                theaters: user.interests.theaters,
+                movies: user.interests.movies,
+                guidedVisits: user.interests.guidedVisits,
+                concerts: user.interests.concerts,
+                parks: user.interests.parks,
+                ruralTourism: user.interests.ruralTourism,
+              },
+            },
+            config
+          );
+          if (res.data) {
+            console.log('Interests saved');
+          }
+        } catch (err) {
+          console.log(err.response.data.message);
+        }
+      }
+    }
+    saveInterests();
+  }, [user._id, user.interests, user.token]);
 
   // Save user interests
   const handleInterests = (e) => {

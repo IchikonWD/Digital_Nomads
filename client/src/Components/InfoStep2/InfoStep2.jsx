@@ -105,7 +105,7 @@ const InfoStep2 = ({ history }) => {
         },
       });
     }
-  }, [user, history]);
+  }, [user, setUser, history]);
 
   // Save user interests
   const handleInterests = (e) => {
