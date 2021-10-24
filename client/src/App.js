@@ -11,6 +11,7 @@ function App() {
   const [city, setCity] = useState({});
   const [data, setData] = useState([]);
 
+
   useEffect(() => {
     setUser({
       isLoggedIn: false,
