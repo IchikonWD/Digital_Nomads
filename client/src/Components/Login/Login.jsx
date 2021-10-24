@@ -35,9 +35,14 @@ const Login = ({ history }) => {
           if (res.data) {
             setUser({
               isLoggedIn: true,
+              _id: res.data._id,
               name: res.data.name,
               email: res.data.email,
-              _id: res.data._id,
+              age: res.data.age,
+              language: res.data.language,
+              ocupation: res.data.ocupation,
+              country: res.data.country,
+              avatar: res.data.avatar,
               token: res.data.token,
             });
             //Save user to localStorage
@@ -45,9 +50,14 @@ const Login = ({ history }) => {
               'user',
               JSON.stringify({
                 isLoggedIn: true,
+                _id: res.data._id,
                 name: res.data.name,
                 email: res.data.email,
-                _id: res.data._id,
+                age: res.data.age,
+                language: res.data.language,
+                ocupation: res.data.ocupation,
+                country: res.data.country,
+                avatar: res.data.avatar,
                 token: res.data.token,
               })
             );
