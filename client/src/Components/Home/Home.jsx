@@ -47,7 +47,7 @@ const Home = ({ history }) => {
   };
   // Button click handler
   const handleGoExplore = () => {
-    history.push('/explore');
+    history.push('/explore1');
   };
 
   return (

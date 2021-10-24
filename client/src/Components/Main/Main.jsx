@@ -31,7 +31,7 @@ const Main = () => {
           <Route path='/infostep3' component={InfoStep3} />
           <Route path='/infostep4' component={InfoStep4} />
           <Route path='/login' component={Login} />
-          <Route path='/explore' component={Explore1} />
+          <Route path='/explore1' component={Explore1} />
           <Route path='/explore2' component={Explore2} />
           <Route component={Error} />
         </Switch>
