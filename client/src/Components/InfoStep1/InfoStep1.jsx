@@ -2,12 +2,22 @@ import React, { useEffect, useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { CityContext } from '../../Contexts/cityContext';
+import { UserContext } from '../../Contexts/userContext';
 
-const InfoStep1 = () => {
+const InfoStep1 = ({ history }) => {
+  const { user } = useContext(UserContext);
   const { city, setCity } = useContext(CityContext);
   const [selectedCity, setSelectedCity] = useState('');
   const [cities, setCities] = useState([]);
 
+  // Redirect to home if user is not logged in
+  useEffect(() => {
+    if (user.isLoggedIn === false) {
+      history.push('/');
+    }
+  }, [user, history]);
+
+  // Get all cities from database
   useEffect(() => {
     async function fetchCities() {
       try {
@@ -25,27 +35,36 @@ const InfoStep1 = () => {
     fetchCities();
   }, [setCities]);
 
+  // Get selected city from input field and set it to state
   useEffect(() => {
     if (selectedCity) {
       setCity(selectedCity);
+      console.log(city);
     }
     if (selectedCity !== '') {
       localStorage.setItem('city', JSON.stringify(selectedCity));
     }
-  }, [selectedCity, setCity]);
+  }, [selectedCity, setCity, city]);
 
+  // Handle input change
   const handleChange = (e) => {
     e.preventDefault();
     setSelectedCity(e.target.value);
   };
 
+  // Handle submit
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    history.push('/infostep2');
+  };
+
   return (
-    <div>
+    <div className='info-step1'>
       <h3>
         Do you want to meet other digital nomads of your next destination?
       </h3>
 
-      <form>
+      <form onSubmit={handleSubmit}>
         <select name='city' id='city' onChange={handleChange}>
           <option value=''>Select a city</option>
           {cities.map((city) => (
@@ -57,7 +76,9 @@ const InfoStep1 = () => {
         {selectedCity !== '' ? (
           <button>Sure!</button>
         ) : (
-          <button disabled>Sure!</button>
+          <button type='submit' disabled>
+            Sure!
+          </button>
         )}
       </form>
       <Link to='/'> Skip </Link>

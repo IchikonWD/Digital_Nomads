@@ -9,7 +9,7 @@ import Footer from '../src/Components/Footer';
 function App() {
   const [user, setUser] = useState({});
   const [city, setCity] = useState({});
-  const [data, setData] = useState({});
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     setUser({
