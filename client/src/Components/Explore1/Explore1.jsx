@@ -1,59 +1,83 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import MultiRangeSlider from "../MultiRangeSlider/MultiRangeSlider"
 import Explore from "../Explore/Explore";
 
 const Explore1 = ({ history }) => {
-  // const [internet, setInternet] = useState("");
-  // const [safety, setSafety] = useState("");
-  // const [living, setLiving] = useState("");
+  const [internet, setInternet] = useState([1, 5]);
+  const [safety, setSafety] = useState([1, 5]);
+  const [living, setLiving] = useState([1, 5]);
 
-  const selectors = [
-    {
-      label: 'Internet connection',
-      range: [1, 2, 3, 4, 5],
-      min: "Low",
-      max: "Supreme"
-    },
-    {
-      label: 'Safety',
-      range: [1, 2, 3, 4, 5],
-      min: "Get out",
-      max: "Safest"
-    },
-    {
-      label: 'Cost of living',
-      range: [1, 2, 3, 4, 5],
-      min: "1000",
-      max: "3000 eur/mo"
-    },
-  ]
+  // const selectors = [
+  //   {
+  //     label: 'Internet connection',
+  //     range: [1, 2, 3, 4, 5],
+  //     min: "Low",
+  //     max: "Supreme"
+  //   },
+  //   {
+  //     label: 'Safety',
+  //     range: [1, 2, 3, 4, 5],
+  //     min: "Get out",
+  //     max: "Safest"
+  //   },
+  //   {
+  //     label: 'Cost of living',
+  //     range: [1, 2, 3, 4, 5],
+  //     min: "1000",
+  //     max: "3000 eur/mo"
+  //   },
+  // ]
+
   const handleUserPrefs = (e) => {
     e.preventDefault();
+    // setInternet()
     history.push('/explore2')
   }
+
+  useEffect(() => {
+
+  }, [history])
+
   return (
     <div className="explore">
       <h2>Choose your nomad needs</h2>
       <form onSubmit={handleUserPrefs}>
         <div className="needsContainer">
-          {selectors.map((selector, i) => {
-            return (
-              <div className="need" key={i}>
-                <div className="need_name">
-                  <span>{selector.label}</span>
-                  <ToggleSwitch label={selector.label} />
-                </div>
-                <div className="ranges">
-                  <p>From {selector.min} to {selector.max}</p>
-                  <MultiRangeSlider min={selector.range[0]} max={selector.range[4]} onChange={({ min, max }) => console.log(`min = ${min}, max = ${max}`) }
-                  />
-                  {/* <input type="range" min={selector.range[0]} max={selector.range[4]} /> */}
-                </div>
-              </div>
-            )
-          })}
+          <div className="need">
+            <div className="need_name">
+              <span>Internet connection</span>
+              <ToggleSwitch label="Internet connection" />
+            </div>
+            <div className="ranges">
+              <p>From Low to Supreme</p>
+              {/* <MultiRangeSlider min={internet[0]} max={internet[1]} onChange={({ min, max }) => setInternet([min, max])}
+              /> */}
+            </div>
+          </div>
+          <div className="need">
+            <div className="need_name">
+              <span>Safety</span>
+              <ToggleSwitch label="Safety" />
+            </div>
+            <div className="ranges">
+              <p>From Get out to Safest</p>
+              {/* <MultiRangeSlider min={safety[0]} max={safety[1]} onChange={({ min, max }) => setSafety([min, max])}
+              /> */}
+            </div>
+          </div>
+          <div className="need">
+            <div className="need_name">
+              <span>Cost of living</span>
+              <ToggleSwitch label="Cost of living" />
+            </div>
+            <div className="ranges">
+              <p>From 1000 to 3000 eur/mo</p>
+              {/* <MultiRangeSlider min={living[0]} max={living[1]} onChange={({ min, max }) => setLiving([min, max])}
+              /> */}
+            </div>
+          </div>
           <br />
           <Explore step2 />
           <button type='submit'>Next</button>
