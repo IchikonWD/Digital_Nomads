@@ -12,8 +12,8 @@ const Map = ({ history, match }) => {
   const [cityName, setCityName] = React.useState("The Bridge");
   const [position, setPosition] = React.useState([lat, lng]);
   const geolocation = useGeolocation()
-
   const route = match.params.id;
+
   useEffect(() => {
     if (geolocation.loaded) {
       const geoLat = JSON.stringify(geolocation.coordinates.lat)

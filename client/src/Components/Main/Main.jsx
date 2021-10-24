@@ -8,6 +8,7 @@ import RegisterStep3 from '../RegisterStep3';
 import InfoStep1 from '../InfoStep1';
 import InfoStep2 from '../InfoStep2';
 import InfoStep3 from '../InfoStep3';
+import InfoStep4 from '../InfoStep4';
 import Login from '../Login';
 import Error from '../Error';
 import ScrollButton from '../ScrollButton/ScrollButton';
@@ -26,6 +27,7 @@ const Main = () => {
           <Route path='/infostep1' component={InfoStep1} />
           <Route path='/infostep2' component={InfoStep2} />
           <Route path='/infostep3' component={InfoStep3} />
+          <Route path='/infostep4' component={InfoStep4} />
           <Route path='/login' component={Login} />
           <Route component={Error} />
         </Switch>
