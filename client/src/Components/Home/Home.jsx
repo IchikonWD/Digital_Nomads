@@ -33,17 +33,16 @@ const Home = ({ history }) => {
   }
   // Sets the suggestion value to the input value
   const onSuggestHandler = (text) => {
-    let modText = text.charAt(0).toUpperCase() + text.substr(1).toLowerCase();
-    setText(modText)
+    setText(text)
     setSuggestions([])
   }
   // Redirects to /map/city where city = input text or suggestion
   const submitHandler = (e) => {
     e.preventDefault();
-    setData(e.target.city.value)
-    history.push(`/map/${e.target.city.value}`)
-    console.log(data);
+    setData(text)
+    console.log(text);
     console.log(e.target.city.value)
+    history.push(`/map/${e.target.city.value.replace(/ /g, '_')}`)
   };
   // Button click handler
   const handleGoExplore = () => {
