@@ -1,12 +1,15 @@
 import express from 'express';
+import path from 'path';
 import { config } from 'dotenv';
 import colors from 'colors';
 import connectDB from './config/mongodb.js';
-import { pool, client } from './config/sqldb.js'
+import { pool, client } from './config/sqldb.js';
 import userRoutes from './routes/userRoutes.js';
 import dataRoutes from './routes/dataRoutes.js';
+import uploadRoutes from './routes/uploadRoutes.js';
 import { notFound, errorHandler } from './middlewares/errorMiddleware.js';
 import cors from 'cors';
+import morgan from 'morgan';
 
 config();
 connectDB();
@@ -19,18 +22,24 @@ app.use(express.json());
 
 app.use('/api/users', userRoutes);
 app.use('/api/data', dataRoutes);
-
+app.use('/api/upload', uploadRoutes);
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
   app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
   });
-} else {
+}
+
+if (process.env.NODE_ENV === 'development') {
   app.get('/', (req, res) => {
     res.send('API is running...');
   });
+  app.use(morgan('dev'));
 }
+
+const __dirname = path.resolve();
+app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
 
 app.use(notFound);
 app.use(errorHandler);

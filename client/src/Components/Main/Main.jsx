@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Home from '../Home';
 import Register from '../Register';
+import Profile from '../Profile';
 import RegisterStep2 from '../RegisterStep2';
 import RegisterStep3 from '../RegisterStep3';
 import InfoStep1 from '../InfoStep1';
@@ -24,6 +25,7 @@ const Main = () => {
           <Route path='/' component={Home} exact />
           <Route path='/map/:id?' component={Map} />
           <Route path='/register' component={Register} />
+          <Route path='/profile' component={Profile} />
           <Route path='/registerstep2' component={RegisterStep2} />
           <Route path='/registerstep3' component={RegisterStep3} />
           <Route path='/infostep1' component={InfoStep1} />
