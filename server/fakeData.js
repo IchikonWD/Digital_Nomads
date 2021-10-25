@@ -18,11 +18,14 @@ const importData = async () => {
     const createdUsers = await User.insertMany(users);
     const createdCities = await Cities.insertMany(cities);
 
-    console.log(`${createdUsers.length} users created`.green.inverse);
-    console.log(`${createdCities.length} cities created`.green.inverse);
+    console.log(
+      colors.green(
+        `${createdUsers.length} users and ${createdCities.length} cities created!`
+      )
+    );
     process.exit();
   } catch (err) {
-    console.error(err.red.inverse);
+    console.error(err);
     process.exit(1);
   }
 };

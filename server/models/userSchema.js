@@ -3,10 +3,6 @@ import bcrypt from 'bcrypt';
 
 const userSchema = Mongoose.Schema(
   {
-    nickname: {
-      type: String,
-      required: false,
-    },
     name: {
       type: String,
       required: true,
@@ -33,6 +29,10 @@ const userSchema = Mongoose.Schema(
       required: false,
     },
     country: {
+      type: String,
+      required: false,
+    },
+    selectedCountry: {
       type: String,
       required: false,
     },
