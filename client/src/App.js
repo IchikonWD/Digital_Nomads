@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { UserContext } from './Contexts/userContext';
 import { DataContext } from './Contexts/dataContext';
 import { CityContext } from './Contexts/cityContext';
+import { FilterContext } from './Contexts/filterContext';
+
 import Main from '../src/Components/Main';
 import Header from '../src/Components/Header';
 import Footer from '../src/Components/Footer';
@@ -10,6 +12,7 @@ function App() {
   const [user, setUser] = useState({});
   const [city, setCity] = useState({});
   const [data, setData] = useState([]);
+  const [filters, setFilters] = useState([]);
 
 
   useEffect(() => {
@@ -34,9 +37,11 @@ function App() {
       <CityContext.Provider value={{ city, setCity }}>
         <UserContext.Provider value={{ user, setUser }}>
           <DataContext.Provider value={{ data, setData }}>
-            <Header />
-            <Main />
-            <Footer />
+            <FilterContext.Provider value={{ filters, setFilters }}>
+              <Header />
+              <Main />
+              <Footer />
+            </FilterContext.Provider>
           </DataContext.Provider>
         </UserContext.Provider>
       </CityContext.Provider>

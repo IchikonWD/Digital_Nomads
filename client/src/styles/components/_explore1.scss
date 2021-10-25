@@ -39,8 +39,15 @@
     color: #dee2e6;
     font-size: 12px;
     margin-top: 20px;
-    content: "<";
     z-index: 10;
+  }
+
+  .slider__left-value {
+    left: 6px;
+  }
+  
+  .slider__right-value {
+    right: -4px;
   }
   
   /* Removing the default appearance */
