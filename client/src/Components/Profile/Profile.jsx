@@ -11,6 +11,7 @@ const Profile = ({ history }) => {
   const [ocupation, setOcupation] = useState('');
   const [country, setCountry] = useState('');
   const [language, setLanguage] = useState('');
+  const [avatar, setAvatar] = useState('');
   const [updatedUser, setUpdatedUser] = useState({});
 
   // Redirect to home if user is not logged in
@@ -34,7 +35,8 @@ const Profile = ({ history }) => {
           },
         };
         try {
-          const { name, age, ocupation, country, language } = updatedUser;
+          const { name, age, ocupation, country, language, avatar } =
+            updatedUser;
           const url = `http://localhost:5000/api/users/profile/`;
           const res = await axios.put(
             url,
@@ -44,6 +46,7 @@ const Profile = ({ history }) => {
               ocupation,
               country,
               language,
+              avatar,
             },
             config
           );
@@ -59,7 +62,29 @@ const Profile = ({ history }) => {
       }
     }
     saveUpdatedUser();
-  }, [updatedUser, setUser, user]);
+  }, [updatedUser, setUser, user.token, avatar]);
+
+  const uploadFileHandler = async (e) => {
+    const file = e.target.files[0];
+    const formData = new FormData();
+    formData.append('image', file);
+    try {
+      const config = {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+          Authorization: `Bearer ${user.token}`,
+        },
+      };
+      const { data } = await axios.post(
+        'http://localhost:5000/api/upload',
+        formData,
+        config
+      );
+      setAvatar(data);
+    } catch (err) {
+      console.log(err.response.data.message);
+    }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -69,6 +94,7 @@ const Profile = ({ history }) => {
       ocupation,
       country,
       language,
+      avatar,
     });
     handleEditing();
   };
@@ -85,6 +111,23 @@ const Profile = ({ history }) => {
         </span>
         <hr />
         <form onSubmit={handleSubmit}>
+          {user.avatar ? (
+            <img
+              src={`http://localhost:5000${user.avatar}`}
+              alt={`${user.name} Avatar`}
+            />
+          ) : (
+            <img
+              src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBSosYcX8VPrpuos_y96aBACA795fmUqppmQ&usqp=CAU'
+              alt='Default Avatar'
+            />
+          )}
+          <input
+            type='file'
+            id='avatar-file'
+            custom='file'
+            onChange={uploadFileHandler}
+          />
           <input
             type='text'
             placeholder={user.name}
@@ -131,10 +174,17 @@ const Profile = ({ history }) => {
         </span>
         <hr />
         <div className='user_profile_info'>
-          <img
-            src='https://i.pinimg.com/236x/65/25/a0/6525a08f1df98a2e3a545fe2ace4be47.jpg'
-            alt='Avatar'
-          />
+          {user.avatar ? (
+            <img
+              src={`http://localhost:5000${user.avatar}`}
+              alt={`${user.name} Avatar`}
+            />
+          ) : (
+            <img
+              src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBSosYcX8VPrpuos_y96aBACA795fmUqppmQ&usqp=CAU'
+              alt='Default Avatar'
+            />
+          )}
           <h3>{user.name}</h3>
           <h3>{user.age}</h3>
           <h3>{user.ocupation}</h3>
