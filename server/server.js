@@ -5,6 +5,7 @@ import colors from 'colors';
 import connectDB from './config/mongodb.js';
 import { pool, client } from './config/sqldb.js';
 import userRoutes from './routes/userRoutes.js';
+import cityRoutes from './routes/cityRoutes.js';
 import dataRoutes from './routes/dataRoutes.js';
 import uploadRoutes from './routes/uploadRoutes.js';
 import { notFound, errorHandler } from './middlewares/errorMiddleware.js';
@@ -21,6 +22,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use('/api/users', userRoutes);
+app.use('/api/cities', cityRoutes);
 app.use('/api/data', dataRoutes);
 app.use('/api/upload', uploadRoutes);
 

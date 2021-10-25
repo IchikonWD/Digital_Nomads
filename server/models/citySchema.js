@@ -1,5 +1,41 @@
 import Mongoose from 'mongoose';
 
+const reviewSchema = new Mongoose.Schema(
+  {
+    ratings: {
+      internetConnection: {
+        type: Number,
+        required: true,
+      },
+      overallSafety: {
+        type: Number,
+        required: true,
+      },
+      coworkingSpace: {
+        type: Boolean,
+        required: true,
+      },
+    },
+    comment: {
+      type: String,
+      required: true,
+    },
+    city: {
+      type: Mongoose.Schema.Types.String,
+      ref: 'Cities',
+      required: true,
+    },
+    user: {
+      type: Mongoose.Schema.Types.ObjectId,
+      ref: 'User',
+      required: true,
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
+
 const CitiesSchema = new Mongoose.Schema(
   {
     name: {
@@ -15,45 +51,27 @@ const CitiesSchema = new Mongoose.Schema(
       type: String,
       required: true,
     },
-  },
-  {
-    timestamps: true,
-  }
-);
-
-const ReviewSchema = new Mongoose.Schema(
-  {
-    name: {
-      type: String,
-      required: true,
+    reviews: [reviewSchema],
+    rating: {
+      type: Number,
+      required: false,
     },
-    ratings: {
-      internetConnection: {
-        type: Number,
-        required: true,
-      },
-      overallSafety: {
-        type: Number,
-        required: true,
-      },
-      coworkingSpace: {
-        type: Number,
-        required: true,
-      },
+    internetConnectionRating: {
+      type: Number,
+      required: false,
     },
-    review: {
-      type: String,
-      required: true,
+    overallSafetyRating: {
+      type: Number,
+      required: false,
     },
-    city: {
-      type: Mongoose.Schema.Types.ObjectId,
-      ref: 'Cities',
-      required: true,
+    coworkingSpaceRating: {
+      type: Number,
+      required: false,
     },
-    user: {
-      type: Mongoose.Schema.Types.ObjectId,
-      ref: 'User',
+    numReviews: {
+      type: Number,
       required: true,
+      default: 0,
     },
   },
   {
@@ -62,6 +80,5 @@ const ReviewSchema = new Mongoose.Schema(
 );
 
 const Cities = Mongoose.model('Cities', CitiesSchema);
-const Review = Mongoose.model('Review', ReviewSchema);
 
-export { Cities, Review };
+export default Cities;
