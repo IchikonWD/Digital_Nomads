@@ -105,6 +105,7 @@ const updateUserProfile = asyncHandler(async (req, res) => {
     user.country = req.body.country || user.country;
     user.avatar = req.body.avatar || user.avatar;
     user.interests = req.body.interests || user.interests;
+    user.cluster = req.body.cluster || user.cluster;
 
     if (req.body.password) {
       user.password = req.body.password;
@@ -122,6 +123,7 @@ const updateUserProfile = asyncHandler(async (req, res) => {
       country: updatedUser.country,
       avatar: updatedUser.avatar,
       interests: updatedUser.interests,
+      cluster: updatedUser.cluster,
       token: generateToken(updatedUser._id),
     });
   } else {

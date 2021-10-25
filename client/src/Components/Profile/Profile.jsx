@@ -127,7 +127,7 @@ const Profile = ({ history }) => {
             id='avatar-file'
             custom='file'
             onChange={uploadFileHandler}
-          />
+          />{' '}
           <input
             type='text'
             placeholder={user.name}
