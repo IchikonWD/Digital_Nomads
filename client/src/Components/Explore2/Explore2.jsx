@@ -16,12 +16,12 @@ const Explore2 = ({ history }) => {
   const { user, setUser } = useContext(UserContext);
   const { filters, setFilters } = useContext(FilterContext);
 
-  const [temperature, setTemperature] = useState([10, 35]);
+  const [temperature, setTemperature] = useState([10, 37]);
   const [population, setPopulation] = useState([3000, 4000000]);
   //! MutiRangeSlider States
   //Temperature
   const [minValTemperature, setMinValTemperature] = useState(10);
-  const [maxValTemperature, setMaxValTemperature] = useState(35);
+  const [maxValTemperature, setMaxValTemperature] = useState(37);
   const minValRefTemperature = useRef();
   const maxValRefTemperature = useRef();
   //Population
@@ -32,11 +32,6 @@ const Explore2 = ({ history }) => {
 
   const range = useRef(null);
   //! MutiRangeSlider States
-
-  const handleFilters = (e) => {
-    e.preventDefault();
-    history.push('/explore2');
-  };
 
   // Redirect to home if user is not logged in
   // useEffect(() => {
@@ -58,7 +53,7 @@ const Explore2 = ({ history }) => {
       setFilters({
         ...filters,
         currentFilters: {
-          temperature: [10, 35],
+          temperature: [10, 37],
           population: [3000, 4000000],
         },
       });
@@ -73,7 +68,7 @@ const Explore2 = ({ history }) => {
     };
     setFilters({ ...filters, ...currentFilters });
     //TODO: Pasar filtros al mapa
-    // history.push('/explore2')
+    history.push('/results');
   };
 
   useEffect(() => {
@@ -137,13 +132,13 @@ const Explore2 = ({ history }) => {
               <ToggleSwitch label='Average temperature' />
             </div>
             <div className='ranges'>
-              <p>From 10°C to 35°C</p>
+              <p>From 10°C to 37°C</p>
               {/* ****************Temp slider********************* */}
               <div className='multirangeslider'>
                 <input
                   type='range'
                   min={10}
-                  max={35}
+                  max={37}
                   value={minValTemperature}
                   onChange={(event) => {
                     const value = Math.min(
@@ -154,12 +149,12 @@ const Explore2 = ({ history }) => {
                     minValRefTemperature.current = value;
                   }}
                   className='thumb thumb--left'
-                  // style={{ zIndex: minValTemperature > 5 - 100 && "5" }}
+                // style={{ zIndex: minValTemperature > 5 - 100 && "5" }}
                 />
                 <input
                   type='range'
                   min={10}
-                  max={35}
+                  max={37}
                   value={maxValTemperature}
                   onChange={(event) => {
                     const value = Math.max(
@@ -203,7 +198,7 @@ const Explore2 = ({ history }) => {
                     minValRefPopulation.current = value;
                   }}
                   className='thumb thumb--left'
-                  // style={{ zIndex: minValPopulation > 5 - 100 && "5" }}
+                // style={{ zIndex: minValPopulation > 5 - 100 && "5" }}
                 />
                 <input
                   type='range'
@@ -231,21 +226,21 @@ const Explore2 = ({ history }) => {
               /> */}
             </div>
           </div>
-          <div className='need'>
+          {/* <div className='need'>
             <div className='need_name'>
               <span>
                 <b> Coworking spaces near you</b>
               </span>
               <ToggleSwitch label='coworking' />
             </div>
-          </div>
+          </div> */}
 
           <br />
+          {/* BORRAR BR */}
           <Explore step1 step2 />
           <button type='submit'>Search</button>
         </div>
       </form>
-      {/* BORRAR BR */}
     </div>
   );
 };

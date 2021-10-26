@@ -23,17 +23,17 @@ const Explore1 = ({ history }) => {
   //! MutiRangeSlider States
   //Internet
   const [minValInternet, setMinValInternet] = useState(1);
-  const [maxValInternet, setMaxValInternet] = useState(5);
+  const [maxValInternet, setMaxValInternet] = useState(100);
   const minValRefInternet = useRef();
   const maxValRefInternet = useRef();
   //Safety
-  const [minValSafety, setMinValSafety] = useState(1);
-  const [maxValSafety, setMaxValSafety] = useState(5);
-  const minValRefSafety = useRef();
-  const maxValRefSafety = useRef();
+  // const [minValSafety, setMinValSafety] = useState(1);
+  // const [maxValSafety, setMaxValSafety] = useState(5);
+  // const minValRefSafety = useRef();
+  // const maxValRefSafety = useRef();
   //Living
   const [minValLiving, setMinValLiving] = useState(1);
-  const [maxValLiving, setMaxValLiving] = useState(5);
+  const [maxValLiving, setMaxValLiving] = useState(100);
   const minValRefLiving = useRef();
   const maxValRefLiving = useRef();
 
@@ -53,9 +53,9 @@ const Explore1 = ({ history }) => {
       if (filters.internet) {
         setInternet(internet);
       }
-      if (filters.safety) {
-        setSafety(safety);
-      }
+      // if (filters.safety) {
+      //   setSafety(safety);
+      // }
       if (filters.living) {
         setLiving(living);
       }
@@ -63,9 +63,9 @@ const Explore1 = ({ history }) => {
       setFilters({
         ...filters,
         currentFilters: {
-          internet: [1, 5],
-          safety: [1, 5],
-          living: [1, 5],
+          internet: [1, 100],
+          // safety: [1, 5],
+          living: [1, 100],
         },
       });
     }
@@ -75,7 +75,7 @@ const Explore1 = ({ history }) => {
     e.preventDefault();
     const currentFilters = {
       internet: internet,
-      safety: safety,
+      // safety: safety,
       living: living,
     };
     setFilters({ ...filters, ...currentFilters });
@@ -83,15 +83,15 @@ const Explore1 = ({ history }) => {
   };
   useEffect(() => {
     setInternet([minValInternet, maxValInternet]);
-    setSafety([minValSafety, maxValSafety]);
+    // setSafety([minValSafety, maxValSafety]);
     setLiving([minValLiving, maxValLiving]);
   }, [
     minValInternet,
     maxValInternet,
     setInternet,
-    minValSafety,
-    maxValSafety,
-    setSafety,
+    // minValSafety,
+    // maxValSafety,
+    // setSafety,
     minValLiving,
     maxValLiving,
     setLiving,
@@ -150,7 +150,7 @@ const Explore1 = ({ history }) => {
                 <input
                   type='range'
                   min={1}
-                  max={5}
+                  max={100}
                   value={minValInternet}
                   onChange={(event) => {
                     const value = Math.min(
@@ -166,7 +166,7 @@ const Explore1 = ({ history }) => {
                 <input
                   type='range'
                   min={1}
-                  max={5}
+                  max={100}
                   value={maxValInternet}
                   onChange={(event) => {
                     const value = Math.max(
@@ -187,14 +187,13 @@ const Explore1 = ({ history }) => {
               </div>
             </div>
           </div>
-          <div className='need'>
+          {/* <div className='need'>
             <div className='need_name'>
               <span>Safety</span>
               <ToggleSwitch label='Safety' />
             </div>
             <div className='ranges'>
               <p>From Get out to Safest</p>
-              {/* ****************Safety slider********************* */}
               <div className='multirangeslider'>
                 <input
                   type='range'
@@ -235,7 +234,7 @@ const Explore1 = ({ history }) => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
           <div className='need'>
             <div className='need_name'>
               <span>Cost of living</span>
@@ -248,7 +247,7 @@ const Explore1 = ({ history }) => {
                 <input
                   type='range'
                   min={1}
-                  max={5}
+                  max={100}
                   value={minValLiving}
                   onChange={(event) => {
                     const value = Math.min(
@@ -264,7 +263,7 @@ const Explore1 = ({ history }) => {
                 <input
                   type='range'
                   min={1}
-                  max={5}
+                  max={100}
                   value={maxValLiving}
                   onChange={(event) => {
                     const value = Math.max(
