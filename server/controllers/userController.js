@@ -14,7 +14,6 @@ const authUsers = asyncHandler(async (req, res) => {
   if (user && (await user.matchPassword(password))) {
     res.status(200).json({
       _id: user._id,
-      nickname: user.nickname,
       name: user.name,
       age: user.age,
       email: user.email,
@@ -22,6 +21,8 @@ const authUsers = asyncHandler(async (req, res) => {
       ocupation: user.ocupation,
       country: user.country,
       avatar: user.avatar,
+      cluster: user.cluster,
+      selectedCountry: user.selectedCountry,
       token: generateToken(user._id),
     });
   } else {
@@ -36,12 +37,11 @@ const authUsers = asyncHandler(async (req, res) => {
 // @access  Private
 
 const getUserProfile = asyncHandler(async (req, res) => {
-  const user = await User.findOne({ nickname: req.user.nickname });
+  const user = await User.findOne({ name: req.user.name });
 
   if (user) {
     res.status(200).json({
       _id: user._id,
-      nickname: user.nickname,
       name: user.name,
       age: user.age,
       email: user.email,
@@ -49,6 +49,8 @@ const getUserProfile = asyncHandler(async (req, res) => {
       ocupation: user.ocupation,
       country: user.country,
       avatar: user.avatar,
+      cluster: user.cluster,
+      selectedCountry: user.selectedCountry,
     });
   } else {
     res.status(404).json({
@@ -75,12 +77,10 @@ const registerUser = asyncHandler(async (req, res) => {
       name: name,
       email: email,
       password: password,
-      nickname: name,
     });
 
     res.status(201).json({
       _id: user._id,
-      nickname: user.name,
       name: user.name,
       email: user.email,
       token: generateToken(user._id),
@@ -96,7 +96,6 @@ const updateUserProfile = asyncHandler(async (req, res) => {
   const user = await User.findById(req.user._id);
 
   if (user) {
-    user.nickname = req.body.nickname || user.nickname;
     user.name = req.body.name || user.name;
     user.age = req.body.age || user.age;
     user.email = req.body.email || user.email;
@@ -105,6 +104,8 @@ const updateUserProfile = asyncHandler(async (req, res) => {
     user.country = req.body.country || user.country;
     user.avatar = req.body.avatar || user.avatar;
     user.interests = req.body.interests || user.interests;
+    user.cluster = req.body.cluster || user.cluster;
+    user.selectedCountry = req.body.selectedCountry || user.selectedCountry;
 
     if (req.body.password) {
       user.password = req.body.password;
@@ -113,7 +114,6 @@ const updateUserProfile = asyncHandler(async (req, res) => {
 
     res.status(200).json({
       _id: updatedUser._id,
-      nickname: updatedUser.nickname,
       name: updatedUser.name,
       age: updatedUser.age,
       email: updatedUser.email,
@@ -122,6 +122,8 @@ const updateUserProfile = asyncHandler(async (req, res) => {
       country: updatedUser.country,
       avatar: updatedUser.avatar,
       interests: updatedUser.interests,
+      cluster: updatedUser.cluster,
+      selectedCountry: updatedUser.selectedCountry,
       token: generateToken(updatedUser._id),
     });
   } else {
