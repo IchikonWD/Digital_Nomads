@@ -9,13 +9,13 @@ const cities = [
     name: 'Santa Cruz de Tenerife',
     description:
       "The city known by its wild carnival has way more to offer than that. Exotic landscapes, modern architecture, nice beaches or the absolutly stunning Teide National Park won't make you regret for chosing the city as your next target nomad destination.",
-    image: '/assets/images/cities/santa_cruz.jpg',
+    image: '/cities/santa_cruz.png',
   },
   {
     name: 'Corralejo',
     description:
       "Corralejo is located in the Fuerteventura's northeast Island. It's famous for its culture of windsurf, scuba diving and its white sand beaches. It has an envious sunny and summer weather type all year, making it an amazing next destination for your adventure!",
-    image: '/assets/images/cities/corralejo.jpg',
+    image: '/assets/images/cities/corralejo.png',
   },
   {
     name: 'Puerto del Rosario',
@@ -27,49 +27,49 @@ const cities = [
     name: 'Arrecife',
     description:
       "Lanzarote's capital city Arrecife is the sailor city by definition. It'd exceed your expectations if you're looking for a paradise destination with unique black sand beaches and an amazing way of life with a cultural hub innovation.",
-    image: '/assets/images/cities/arrecife.jpg',
+    image: '/assets/images/cities/arrecife.jpeg',
   },
   {
     name: 'Barcelona',
     description:
       'Barcelona, the hub of trends, design, creativity, architecture, cuisine, and fashion while maintaining its local traditions. With views of the mediterranean sea and delimited by its mountains, Barcelona is everything you can ask for in a cosmopolitan city. ',
-    image: '/assets/images/cities/barcelona.jpg',
+    image: '/assets/images/cities/barcelona.jpeg',
   },
   {
     name: 'Madrid',
     description:
       'The vibrant capital is known for being built with people from all around the country. Always welcoming and with endless options and plans, Madrid defends its capital title fiercely.',
-    image: '/assets/images/cities/madrid.jpg',
+    image: '/assets/images/cities/madrid.png',
   },
   {
     name: 'San Sebastián',
     description:
       "If you're a foodie San Sebastian, or Donosti, as the locals call it, is the place to go. Donosti will not disappoint as your next nomad destination, with first-class restaurants, the city with the most Michelin stars per square meter in the world, and a thriving business sector.",
-    image: '/assets/images/cities/san_sebastian.jpg',
+    image: '/assets/images/cities/san_sebastian.png',
   },
   {
     name: 'Bilbao',
     description:
       "The underground city of Basque Country par excellence! Perhaps you've heard about the Bilbao effect, perhaps not, but this city won't let you be indifferent in your next adventure. During the past ten years, Bilbo (as the locals call it) has been living a transformation, based on two features high-quality living standards and cultural activities, to become the most exciting place to live in the Basque Country!",
-    image: '/assets/images/cities/bilbao.jpg',
+    image: '/assets/images/cities/bilbao.jpeg',
   },
   {
     name: 'La Coruña',
     description:
       "Welcome to the most fashionable city in Spain's northwest! La Coruña has evolved into a destination where everyone wants to spend some time. It offers a diverse selection of cultural events as well as a gastronomic culture that will not let you down.",
-    image: '/assets/images/cities/la_coruna.jpg',
+    image: '/assets/images/cities/la_coruna.jpeg',
   },
   {
     name: 'Pamplona',
     description:
       "The coolest and greenest walled city in the country! Welcome to Pamplona, where the cultural, foodies, and plan-makers nomads aficionados wouldn't want to leave. Besides, just a few miles from the kicking point of the French Camino de Santiago.",
-    image: '/assets/images/cities/pamplona.jpg',
+    image: '/assets/images/cities/pamplona.jpeg',
   },
   {
     name: 'Valencia',
     description:
       "Where can you get sun, amazing nightlife, music events, and carnivals? If Valencia hasn't already come to your mind, you should consider it if you also want to enjoy gastronomy and traditional festivals like Las Fallas. Allow the Mediterranean sea and light to engulf you in a city with ...K citizens who already enjoy ...days of sun a year!",
-    image: '/assets/images/cities/valencia.jpg',
+    image: '/assets/images/cities/valencia.jpeg',
   },
   {
     name: 'Alicante',
@@ -87,19 +87,19 @@ const cities = [
     name: 'Córdoba',
     description:
       "Hi Nomad! Welcome to Córdoba, the capital of Muslims and where east and west meet their faces. You won't be leaving the city as you arrived. Either for its Great Mosque or its rich tapestry of cultures, streets, and alleys, you'll enjoy the stay in the city. You'll be losing yourself to the lively taverns and livid cultural life.",
-    image: '/assets/images/cities/cordoba.jpg',
+    image: '/assets/images/cities/cordoba.png',
   },
   {
     name: 'Granada',
     description:
       "Granada is considered the country's Arabic Jewel and one of its jewels because of its extensive Arabic heritage. It offers a diverse range of cultural events, and the city's buzz and bustle are well-known throughout the country. Granada is your next visit if you're seeking an intriguing city with a rich cultural past.",
-    image: '/assets/images/cities/granada.jpg',
+    image: '/assets/images/cities/granada.jpeg',
   },
   {
     name: 'Sevilla',
     description:
       "Sevilla has a special color, as said in a famous Spanish Song. With a strong heritage and historical wealth still present nowadays contrasting the city modernization process, Sevilla will capture and transport you to Andalusia's core idiosyncrasy. Perhaps it's Triana or its people, but Sevilla will leave you a distinctive mark in your next nomad adventure!",
-    image: '/assets/images/cities/sevilla.jpg',
+    image: '/assets/images/cities/sevilla.jpeg',
   },
   {
     name: 'Málaga',
