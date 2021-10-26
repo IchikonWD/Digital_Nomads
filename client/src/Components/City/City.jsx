@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import { UserContext } from '../../Contexts/userContext';
 
 const City = ({ history, match }) => {
@@ -14,7 +15,11 @@ const City = ({ history, match }) => {
   const [sunnyDays, setSunnyDays] = useState('');
   const [livingCost, setLivingCost] = useState('');
   const [livingCostMoney, setLivingCostMoney] = useState('');
+  const [reviewers, setReviewers] = useState([]);
+  const [reviewersName, setReviewersName] = useState([]);
+  const [reviewersAvatar, setReviewersAvatar] = useState([]);
   const [reviewing, setReviewing] = useState(false);
+  const [combinedReview, setCombinedReview] = useState([]);
 
   useEffect(() => {
     const nycCost = 1366.67;
@@ -30,8 +35,8 @@ const City = ({ history, match }) => {
   useEffect(() => {
     async function fetchData() {
       try {
-        const url = `http://localhost:5000/api/cities/${cityName}`;
-        const result = await axios(url);
+        const url = `/api/cities/${cityName}`;
+        const result = await axios.get(url);
         const {
           coworkingSpaceRating,
           description,
@@ -46,15 +51,20 @@ const City = ({ history, match }) => {
         setInternetRating(internetConnectionRating);
         setSafetyRating(overallSafetyRating);
         setReviews(reviews);
+        if (reviews.length > 0) {
+          const reviewers = reviews.map((review) => review.user);
+          setReviewers(reviewers);
+        }
       } catch (error) {
         console.log(error);
       }
     }
     fetchData();
+
     async function fetchSecondData() {
       try {
-        const url = `http://localhost:5000/api/data/${cityName}`;
-        const result = await axios(url);
+        const url = `/api/data/${cityName}`;
+        const result = await axios.get(url);
         const { cost_living_index, sunny_days } = result.data[0];
         setLivingCost(cost_living_index);
         setSunnyDays(sunny_days);
@@ -64,6 +74,49 @@ const City = ({ history, match }) => {
     }
     fetchSecondData();
   }, [cityName]);
+
+  useEffect(() => {
+    if (reviewers.length > 0) {
+      async function fetchData() {
+        const usersFromReviews = reviewers;
+        try {
+          const url = `/api/users/names`;
+          const result = await axios.post(url, usersFromReviews);
+          const reviewersName = result.data.map((user) => user);
+          setReviewersName(reviewersName);
+        } catch (error) {
+          console.log(error);
+        }
+      }
+      fetchData();
+    }
+    if (reviewers.length > 0) {
+      async function fetchData() {
+        const usersFromReviews = reviewers;
+        try {
+          const url = `/api/users/avatars`;
+          const result = await axios.post(url, usersFromReviews);
+          const reviewersAvatar = result.data.map((user) => user);
+          setReviewersAvatar(reviewersAvatar);
+        } catch (error) {
+          console.log(error);
+        }
+      }
+      fetchData();
+    }
+  }, [reviewers]);
+
+  useEffect(() => {
+    if (reviewersName.length > 0 && reviewersAvatar.length > 0) {
+      const combinedReview = reviewersName.map((user, index) => {
+        const userName = user;
+        const userAvatar = reviewersAvatar[index];
+        const review = Reviews[index];
+        return { userName, review, userAvatar };
+      });
+      setCombinedReview(combinedReview);
+    }
+  }, [reviewersName, Reviews, reviewersAvatar]);
 
   const handleButton = async (e) => {
     e.preventDefault();
@@ -75,7 +128,7 @@ const City = ({ history, match }) => {
     setReviewing(!reviewing);
   };
 
-  if (reviewing === true) {
+  if (reviewing === true && user.isLoggedIn === true) {
     return (
       <div>
         <h2>Tell your experience and help other nomads like you</h2>
@@ -106,7 +159,7 @@ const City = ({ history, match }) => {
         </form>
       </div>
     );
-  } else {
+  } else if (reviewing === false) {
     return (
       <div>
         <img src={image} alt={`${cityName}`} />
@@ -142,30 +195,39 @@ const City = ({ history, match }) => {
 
         <div className='city__reviews'>
           <h3>Reviews</h3>
-          {Reviews.map((review) => (
-            <div key={review._id}>
+          {combinedReview.map((review) => (
+            <div key={review.review._id}>
               <img
-                src={`http://localhost:5000${user.avatar}`}
-                alt={`${user.name} Avatar`}
+                src={`${review.userAvatar}`}
+                alt={`${review.userName} Avatar`}
               />
-              <span>{user.name} </span>
+              <span>{review.userName} </span>
               <span>
                 wrote a review on
                 {' (' +
-                  review.createdAt.slice(8, 10) +
+                  review.review.createdAt.slice(8, 10) +
                   '/' +
-                  review.createdAt.slice(5, 7) +
+                  review.review.createdAt.slice(5, 7) +
                   ')'}
               </span>
-              <p>{review.ratings.internetConnection}/5</p>
-              <span>{review.ratings.overallSafety}/5</span>
+              <p>{review.review.ratings.internetConnection}/5</p>
+              <span>{review.review.ratings.overallSafety}/5</span>
               <span>
-                {review.ratings.coworkingSpace === true ? 'Yes' : 'No'}
+                {review.review.ratings.coworkingSpace === true ? 'Yes' : 'No'}
               </span>
-              <p>{review.comment}</p>
+              <p>{review.review.comment}</p>
             </div>
           ))}
         </div>
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        <h2>You need to be logged in to write a review</h2>
+        <Link to='/login'>
+          <button>Go to Login</button>
+        </Link>
       </div>
     );
   }

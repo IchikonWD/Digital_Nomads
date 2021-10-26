@@ -133,4 +133,43 @@ const updateUserProfile = asyncHandler(async (req, res) => {
   }
 });
 
-export { authUsers, getUserProfile, registerUser, updateUserProfile };
+// @desc    Get user names
+// @route   GET /api/users/
+// @access  Private
+
+// Get user names receiving an array of user _id's and returning an array of their user names
+const getUserNames = asyncHandler(async (req, res) => {
+  const userIds = req.body;
+  const users = await User.find({ _id: { $in: userIds } });
+  if (users) {
+    const userNames = users.map((user) => user.name);
+    res.status(200).json(userNames);
+  } else {
+    res.status(404).json({
+      message: 'No user found',
+    });
+  }
+});
+
+// Get user avatar receiving an array of user _id's and returning an array of their user avatars
+const getUserAvatars = asyncHandler(async (req, res) => {
+  const userIds = req.body;
+  const users = await User.find({ _id: { $in: userIds } });
+  if (users) {
+    const userAvatars = users.map((user) => user.avatar);
+    res.status(200).json(userAvatars);
+  } else {
+    res.status(404).json({
+      message: 'No user found',
+    });
+  }
+});
+
+export {
+  authUsers,
+  getUserProfile,
+  registerUser,
+  updateUserProfile,
+  getUserNames,
+  getUserAvatars,
+};
