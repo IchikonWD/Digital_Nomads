@@ -10,7 +10,9 @@
     "server": "nodemon server/server.js",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "update": "npm install && npm install --prefix client"
+    "update": "npm install && npm install --prefix client",
+    "data:import": "node server/fakeData",
+    "data:destroy": "node server/fakeData -d"
   },
   "repository": {
     "type": "git",

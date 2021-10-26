@@ -2,9 +2,11 @@ import React, { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
 import { UserContext } from '../../Contexts/userContext';
 import InfoSteps from '../InfoSteps/InfoSteps';
+import { config } from 'dotenv';
 
 const InfoStep3 = ({ history }) => {
   const { user, setUser } = useContext(UserContext);
+  const [cluster, setCluster] = useState('');
   // Food Interests
   const [burguers, setBurguers] = useState(false);
   const [mediterranean, setMediterranean] = useState(false);
@@ -17,8 +19,6 @@ const InfoStep3 = ({ history }) => {
   const [coffee, setCoffee] = useState(false);
   const [sunsets, setSunsets] = useState(false);
   const [parties, setParties] = useState(false);
-
-  //!TODO: Add an axios to Data Science API to get the user's interests
 
   // Redirect to home if user is not logged in
   useEffect(() => {
@@ -136,6 +136,38 @@ const InfoStep3 = ({ history }) => {
     saveInterests();
   }, [user._id, user.interests, user.token]);
 
+  // Save cluster to user
+
+  useEffect(() => {
+    async function saveCluster() {
+      if (cluster) {
+        const config = {
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${user.token}`,
+          },
+        };
+        try {
+          const url = `http://localhost:5000/api/users/profile/`;
+          const res = await axios.put(
+            url,
+            {
+              _id: user._id,
+              cluster: cluster.cluster,
+            },
+            config
+          );
+          if (res.data) {
+            console.log('Cluster saved');
+          }
+        } catch (err) {
+          console.log(err.response.data.message);
+        }
+      }
+    }
+    saveCluster();
+  }, [cluster, user.token]);
+
   // Save user interests
   const handleInterests = (e) => {
     e.preventDefault();
@@ -169,6 +201,58 @@ const InfoStep3 = ({ history }) => {
         },
       })
     );
+    async function sendInterests() {
+      if (user.interests) {
+        // Headers to python flask server
+        const configPython = {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        };
+        try {
+          const data = {
+            _id: user._id,
+            interests: {
+              burguers: user.interests.burguers,
+              mediterranean: user.interests.mediterranean,
+              indian: user.interests.indian,
+              sushi: user.interests.sushi,
+              italian: user.interests.italian,
+              chinese: user.interests.chinese,
+              drinks: user.interests.drinks,
+              coffee: user.interests.coffee,
+              sunsets: user.interests.sunsets,
+              parties: user.interests.parties,
+              surf: user.interests.surf,
+              fitness: user.interests.fitness,
+              volley: user.interests.volley,
+              paddle: user.interests.paddle,
+              climbing: user.interests.climbing,
+              running: user.interests.running,
+              football: user.interests.football,
+              trecking: user.interests.trecking,
+              museums: user.interests.museums,
+              bookstores: user.interests.bookstores,
+              theaters: user.interests.theaters,
+              movies: user.interests.movies,
+              guidedVisits: user.interests.guidedVisits,
+              concerts: user.interests.concerts,
+              parks: user.interests.parks,
+              ruralTourism: user.interests.ruralTourism,
+            },
+          };
+          const sendData = JSON.stringify(data);
+          const url = `https://nomad-spain-api.herokuapp.com/cluster`;
+          const res = await axios.post(url, sendData, configPython);
+          if (res.data) {
+            setCluster(res.data);
+          }
+        } catch (err) {
+          console.log(err);
+        }
+      }
+    }
+    sendInterests();
     history.push('/infostep4');
   };
 

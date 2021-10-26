@@ -123,4 +123,5 @@ const Map = ({ history, match }) => {
     </MapContainer>
   );
 };
+
 export default Map;
