@@ -50,36 +50,37 @@ const Map = ({ history, match }) => {
       }
       fetchData()
     }
-    else {
-      async function fetchData() {
-        const url = `http://localhost:5000/api/data/`
-        const res = await axios.get(url)
-        if (res.data) {
-          try {
-            if (res.data.length === 0) {
-              alert('Error, we didnt received any data')
-              history.push('/')
-            } else {
-              const allCities = res.data
-              const filteredCities = allCities.map((city) => {
-                return {
-                  name: city.name,
-                  latitude: city.latitude,
-                  longitude: city.longitude,
-                  description: city.description
-                }
-              })
-              setPreloadCities(filteredCities)
-            }
-          }
-          catch (error) {
-            console.log(error.response.data.message);
+  }, [route || geolocation.loaded]);
+
+  useEffect(() => {
+    async function fetchData() {
+      const url = `http://localhost:5000/api/data/`
+      const res = await axios.get(url)
+      if (res.data) {
+        try {
+          if (res.data.length === 0) {
+            alert('Error, we didnt received any data')
+            history.push('/')
+          } else {
+            const allCities = res.data
+            const filteredCities = allCities.map((city) => {
+              return {
+                name: city.name,
+                latitude: city.latitude,
+                longitude: city.longitude,
+                description: city.description
+              }
+            })
+            setPreloadCities(filteredCities)
           }
         }
+        catch (error) {
+          console.log(error.response.data.message);
+        }
       }
-      fetchData()
     }
-  }, [route || geolocation.loaded]);
+    fetchData()
+  }, [])
 
   const markerIcon = new Icon({
     iconUrl: markerType,
@@ -118,6 +119,13 @@ const Map = ({ history, match }) => {
               <Popup>{cityName}</Popup>
             </Marker>
           )
+      }
+      {
+        (geolocation.loaded)
+          ? (<Marker position={[geolocation.coordinates.lat,geolocation.coordinates.lng]} icon={markerIcon} >
+            <Popup>Your current position</Popup>
+          </Marker>)
+          : ""
       }
 
     </MapContainer>
