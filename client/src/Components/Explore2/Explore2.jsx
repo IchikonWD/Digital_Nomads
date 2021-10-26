@@ -8,7 +8,6 @@ import React, {
 import PropTypes from 'prop-types';
 
 import ToggleSwitch from '../ToggleSwitch/ToggleSwitch';
-import MultiRangeSlider from '../MultiRangeSlider/MultiRangeSlider';
 import Explore from '../Explore/Explore';
 import { UserContext } from '../../Contexts/userContext';
 import { FilterContext } from '../../Contexts/filterContext';
