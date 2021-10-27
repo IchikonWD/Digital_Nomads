@@ -13,9 +13,10 @@ import InfoStep4 from '../InfoStep4';
 import Login from '../Login';
 import Error from '../Error';
 import ScrollButton from '../ScrollButton/ScrollButton';
-import Map from '../Map/Map';
-import Explore1 from '../Explore1/Explore1';
-import Explore2 from '../Explore2/Explore2';
+import Map from '../Map';
+import City from '../City';
+import Explore1 from '../Explore1';
+import Explore2 from '../Explore2';
 import Results from '../Results/Results';
 
 const Main = () => {
@@ -25,6 +26,7 @@ const Main = () => {
         <Switch>
           <Route path='/' component={Home} exact />
           <Route path='/map/:id?' component={Map} />
+          <Route path='/city/:id?' component={City} />
           <Route path='/register' component={Register} />
           <Route path='/profile' component={Profile} />
           <Route path='/registerstep2' component={RegisterStep2} />

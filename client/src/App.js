@@ -5,15 +5,12 @@ import { CityContext } from './Contexts/cityContext';
 import { FilterContext } from './Contexts/filterContext';
 
 import Main from '../src/Components/Main';
-import Header from '../src/Components/Header';
-import Footer from '../src/Components/Footer';
 
 function App() {
   const [user, setUser] = useState({});
   const [city, setCity] = useState({});
   const [data, setData] = useState([]);
   const [filters, setFilters] = useState([]);
-
 
   useEffect(() => {
     setUser({
@@ -38,9 +35,7 @@ function App() {
         <UserContext.Provider value={{ user, setUser }}>
           <DataContext.Provider value={{ data, setData }}>
             <FilterContext.Provider value={{ filters, setFilters }}>
-              <Header />
               <Main />
-              <Footer />
             </FilterContext.Provider>
           </DataContext.Provider>
         </UserContext.Provider>

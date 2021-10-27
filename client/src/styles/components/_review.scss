@@ -1,0 +1,134 @@
+.review {
+  background-color: $neutrals-color-light;
+  width: 100%;
+  height: 100%;
+  &__header {
+    position: relative;
+    height: 63px;
+    box-shadow: 0px 4px 4px -1px rgba(0, 0, 0, 0.12);
+    background: $neutrals-color-light;
+    &__icon {
+      position: absolute;
+      margin-left: 6.4%;
+      top: 39.08%;
+      bottom: 19.91%;
+      font-size: 22px;
+      color: #1a1a1a;
+    }
+    &__icon2 {
+      position: absolute;
+      margin-left: 87.4%;
+      top: 37.08%;
+      bottom: 19.91%;
+      font-size: 24px;
+      color: #1a1a1a;
+    }
+    &__title {
+      position: absolute;
+      left: 14.67%;
+      top: 7.75%;
+      bottom: 87.65%;
+      font-family: Raleway;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 24px;
+      line-height: 32px;
+    }
+  }
+  &__form {
+    &__title1 {
+      position: relative;
+      margin-left: 6.4%;
+      top: 16.37%;
+      bottom: 74.27%;
+      font-family: Raleway;
+      font-style: normal;
+      font-weight: 800;
+      font-size: 24px;
+      line-height: 32px;
+    }
+    &__title2 {
+      position: relative;
+      margin-left: 6.4%;
+      top: 16.37%;
+      bottom: 74.27%;
+      font-family: Raleway;
+      font-style: normal;
+      font-weight: 800;
+      font-size: 24px;
+      line-height: 32px;
+    }
+    &__input1 {
+      position: relative;
+      width: 328px;
+      height: 96px;
+      left: 6.4%;
+      top: 192.5%;
+      background: #fbfbf8;
+      box-shadow: 0px 4px 4px -1px rgba(0, 0, 0, 0.12);
+      border: none;
+      border-radius: 4px;
+      resize: none;
+    }
+    &__input1::placeholder {
+      position: relative;
+      left: 6.4%;
+      top: -12.5%;
+      font-family: Raleway;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 22px;
+      color: #808080;
+    }
+    &__input1::-webkit-input-placeholder {
+      position: relative;
+      left: 6.4%;
+      top: -12.5%;
+      font-family: Raleway;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 22px;
+      color: #808080;
+    }
+    &__input1::-moz-placeholder {
+      position: relative;
+      left: 6.4%;
+      top: -12.5%;
+      font-family: Raleway;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 22px;
+      color: #808080;
+    }
+    &__input1:-ms-input-placeholder {
+      position: relative;
+      left: 6.4%;
+      top: -12.5%;
+      font-family: Raleway;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 22px;
+      color: #808080;
+    }
+    &__container {
+      position: relative;
+      width: 327px;
+      height: 80px;
+      left: 6.4%;
+      top: 23%;
+      background: #fbfbf8;
+      box-shadow: 0px 4px 4px -1px rgba(0, 0, 0, 0.12);
+      border-radius: 12px;
+    }
+    &__button {
+      position: relative;
+      left: 30%;
+      margin-top: 5%;
+      margin-bottom: 5%;
+    }
+  }
+}

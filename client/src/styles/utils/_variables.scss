@@ -1,25 +1,7 @@
 // Fonts
+$Raleway: 'Raleway', sans-serif;
 
-@font-face {
-  font-family: 'DIN';
-  src: local('DINLight'),
-    url('../../assets/fonts/DINPro-Light.otf') format('opentype');
-}
-@font-face {
-  font-family: 'DIN';
-  src: local('DINBold'),
-    url('../../assets/fonts/DINPro-Bold.otf') format('opentype');
-}
-@font-face {
-  font-family: 'DIN';
-  src: local('DINBlack'),
-    url('../../assets/fonts/DINPro-Black.otf') format('opentype');
-}
-@font-face {
-  font-family: 'DIN';
-  src: local('DINAltBold'),
-    url('../../assets/fonts/DIN\ Alternate\ Bold.ttf') format('trueType');
-}
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 // Primary Colors
 
