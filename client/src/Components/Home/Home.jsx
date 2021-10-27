@@ -1,7 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
-import Flickity from 'react-flickity-component'
-
-//!import Slider from 'react-touch-drag-slider';
+import Flickity from 'react-flickity-component';
 import { DataContext } from '../../Contexts/dataContext';
 import axios from 'axios';
 
@@ -52,8 +50,8 @@ const Home = ({ history }) => {
   };
 
   const flickityOptions = {
-    initialIndex: 2
-  }
+    initialIndex: 2,
+  };
 
   return (
     <div className='home'>
@@ -67,10 +65,10 @@ const Home = ({ history }) => {
           />
           {suggestions
             ? suggestions.map((suggestions, i) => (
-              <div key={i} onClick={() => onSuggestHandler(suggestions.name)}>
-                {suggestions.name}
-              </div>
-            ))
+                <div key={i} onClick={() => onSuggestHandler(suggestions.name)}>
+                  {suggestions.name}
+                </div>
+              ))
             : ''}
           <p>Choose your next nomad destination according to your needs</p>
         </form>
@@ -99,6 +97,8 @@ const Home = ({ history }) => {
           disableImagesLoaded={false} // default false
           reloadOnUpdate // default false
           static // default false
+          prevNextButtons={false}
+          pageDots={false}
         >
           {cities.map((city) => (
             <div key={city.name} className='carousel__card'>
@@ -106,15 +106,7 @@ const Home = ({ history }) => {
               <h3>{city.name}</h3>
             </div>
           ))}
-
         </Flickity>
-        {/* <Slider
-          activeIndex={0}
-          threshHold={100}
-          transition={0.5}
-          scaleOnDrag={false}
-        >
-        </Slider> */}
       </div>
     </div>
   );
