@@ -1,0 +1,19 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.primary_button {
+  @include primary-button;
+  &:hover {
+    @include primary-button-hover;
+  }
+}
+
+.hidden_button {
+  border: none;
+  background: none;
+}

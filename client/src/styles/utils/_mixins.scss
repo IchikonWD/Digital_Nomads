@@ -1,0 +1,29 @@
+@mixin primary-button {
+  width: 158px;
+  height: 48px;
+  background: linear-gradient(96.36deg, #ff9679 17.58%, #fe8248 82.56%);
+  border: none;
+  border-radius: 40px;
+  /* Button Text */
+  position: absolute;
+  left: 24.68%;
+  right: 24.83%;
+  top: 27.08%;
+  bottom: 27.09%;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 14px;
+  line-height: 22px;
+  text-align: center;
+  color: #fbfbf8;
+}
+
+@mixin primary-button-hover {
+  background: #fbfbf8;
+  border: 2px solid #ff9679;
+  box-sizing: border-box;
+  border-radius: 40px;
+  /* Button Text */
+  color: #ff9679;
+}

@@ -130,11 +130,28 @@ const City = ({ history, match }) => {
 
   if (reviewing === true && user.isLoggedIn === true) {
     return (
-      <div>
-        <h2>Tell your experience and help other nomads like you</h2>
-        <h2>Rate the following items</h2>
-        <form>
-          <div className='internet_connection'>
+      <div className='review'>
+        <header className='review__header'>
+          <i className='fas fa-chevron-left review__header__icon'>
+            <button className='hidden_button' onClick={handleButton}></button>
+          </i>
+          <h1 className='review__header__title'>{cityName}</h1>
+          <i className='far fa-heart review__header__icon2'></i>
+        </header>
+        <form className='review__form'>
+          <h2 className='review__form__title1'>
+            Tell your experience and <br />
+            help other nomads like you
+          </h2>
+          <input
+            type='text'
+            name='comment'
+            id='comment'
+            placeholder='Type to write'
+            className='review__form__input1'
+          />
+          <h2 className='review__form__title2'>Rate the following items</h2>
+          <div className='review__form__container'>
             <h4>Internet connection</h4>
             <i className='fas fa-wifi'></i>
             <i className='fas fa-wifi'></i>
@@ -142,7 +159,7 @@ const City = ({ history, match }) => {
             <i className='fas fa-wifi'></i>
             <i className='fas fa-wifi'></i>
           </div>
-          <div className='overall_safety'>
+          <div className='review__form__container'>
             <h4>Overall safety</h4>
             <i className='fas fa-meh-blank'></i>
             <i className='fas fa-meh-blank'></i>
@@ -150,12 +167,17 @@ const City = ({ history, match }) => {
             <i className='fas fa-meh-blank'></i>
             <i className='fas fa-meh-blank'></i>
           </div>
-          <div className='coworking_spaces'>
+          <div className='review__form__container'>
             <h4>Coworking spaces near you?</h4>
             <i className='fas fa-suitcase'></i>
             <i className='fas fa-suitcase'></i>
           </div>
-          <button onClick={handleSendButton}>Send</button>
+          <button
+            className='primary_button review__form__button '
+            onClick={handleSendButton}
+          >
+            Send
+          </button>
         </form>
       </div>
     );

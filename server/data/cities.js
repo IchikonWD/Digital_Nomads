@@ -21,7 +21,7 @@ const cities = [
     name: 'Puerto del Rosario',
     description:
       "It's the crowdest city in Fuerteventura and its capital. Located in the north of the Island you'd love the city if you're keen on kitesurfing, windsurf, or surf. It is full of nice spots to master those sports. Moreover, Puerto del Rosario has an exciting summer weather all year!",
-    image: '/assets/images/cities/puerto_del_rosario.jpg',
+    image: '/assets/images/cities/puerto_del_rosario.jpeg',
   },
   {
     name: 'Arrecife',
@@ -75,13 +75,13 @@ const cities = [
     name: 'Alicante',
     description:
       "Welcome to the White Coast's most significant city! The combination of deeply ingrained traditions and the peaceful Mediterranean sea has given Alicante a distinct identity. You'll become a rice expert after staying in the city. ",
-    image: '/assets/images/cities/alicante.jpg',
+    image: '/assets/images/cities/alicante.jpeg',
   },
   {
     name: 'Jávea',
     description:
       "Javea has beautiful weather all year and is an ideal location for learning about the Mediterranean way of life. It's the optimal location for those who enjoy tranquil turquoise seas, hiking, and eating. Welcome to Jávea, digital nomads!",
-    image: '/assets/images/cities/javea.jpg',
+    image: '/assets/images/cities/javea.jpeg',
   },
   {
     name: 'Córdoba',
@@ -105,25 +105,25 @@ const cities = [
     name: 'Málaga',
     description:
       'With its recent development, it has become the most international city in Andalusia. "Spanish Silicon Valley" is a term used to describe this Mediterranean coastal metropolis. With such a large contemporary and startup scene, you can find yourself learning about the city\'s history on the same day that you attend a tech event. Do not miss out on the town where the rush of the metropolis meets the Spanish way of life. Remember, the place where Pablo Picasso was born is a city worth visiting!',
-    image: '/assets/images/cities/malaga.jpg',
+    image: '/assets/images/cities/malaga.jpeg',
   },
   {
     name: 'Marbella',
     description:
       "Hello there, adventurous Nomad! Welcome to the bustling city in Costa del Sol's. Shows, festivals, sports, and cuisine culture will keep you occupied. Either you want to rest and enjoy the beach, your stay in Marbella will surpass your expectations. So, relax and enjoy your journey.",
-    image: '/assets/images/cities/marbella.jpg',
+    image: '/assets/images/cities/marbella.jpeg',
   },
   {
     name: 'Tarifa',
     description:
       "Hey, thrill-seeker! Tarifa welcomes you to the southernmost tip of the Iberian Peninsula, where the Mediterranean meets the Atlantic. The city is known across the world as a surfer's paradise and a haven for nature enthusiasts. You're a bon vivant if you've made it this far!",
-    image: '/assets/images/cities/tarifa.jpg',
+    image: '/assets/images/cities/tarifa.jpeg',
   },
   {
     name: 'Palma de Mallorca',
     description:
       'The biggest of the Balearic Islands boasts endless turquoise beaches and caverns with mountains only a short distance away. With its own startup economy and a valuable networking ecology, Majorca, or simply Palma as its locals call it, has been one of the top three locations for digital nomads in Spain for some years, despite its values and qualities eroding.',
-    image: '/assets/images/cities/palma_de_mallorca.jpg',
+    image: '/assets/images/cities/palma_de_mallorca.jpeg',
   },
   {
     name: 'Ciudadela',
