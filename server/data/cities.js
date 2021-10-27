@@ -9,7 +9,7 @@ const cities = [
     name: 'Santa Cruz de Tenerife',
     description:
       "The city known by its wild carnival has way more to offer than that. Exotic landscapes, modern architecture, nice beaches or the absolutly stunning Teide National Park won't make you regret for chosing the city as your next target nomad destination.",
-    image: '/cities/santa_cruz.png',
+    image: '/assets/images/cities/santa_cruz.png',
   },
   {
     name: 'Corralejo',
@@ -42,7 +42,7 @@ const cities = [
     image: '/assets/images/cities/madrid.png',
   },
   {
-    name: 'San Sebastián',
+    name: 'San_Sebastián',
     description:
       "If you're a foodie San Sebastian, or Donosti, as the locals call it, is the place to go. Donosti will not disappoint as your next nomad destination, with first-class restaurants, the city with the most Michelin stars per square meter in the world, and a thriving business sector.",
     image: '/assets/images/cities/san_sebastian.png',
@@ -135,7 +135,7 @@ const cities = [
     name: 'Ibiza',
     description:
       "Pine forests with Caribbean beaches and stunning caves in the middle of the Mediterranean Sea. Either you're looking for a peaceful retreat or rushing to the fizzy clubbing night live, Ibiza will stand out from your expectations.",
-    image: '/assets/images/cities/ibiza.jpg',
+    image: '/assets/images/cities/ibiza.jpeg',
   },
 ];
 

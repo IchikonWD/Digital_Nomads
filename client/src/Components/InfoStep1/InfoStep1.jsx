@@ -39,7 +39,6 @@ const InfoStep1 = ({ history }) => {
   useEffect(() => {
     if (selectedCity) {
       setCity(selectedCity);
-      console.log(city);
     }
     if (selectedCity !== '') {
       localStorage.setItem('city', JSON.stringify(selectedCity));

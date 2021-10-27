@@ -13,7 +13,7 @@
       top: 39.08%;
       bottom: 19.91%;
       font-size: 22px;
-      color: #1a1a1a;
+      color: $text-color-darkest;
     }
     &__icon2 {
       position: absolute;
@@ -21,7 +21,7 @@
       top: 37.08%;
       bottom: 19.91%;
       font-size: 24px;
-      color: #1a1a1a;
+      color: $text-color-darkest;
     }
     &__title {
       position: absolute;
@@ -46,6 +46,7 @@
       font-weight: 800;
       font-size: 24px;
       line-height: 32px;
+      color: $text-color-dark;
     }
     &__title2 {
       position: relative;
@@ -57,6 +58,7 @@
       font-weight: 800;
       font-size: 24px;
       line-height: 32px;
+      color: $text-color-dark;
     }
     &__input1 {
       position: relative;
@@ -79,7 +81,7 @@
       font-weight: 500;
       font-size: 14px;
       line-height: 22px;
-      color: #808080;
+      color: $text-color-medium-dark;
     }
     &__input1::-webkit-input-placeholder {
       position: relative;
@@ -90,7 +92,7 @@
       font-weight: 500;
       font-size: 14px;
       line-height: 22px;
-      color: #808080;
+      color: $text-color-medium-dark;
     }
     &__input1::-moz-placeholder {
       position: relative;
@@ -101,7 +103,7 @@
       font-weight: 500;
       font-size: 14px;
       line-height: 22px;
-      color: #808080;
+      color: $text-color-medium-dark;
     }
     &__input1:-ms-input-placeholder {
       position: relative;
@@ -112,7 +114,7 @@
       font-weight: 500;
       font-size: 14px;
       line-height: 22px;
-      color: #808080;
+      color: $text-color-medium-dark;
     }
     &__container {
       position: relative;
@@ -123,6 +125,17 @@
       background: #fbfbf8;
       box-shadow: 0px 4px 4px -1px rgba(0, 0, 0, 0.12);
       border-radius: 12px;
+      &__title {
+        position: relative;
+        left: 8%;
+        top: 14%;
+        font-family: Raleway;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 22px;
+        color: $text-color-dark;
+      }
     }
     &__button {
       position: relative;
@@ -131,4 +144,47 @@
       margin-bottom: 5%;
     }
   }
+}
+.button_review_1 {
+  position: relative;
+  left: 6%;
+  top: 3%;
+  width: 32px;
+}
+.button_review_2 {
+  position: relative;
+  left: 17%;
+  top: 3%;
+  width: 32px;
+}
+.button_review_3 {
+  position: relative;
+  left: 28%;
+  top: 3%;
+  width: 32px;
+}
+.button_review_4 {
+  position: relative;
+  left: 39%;
+  top: 3%;
+  width: 32px;
+}
+.button_review_5 {
+  position: relative;
+  left: 48%;
+  top: 3%;
+  width: 32px;
+}
+
+.button_review_true {
+  position: relative;
+  left: 32%;
+  top: 3%;
+  width: 32px;
+}
+.button_review_false {
+  position: relative;
+  left: 48%;
+  top: 3%;
+  width: 32px;
 }
