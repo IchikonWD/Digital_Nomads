@@ -40,8 +40,6 @@ const Home = ({ history }) => {
   const submitHandler = (e) => {
     e.preventDefault();
     setData(text);
-    console.log(text);
-    console.log(e.target.city.value);
     history.push(`/map/${e.target.city.value.replace(/ /g, '_')}`);
   };
   // Button click handler

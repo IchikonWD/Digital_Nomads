@@ -7,6 +7,7 @@ import Cities from '../models/citySchema.js';
 
 const getCities = asyncHandler(async (req, res) => {
   const cities = await Cities.find();
+
   if (cities) {
     res.status(200).json({
       success: true,
@@ -26,7 +27,18 @@ const getCities = asyncHandler(async (req, res) => {
 
 const getCityByName = asyncHandler(async (req, res) => {
   const city = await Cities.findOne({ name: req.params.name });
+
+  if (city.includes('_')) {
+    city = city.replace(/_/g, ' ');
+    city = city.replace(/\w\S*/g, function (txt) {
+      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    });
+  } else {
+    city = city.charAt(0).toUpperCase() + city.substr(1).toLowerCase();
+  }
+
   if (city) {
+    console.log(city, 'city');
     res.status(200).json({
       success: true,
       data: city,

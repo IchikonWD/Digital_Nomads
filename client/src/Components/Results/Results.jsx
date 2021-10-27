@@ -60,7 +60,7 @@ const Results = ({ history }) => {
       <p>Top best spanish cities</p>
       {filteredCities.map((city) => (
         <div key={city.name} className='results__card'>
-          <Link to={`/city/${city.name}`}>
+          <Link to={`/city/${city.name.replace(/ /g, '_')}`}>
             <img src={city.image} alt={city.name} />
           </Link>
           <h2>{city.name}</h2>
