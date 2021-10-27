@@ -1,4 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
+import Slider from 'react-touch-drag-slider'
 import { DataContext } from '../../Contexts/dataContext';
 import axios from 'axios'
 
@@ -74,7 +75,25 @@ const Home = ({ history }) => {
       </div>
       <div className='home3'>
         <p>Best nomad places</p>
-        {/* COMPONENTE QUE RENDERICE 9 TARJETAS CON EL TOP RATED */}
+        <Slider
+          onSlideComplete={(i) => {
+            console.log('finished dragging, current slide is', i)
+          }}
+          onSlideStart={(i) => {
+            console.log('started dragging on slide', i)
+          }}
+          activeIndex={0}
+          threshHold={100}
+          transition={0.5}
+          scaleOnDrag={false}
+        >
+          {cities.map((city) => (
+            <div key={city.name} className="carousel__card">
+              <img src={city.image} alt={city.name} />
+              <h2>{city.name}</h2>
+            </div>
+          ))}
+        </Slider>
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
+import { Link } from "react-router-dom";
 import 'leaflet/dist/leaflet.css';
 import { Icon } from 'leaflet';
 import markerType from 'leaflet/dist/images/marker-icon.png';
@@ -11,6 +12,7 @@ const Map = ({ history, match }) => {
   const [lng, setLng] = React.useState(-3.69791666666665);
   const [cityName, setCityName] = React.useState("The Bridge");
   const [position, setPosition] = React.useState([lat, lng]);
+  const [preloadCities, setPreloadCities] = React.useState([]);
   const geolocation = useGeolocation()
 
   const route = match.params.id;
@@ -50,6 +52,36 @@ const Map = ({ history, match }) => {
     }
   }, [route || geolocation.loaded]);
 
+  useEffect(() => {
+    async function fetchData() {
+      const url = `http://localhost:5000/api/data/`
+      const res = await axios.get(url)
+      if (res.data) {
+        try {
+          if (res.data.length === 0) {
+            alert('Error, we didnt received any data')
+            history.push('/')
+          } else {
+            const allCities = res.data
+            const filteredCities = allCities.map((city) => {
+              return {
+                name: city.name,
+                latitude: city.latitude,
+                longitude: city.longitude,
+                description: city.description
+              }
+            })
+            setPreloadCities(filteredCities)
+          }
+        }
+        catch (error) {
+          console.log(error.response.data.message);
+        }
+      }
+    }
+    fetchData()
+  }, [])
+
   const markerIcon = new Icon({
     iconUrl: markerType,
   });
@@ -59,21 +91,45 @@ const Map = ({ history, match }) => {
     return null;
   }
   return (
-      <MapContainer
-        center={position}
-        // zoom={13}
-        scrollWheelZoom={true}
-        style={{ height: '85vh', width: '100%' }}
-      >
-        <ChangeView />
-        <TileLayer
-          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-          url={`https://api.mapbox.com/styles/v1/fabriziocarella/ckv13ligb2e8m14o3587xvk6p/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_MAPBOX_APIKEY}`}
-        />
-        <Marker position={position} icon={markerIcon}>
-          <Popup>{cityName}</Popup>
-        </Marker>
-      </MapContainer>
+    <MapContainer
+      center={position}
+      // zoom={13}
+      scrollWheelZoom={true}
+      style={{ height: '85vh', width: '100%' }}
+    >
+      <ChangeView />
+      <TileLayer
+        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        url={`https://api.mapbox.com/styles/v1/fabriziocarella/ckv13ligb2e8m14o3587xvk6p/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_MAPBOX_APIKEY}`}
+      />
+      {
+        (preloadCities)
+          ? (preloadCities.map((city, i) => {
+            return (
+              <Marker position={[city.latitude, city.longitude]} icon={markerIcon} key={i}>
+                <Popup>
+                  <Link to={`/api/cities/${city.name}`}>{city.name}</Link>
+                  <br />{city.description}
+                </Popup>
+              </Marker>
+            )
+          }))
+          : (
+            <Marker position={position} icon={markerIcon}>
+              <Popup>{cityName}</Popup>
+            </Marker>
+          )
+      }
+      {
+        (geolocation.loaded)
+          ? (<Marker position={[geolocation.coordinates.lat,geolocation.coordinates.lng]} icon={markerIcon} >
+            <Popup>Your current position</Popup>
+          </Marker>)
+          : ""
+      }
+
+    </MapContainer>
   );
 };
+
 export default Map;

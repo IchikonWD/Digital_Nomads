@@ -17,6 +17,7 @@ import Map from '../Map';
 import City from '../City';
 import Explore1 from '../Explore1';
 import Explore2 from '../Explore2';
+import Results from '../Results/Results';
 
 const Main = () => {
   return (
@@ -37,6 +38,7 @@ const Main = () => {
           <Route path='/login' component={Login} />
           <Route path='/explore1' component={Explore1} />
           <Route path='/explore2' component={Explore2} />
+          <Route path='/results' component={Results} />
           <Route component={Error} />
         </Switch>
       </Router>
