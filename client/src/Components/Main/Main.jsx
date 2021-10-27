@@ -18,6 +18,7 @@ import City from '../City';
 import Explore1 from '../Explore1';
 import Explore2 from '../Explore2';
 import Results from '../Results/Results';
+import RatingModal from '../RatingModal/RatingModal';
 
 const Main = () => {
   return (
@@ -27,6 +28,7 @@ const Main = () => {
           <Route path='/' component={Home} exact />
           <Route path='/map/:id?' component={Map} />
           <Route path='/city/:id?' component={City} />
+          <Route path='/thanks' component={RatingModal} />
           <Route path='/register' component={Register} />
           <Route path='/profile' component={Profile} />
           <Route path='/registerstep2' component={RegisterStep2} />

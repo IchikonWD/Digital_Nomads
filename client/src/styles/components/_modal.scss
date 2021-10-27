@@ -1,0 +1,15 @@
+.reviewModal {
+  background-color: $neutrals-color-lighter;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  &__body {
+    height: 80%;
+    background-image: url('../../assets/img/Bubble_coral.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    overflow: hidden;
+  }
+}
