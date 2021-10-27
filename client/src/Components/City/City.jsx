@@ -2,7 +2,6 @@ import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../Contexts/userContext';
-import RatingModal from '../RatingModal/RatingModal';
 
 const City = ({ location, match, history }) => {
   const { user } = useContext(UserContext);
@@ -28,9 +27,6 @@ const City = ({ location, match, history }) => {
   const [safetyReview, setSafetyReview] = useState(0);
   const [coworkingReview, setCoworkingReview] = useState({});
   const [comment, setComment] = useState('');
-
-  // Modal
-  const [modal, setModal] = useState(false);
 
   useEffect(() => {
     const nycCost = 1366.67;
@@ -142,7 +138,7 @@ const City = ({ location, match, history }) => {
       comment: comment,
     };
     setCompleteReview(review);
-  }, [internetReview, safetyReview, coworkingReview, comment]);
+  }, [internetReview, safetyReview, coworkingReview, comment, user._id]);
 
   const handleButton = async (e) => {
     e.preventDefault();

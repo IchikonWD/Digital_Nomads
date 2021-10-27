@@ -4,7 +4,7 @@ import { DataContext } from '../../Contexts/dataContext';
 import axios from 'axios';
 
 const Home = ({ history }) => {
-  const { data, setData } = useContext(DataContext);
+  const { setData } = useContext(DataContext);
   const [cities, setCities] = useState([]);
   const [text, setText] = useState('');
   const [suggestions, setSuggestions] = useState([]);

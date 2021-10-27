@@ -5,8 +5,6 @@ import React, {
   useRef,
   useContext,
 } from 'react';
-import PropTypes from 'prop-types';
-import { UserContext } from '../../Contexts/userContext';
 import { FilterContext } from '../../Contexts/filterContext';
 
 import ToggleSwitch from '../ToggleSwitch/ToggleSwitch';
@@ -14,7 +12,6 @@ import ToggleSwitch from '../ToggleSwitch/ToggleSwitch';
 import Explore from '../Explore/Explore';
 
 const Explore1 = ({ history }) => {
-  const { user, setUser } = useContext(UserContext);
   const { filters, setFilters } = useContext(FilterContext);
 
   const [internet, setInternet] = useState([]);
@@ -27,10 +24,10 @@ const Explore1 = ({ history }) => {
   const minValRefInternet = useRef();
   const maxValRefInternet = useRef();
   //Safety
-  // const [minValSafety, setMinValSafety] = useState(1);
-  // const [maxValSafety, setMaxValSafety] = useState(5);
-  // const minValRefSafety = useRef();
-  // const maxValRefSafety = useRef();
+  const [minValSafety, setMinValSafety] = useState(1);
+  const [maxValSafety, setMaxValSafety] = useState(5);
+  const minValRefSafety = useRef();
+  const maxValRefSafety = useRef();
   //Living
   const [minValLiving, setMinValLiving] = useState(1);
   const [maxValLiving, setMaxValLiving] = useState(100);
@@ -40,22 +37,15 @@ const Explore1 = ({ history }) => {
   const range = useRef(null);
   //! MutiRangeSlider States
 
-  // Redirect to home if user is not logged in
-  // useEffect(() => {
-  //   if (user.isLoggedIn === false) {
-  //     history.push('/');
-  //   }
-  // }, [user, history]);
-
   // Check if user has already filled out the filters
   useEffect(() => {
     if (filters) {
       if (filters.internet) {
         setInternet(internet);
       }
-      // if (filters.safety) {
-      //   setSafety(safety);
-      // }
+      if (filters.safety) {
+        setSafety(safety);
+      }
       if (filters.living) {
         setLiving(living);
       }
@@ -64,18 +54,18 @@ const Explore1 = ({ history }) => {
         ...filters,
         currentFilters: {
           internet: [1, 100],
-          // safety: [1, 5],
+          safety: [1, 5],
           living: [1, 100],
         },
       });
     }
-  }, []);
+  }, [filters, internet, safety, living, setFilters]);
 
   const handleFilters = (e) => {
     e.preventDefault();
     const currentFilters = {
       internet: internet,
-      // safety: safety,
+      safety: safety,
       living: living,
     };
     setFilters({ ...filters, ...currentFilters });
@@ -83,15 +73,15 @@ const Explore1 = ({ history }) => {
   };
   useEffect(() => {
     setInternet([minValInternet, maxValInternet]);
-    // setSafety([minValSafety, maxValSafety]);
+    setSafety([minValSafety, maxValSafety]);
     setLiving([minValLiving, maxValLiving]);
   }, [
     minValInternet,
     maxValInternet,
     setInternet,
-    // minValSafety,
-    // maxValSafety,
-    // setSafety,
+    minValSafety,
+    maxValSafety,
+    setSafety,
     minValLiving,
     maxValLiving,
     setLiving,
@@ -102,7 +92,7 @@ const Explore1 = ({ history }) => {
 
   const getPercent = useCallback(
     (value) => Math.round(((value - 1) / (5 - 1)) * 100),
-    [1, 5]
+    []
   );
 
   // Set width of the range to decrease from the left side
@@ -128,10 +118,6 @@ const Explore1 = ({ history }) => {
     }
   }, [maxValInternet, getPercent]);
 
-  // Get min and max values when their state changes
-  // useEffect(() => {
-
-  // }, [minValInternet, maxValInternet]);
   //! MutiRangeSlider Functions
   return (
     <div className='explore'>
@@ -187,7 +173,7 @@ const Explore1 = ({ history }) => {
               </div>
             </div>
           </div>
-          {/* <div className='need'>
+          <div className='need'>
             <div className='need_name'>
               <span>Safety</span>
               <ToggleSwitch label='Safety' />
@@ -234,7 +220,7 @@ const Explore1 = ({ history }) => {
                 </div>
               </div>
             </div>
-          </div> */}
+          </div>
           <div className='need'>
             <div className='need_name'>
               <span>Cost of living</span>
@@ -284,8 +270,6 @@ const Explore1 = ({ history }) => {
               </div>
             </div>
           </div>
-          <br />
-          {/* BORRAR BR */}
           <Explore step1 />
           <button type='submit'>Next</button>
         </div>
@@ -293,9 +277,5 @@ const Explore1 = ({ history }) => {
     </div>
   );
 };
-// MultiRangeSlider.propTypes = {
-//   min: PropTypes.number.isRequired,
-//   max: PropTypes.number.isRequired,
-// };
 
 export default Explore1;

@@ -2,7 +2,6 @@ import React, { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
 import { UserContext } from '../../Contexts/userContext';
 import InfoSteps from '../InfoSteps/InfoSteps';
-import { config } from 'dotenv';
 
 const InfoStep3 = ({ history }) => {
   const { user, setUser } = useContext(UserContext);
@@ -166,7 +165,7 @@ const InfoStep3 = ({ history }) => {
       }
     }
     saveCluster();
-  }, [cluster, user.token]);
+  }, [cluster, user.token, user._id]);
 
   // Save user interests
   const handleInterests = (e) => {

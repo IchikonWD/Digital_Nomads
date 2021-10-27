@@ -4,10 +4,9 @@ import { GoogleLogin } from 'react-google-login';
 import axios from 'axios';
 
 const LoginGoogleComp = ({ history }) => {
-  const { user, setUser } = useContext(UserContext);
+  const { setUser } = useContext(UserContext);
   const [registerInfo, setRegisterInfo] = useState({});
   const [googleResponse, setGoogleResponse] = useState();
-  const [responsedData, setResponsedData] = useState({});
 
   const clientId = process.env.REACT_APP_GOOGLE_CLIENTID;
 
@@ -51,40 +50,40 @@ const LoginGoogleComp = ({ history }) => {
           }
         }
       }
-      fetchData()
+      fetchData();
       // setGoogleResponse({})
     }
-  }, [googleResponse])
+  }, [googleResponse, registerInfo, history, setUser]);
 
   function randomPass() {
-    let text = "";
-    const possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    let text = '';
+    const possible =
+      'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     for (let i = 0; i < 9; i++)
       text += possible.charAt(Math.floor(Math.random() * possible.length));
     return text;
   }
 
   const responseGoogle = (response) => {
-    setResponsedData(response)
     const data = {
       name: response.profileObj.givenName,
       email: response.profileObj.email,
       password: randomPass(),
     };
     setRegisterInfo(data);
-    setGoogleResponse("true")
-  }
+    setGoogleResponse('true');
+  };
 
   return (
     <GoogleLogin
       clientId={clientId}
-      buttonText="Sign up with Google"
+      buttonText='Sign up with Google'
       onSuccess={responseGoogle}
       onFailure={responseGoogle}
       cookiePolicy={'single_host_origin'}
       style={{ marginTop: '100px' }}
     />
-  )
-}
+  );
+};
 
 export default LoginGoogleComp;

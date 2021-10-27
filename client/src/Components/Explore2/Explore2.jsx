@@ -5,20 +5,17 @@ import React, {
   useRef,
   useContext,
 } from 'react';
-import PropTypes from 'prop-types';
 
 import ToggleSwitch from '../ToggleSwitch/ToggleSwitch';
 import Explore from '../Explore/Explore';
-import { UserContext } from '../../Contexts/userContext';
 import { FilterContext } from '../../Contexts/filterContext';
 
 const Explore2 = ({ history }) => {
-  const { user, setUser } = useContext(UserContext);
   const { filters, setFilters } = useContext(FilterContext);
 
   const [temperature, setTemperature] = useState([10, 37]);
   const [population, setPopulation] = useState([3000, 4000000]);
-  //! MutiRangeSlider States
+
   //Temperature
   const [minValTemperature, setMinValTemperature] = useState(10);
   const [maxValTemperature, setMaxValTemperature] = useState(37);
@@ -31,16 +28,7 @@ const Explore2 = ({ history }) => {
   const maxValRefPopulation = useRef();
 
   const range = useRef(null);
-  //! MutiRangeSlider States
 
-  // Redirect to home if user is not logged in
-  // useEffect(() => {
-  //   if (user.isLoggedIn === false) {
-  //     history.push('/');
-  //   }
-  // }, [user, history]);
-
-  // Check if user has already filled out the filters
   useEffect(() => {
     if (filters) {
       if (filters.temperature) {
@@ -58,7 +46,7 @@ const Explore2 = ({ history }) => {
         },
       });
     }
-  }, []);
+  }, [filters, setFilters, temperature, population]);
 
   const handleFilters2 = (e) => {
     e.preventDefault();
@@ -67,7 +55,6 @@ const Explore2 = ({ history }) => {
       population: population,
     };
     setFilters({ ...filters, ...currentFilters });
-    //TODO: Pasar filtros al mapa
     history.push('/results');
   };
 
@@ -83,12 +70,11 @@ const Explore2 = ({ history }) => {
     setPopulation,
   ]);
 
-  //! MutiRangeSlider Functions
   // Convert to percentage
 
   const getPercent = useCallback(
     (value) => Math.round(((value - 1) / (5 - 1)) * 100),
-    [1, 5]
+    []
   );
 
   // Set width of the range to decrease from the left side
@@ -114,10 +100,6 @@ const Explore2 = ({ history }) => {
     }
   }, [maxValTemperature, getPercent]);
 
-  // Get min and max values when their state changes
-  // useEffect(() => {
-
-  // }, [minValTemperature, maxValTemperature]);
   //! MutiRangeSlider Functions
   //!TODO: Fix styling on ranges!
 
@@ -149,7 +131,6 @@ const Explore2 = ({ history }) => {
                     minValRefTemperature.current = value;
                   }}
                   className='thumb thumb--left'
-                // style={{ zIndex: minValTemperature > 5 - 100 && "5" }}
                 />
                 <input
                   type='range'
@@ -198,7 +179,6 @@ const Explore2 = ({ history }) => {
                     minValRefPopulation.current = value;
                   }}
                   className='thumb thumb--left'
-                // style={{ zIndex: minValPopulation > 5 - 100 && "5" }}
                 />
                 <input
                   type='range'
@@ -222,21 +202,8 @@ const Explore2 = ({ history }) => {
                   <div className='slider__right-value'>{maxValPopulation}</div>
                 </div>
               </div>
-              {/* <MultiRangeSlider min={3000} max={4000000} onChange={({ min, max }) => console.log(`min = ${min}, max = ${max}`)}
-              /> */}
             </div>
           </div>
-          {/* <div className='need'>
-            <div className='need_name'>
-              <span>
-                <b> Coworking spaces near you</b>
-              </span>
-              <ToggleSwitch label='coworking' />
-            </div>
-          </div> */}
-
-          <br />
-          {/* BORRAR BR */}
           <Explore step1 step2 />
           <button type='submit'>Search</button>
         </div>

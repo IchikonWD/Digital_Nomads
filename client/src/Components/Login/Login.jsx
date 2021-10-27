@@ -27,7 +27,7 @@ const Login = ({ history }) => {
       if (loginInfo.email && loginInfo.password) {
         const { email, password } = loginInfo;
         try {
-          const url = 'http://localhost:5000/api/users/login/';
+          const url = '/api/users/login/';
           const res = await axios.post(url, {
             email: email,
             password: password,
