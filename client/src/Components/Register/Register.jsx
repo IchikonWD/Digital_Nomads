@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../Contexts/userContext';
 import axios from 'axios';
+import LoginGoogleComp from '../LoginGoogleComp';
 
 const Register = ({ location, history }) => {
   const { user, setUser } = useContext(UserContext);
@@ -96,10 +97,12 @@ const Register = ({ location, history }) => {
     }
   };
 
+
   return (
     <div className='register'>
       <button onClick={handleGoHome}>X</button>
       <h2>Create Account</h2>
+      <LoginGoogleComp />
       <p>or with your mail</p>
       <form onSubmit={handleSubmit}>
         <input
