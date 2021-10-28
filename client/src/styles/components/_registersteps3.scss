@@ -1,48 +1,109 @@
-.register2 {
+.register3 {
   height: 100%;
 }
+.register3 input {
+  border: 1px solid #f4f2eb;
+  box-sizing: border-box;
+  border-radius: 2px;
+  width: 324px;
+  height: 51px;
+  background-color: transparent;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  color: #f4f2eb;
+  padding-left: 20px;
+}
+.register3 input::placeholder {
+  color: #f4f2eb;
+}
+select:active,
+select:hover {
+  outline-color: $accent-color-light;
+}
+input:active,
+input:hover {
+  outline-color: $accent-color-light;
+}
 
-.register2image {
+.register3 select {
+  border: 1px solid #f4f2eb;
+  box-sizing: border-box;
+  border-radius: 2px;
+  width: 324px;
+  height: 51px;
+  background-color: transparent;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  color: #f4f2eb;
+  padding-left: 20px;
+}
+option {
+  background-color: black;
+  color: white;
+}
+.register3image {
   position: absolute;
-  top: 70px;
+  top: 80px;
   z-index: -1;
 }
-.register2logo {
+.register3logo {
   position: absolute;
   width: 256.84px;
   height: 90.59px;
   left: 42px;
   top: 172px;
 }
-.register2title {
+.register3title {
   position: absolute;
-  width: 324px;
-  height: 34px;
-  left: 30px;
-  top: 280px;
-  font-family: Raleway;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 30px;
-  line-height: 30px;
-  color: #f4f2eb;
-}
-.register2text {
-  position: absolute;
-  top: 360px;
-  left: 35px;
-  width: 80%;
+  width: 311px;
+  height: 32px;
+  left: 32px;
+  top: 105px;
   font-family: Raleway;
   font-style: normal;
   font-weight: normal;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 24px;
+  line-height: 32px;
   text-align: center;
-  font-feature-settings: 'liga' off;
   color: #f4f2eb;
 }
-.register2button {
+.register3button {
   position: absolute;
   margin-top: 396px;
-  left: 120px;
+  left: 110px;
+}
+
+.register3input {
+  position: absolute;
+  width: 324px;
+  height: 63px;
+  left: 25.5px;
+  top: 180px;
+}
+.register3input2 {
+  position: absolute;
+  width: 323px;
+  height: 51px;
+  left: 26px;
+  top: 260px;
+}
+.register3input3 {
+  position: absolute;
+  width: 324px;
+  height: 51px;
+  left: 25.5px;
+  top: 340px;
+}
+.register3input4 {
+  position: absolute;
+  width: 324px;
+  height: 51px;
+  left: 25.5px;
+  top: 420px;
 }

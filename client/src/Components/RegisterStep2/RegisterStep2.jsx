@@ -51,7 +51,7 @@ const RegisterStep2 = ({ history }) => {
       )}
       <p className='register2text'>
         In order to guide your first steps and personalize you experience, we
-        have a couple of questions for you
+        have <br /> a few questions for you
       </p>
       <button className='primary_button register2button' onClick={handleButton}>
         Next
