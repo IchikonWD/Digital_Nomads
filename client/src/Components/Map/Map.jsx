@@ -6,6 +6,7 @@ import { Icon } from 'leaflet';
 import markerType from 'leaflet/dist/images/marker-icon.png';
 import axios from 'axios';
 import useGeolocation from '../../hooks/useGeolocation';
+import Header from '../Header/Header'
 
 const Map = ({ history, match }) => {
   const [lat, setLat] = React.useState(40.42282746499838);
@@ -95,49 +96,52 @@ const Map = ({ history, match }) => {
     return null;
   }
   return (
-    <MapContainer
-      center={position}
-      // zoom={13}
-      scrollWheelZoom={true}
-      style={{ height: '85vh', width: '100%' }}
-    >
-      <ChangeView />
-      <TileLayer
-        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        url={`https://api.mapbox.com/styles/v1/fabriziocarella/ckv13ligb2e8m14o3587xvk6p/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_MAPBOX_APIKEY}`}
-      />
-      {preloadCities ? (
-        preloadCities.map((city, i) => {
-          return (
-            <Marker
-              position={[city.latitude, city.longitude]}
-              icon={markerIcon}
-              key={i}
-            >
-              <Popup>
-                <Link to={`/city/${city.name}`}>{city.name}</Link>
-                <br />
-                {city.description}
-              </Popup>
-            </Marker>
-          );
-        })
-      ) : (
-        <Marker position={position} icon={markerIcon}>
-          <Popup>{cityName}</Popup>
-        </Marker>
-      )}
-      {geolocation.loaded ? (
-        <Marker
-          position={[geolocation.coordinates.lat, geolocation.coordinates.lng]}
-          icon={markerIcon}
-        >
-          <Popup>Your current position</Popup>
-        </Marker>
-      ) : (
-        ''
-      )}
-    </MapContainer>
+    <>
+    <Header/>
+      <MapContainer
+        center={position}
+        // zoom={13}
+        scrollWheelZoom={true}
+        style={{ height: '100vh', width: '100%' }}
+      >
+        <ChangeView />
+        <TileLayer
+          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          url={`https://api.mapbox.com/styles/v1/fabriziocarella/ckv13ligb2e8m14o3587xvk6p/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_MAPBOX_APIKEY}`}
+        />
+        {preloadCities ? (
+          preloadCities.map((city, i) => {
+            return (
+              <Marker
+                position={[city.latitude, city.longitude]}
+                icon={markerIcon}
+                key={i}
+              >
+                <Popup>
+                  <Link to={`/city/${city.name}`}>{city.name}</Link>
+                  <br />
+                  {city.description}
+                </Popup>
+              </Marker>
+            );
+          })
+        ) : (
+          <Marker position={position} icon={markerIcon}>
+            <Popup>{cityName}</Popup>
+          </Marker>
+        )}
+        {geolocation.loaded ? (
+          <Marker
+            position={[geolocation.coordinates.lat, geolocation.coordinates.lng]}
+            icon={markerIcon}
+          >
+            <Popup>Your current position</Popup>
+          </Marker>
+        ) : (
+          ''
+        )}
+      </MapContainer>
+    </>
   );
 };
 
