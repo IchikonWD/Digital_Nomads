@@ -66,11 +66,22 @@ const LoginGoogleComp = ({ history }) => {
   return (
     <GoogleLogin
       clientId={clientId}
+      render={(renderProps) => (
+        <button
+          className='googlebutton'
+          onClick={renderProps.onClick}
+          disabled={renderProps.disabled}
+        >
+          {' '}
+          <img src='/assets/images/googleIcon.png' alt='googleicon' />
+          &nbsp; Sign up with Google
+        </button>
+      )}
       buttonText='Sign up with Google'
       onSuccess={responseGoogle}
       onFailure={responseGoogle}
       cookiePolicy={'single_host_origin'}
-      style={{ marginTop: '100px' }}
+      // style={{ marginTop: '100px' }}
     />
   );
 };
