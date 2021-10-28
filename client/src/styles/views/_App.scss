@@ -13,6 +13,13 @@ body {
   }
 }
 
+.secondary_button {
+  @include secondary-button;
+  &:hover {
+    @include secondary-button-hover;
+  }
+}
+
 .hidden_button {
   border: none;
   background: none;

@@ -1,0 +1,273 @@
+.user_profile_editing {
+  background-color: #f4f2eb;
+  height: 750px;
+  &__header {
+    &__button {
+      position: absolute;
+      width: 32px;
+      height: 32px;
+      left: 315px;
+      top: 32px;
+    }
+  }
+  &__form {
+    margin-top: 12px;
+    background-color: #f4f2eb;
+  }
+  & input {
+    border: 1px solid $text-color-darkest;
+    border-radius: 4px;
+    display: inline-block;
+    padding-left: 20px;
+  }
+}
+
+.personal-image {
+  text-align: center;
+  position: absolute;
+  left: 58px;
+  top: 62px;
+}
+.personal-image input[type='file'] {
+  display: none;
+}
+.personal-figure {
+  position: relative;
+  width: 180px;
+  height: 180px;
+}
+.personal-avatar {
+  cursor: pointer;
+  width: 180px;
+  height: 180px;
+  box-sizing: border-box;
+  border-radius: 100%;
+  border: 2px solid transparent;
+  transition: all ease-in-out 0.3s;
+}
+.personal-figcaption {
+  cursor: pointer;
+  position: absolute;
+  top: 0px;
+  width: inherit;
+  height: inherit;
+  border-radius: 100%;
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0);
+  transition: all ease-in-out 0.3s;
+}
+.personal-figcaption:hover {
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.personal-figcaption > img {
+  margin-top: 50.5px;
+  width: 80px;
+  height: 80px;
+}
+.user_profile_editing__header__icon {
+  position: absolute;
+  font-size: 30px;
+  left: 24px;
+  top: 40px;
+}
+.input__field {
+  position: relative;
+  width: 310px;
+  height: 35px;
+  left: 20.5px;
+  top: 13px;
+  background-color: transparent;
+}
+.input__field2 {
+  position: relative;
+  width: 310px;
+  height: 35px;
+  left: 20.5px;
+  top: 32px;
+  background-color: transparent;
+}
+.input__field3 {
+  position: relative;
+  width: 310px;
+  height: 35px;
+  left: 20.5px;
+  top: 52px;
+  background-color: transparent;
+}
+.input__field4 {
+  position: relative;
+  width: 310px;
+  height: 35px;
+  left: 20.5px;
+  top: 73px;
+  background-color: transparent;
+}
+.input__field5 {
+  position: relative;
+  width: 310px;
+  height: 35px;
+  left: 20.5px;
+  top: 93px;
+  background-color: transparent;
+}
+.input__button {
+  position: relative;
+  left: 102.5px;
+  top: 113px;
+}
+.name__title {
+  position: relative;
+  text-align: center;
+  margin-top: -22px;
+  margin-bottom: 12px;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 32px;
+  color: #4d4d4d;
+}
+.interests_profile {
+  position: absolute;
+  margin-left: 32%;
+  width: 134px;
+  height: 20px;
+  top: 700px;
+  padding-bottom: 32px;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: normal;
+  color: $accent-color;
+}
+
+.interests_profile2 {
+  position: absolute;
+  margin-left: 40%;
+  width: 134px;
+  height: 20px;
+  top: 600px;
+  padding-bottom: 32px;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: normal;
+  color: $accent-color;
+}
+
+.profile_input_textname {
+  position: absolute;
+  left: 10%;
+  top: 46.5%;
+  z-index: 1;
+}
+.profile_input_textage {
+  position: absolute;
+  left: 10%;
+  top: 55.5%;
+  z-index: 1;
+}
+.profile_input_textprofesion {
+  position: absolute;
+  left: 10%;
+  height: 22px;
+  top: 64.5%;
+  z-index: 1;
+}
+.profile_input_textcountry {
+  position: absolute;
+  left: 10%;
+  height: 22px;
+  top: 74%;
+  z-index: 1;
+}
+
+.profile_input_textlanguage {
+  position: absolute;
+  left: 10%;
+  height: 22px;
+  top: 82.5%;
+  z-index: 1;
+}
+.user_info {
+  position: relative;
+  width: 227px;
+  height: 24px;
+  left: 50.12px;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 24px;
+  font-feature-settings: 'liga' off;
+  color: #4d4d4d;
+}
+.user_info2 {
+  position: relative;
+  width: 227px;
+  height: 24px;
+  left: 50.12px;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 24px;
+  font-feature-settings: 'liga' off;
+  color: #4d4d4d;
+}
+.user_info3 {
+  position: relative;
+  width: 227px;
+  height: 24px;
+  left: 50.12px;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 24px;
+  font-feature-settings: 'liga' off;
+  color: #4d4d4d;
+}
+.user_info4 {
+  position: relative;
+  width: 227px;
+  height: 24px;
+  left: 50.12px;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 24px;
+  font-feature-settings: 'liga' off;
+  color: #4d4d4d;
+}
+.user_info5 {
+  position: relative;
+  width: 227px;
+  height: 24px;
+  left: 50.12px;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 24px;
+  font-feature-settings: 'liga' off;
+  color: #4d4d4d;
+}
+
+.user_info_spacer {
+  background: #b2cdc4;
+  width: 323.88px;
+}
+.interests_close {
+  position: absolute;
+  top: -4px;
+  right: 4px;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  text-decoration-line: underline;
+  color: #fbfbf8;
+}

@@ -9,6 +9,7 @@ import cityRoutes from './routes/cityRoutes.js';
 import dataRoutes from './routes/dataRoutes.js';
 import uploadRoutes from './routes/uploadRoutes.js';
 import { notFound, errorHandler } from './middlewares/errorMiddleware.js';
+import helmet from 'helmet';
 import cors from 'cors';
 import morgan from 'morgan';
 
@@ -18,6 +19,7 @@ pool.connect();
 
 const app = express();
 app.use(cors());
+app.use(helmet());
 
 app.use(express.json());
 
