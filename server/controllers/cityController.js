@@ -28,17 +28,17 @@ const getCities = asyncHandler(async (req, res) => {
 const getCityByName = asyncHandler(async (req, res) => {
   const city = await Cities.findOne({ name: req.params.name });
 
-  if (city.includes('_')) {
-    city = city.replace(/_/g, ' ');
-    city = city.replace(/\w\S*/g, function (txt) {
+  if (city.name.includes('_')) {
+    city.name = city.name.replace(/_/g, ' ');
+    city.name = city.name.replace(/\w\S*/g, function (txt) {
       return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
     });
   } else {
-    city = city.charAt(0).toUpperCase() + city.substr(1).toLowerCase();
+    city.name =
+      city.name.charAt(0).toUpperCase() + city.name.substr(1).toLowerCase();
   }
 
   if (city) {
-    console.log(city, 'city');
     res.status(200).json({
       success: true,
       data: city,

@@ -15,7 +15,8 @@ const Map = ({ history, match }) => {
   const [preloadCities, setPreloadCities] = React.useState([]);
   const geolocation = useGeolocation();
 
-  const route = match.params.id;
+  let route = match.params.id;
+
   useEffect(() => {
     if (geolocation.loaded) {
       const geoLat = JSON.stringify(geolocation.coordinates.lat);

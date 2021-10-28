@@ -26,9 +26,6 @@ const getOneCity = async (param) => {
   // Camelcase param if has two words or more
   if (param.includes('_')) {
     param = param.replace(/_/g, ' ');
-    param = param.replace(/\w\S*/g, function (txt) {
-      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-    });
   } else {
     param = param.charAt(0).toUpperCase() + param.substr(1).toLowerCase();
   }
@@ -38,7 +35,6 @@ const getOneCity = async (param) => {
     let sql_query =
       'SELECT * FROM cities WHERE id=(SELECT id FROM cities WHERE name=$1)';
     response = await pool.query(sql_query, [param]);
-    console.log(response);
   } catch (err) {
     console.log(err.stack);
   } finally {
