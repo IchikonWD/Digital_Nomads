@@ -16,7 +16,7 @@ const LoginGoogleComp = ({ history }) => {
         if (registerInfo.name && registerInfo.email && registerInfo.password) {
           const { name, email, password } = registerInfo;
           try {
-            const url = 'http://localhost:5000/api/users/';
+            const url = '/api/users/';
             const res = await axios.post(url, {
               name: name,
               email: email,
@@ -44,31 +44,20 @@ const LoginGoogleComp = ({ history }) => {
               setRegisterInfo({});
               history.push('/');
             }
-            //TODO: Al hacer login con google, se registra el usuario, se guarda en el estado pero por alguna razón arroja un error
           } catch (error) {
             console.log(error);
           }
         }
       }
       fetchData();
-      // setGoogleResponse({})
     }
-  }, [googleResponse, registerInfo, history, setUser]);
-
-  function randomPass() {
-    let text = '';
-    const possible =
-      'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    for (let i = 0; i < 9; i++)
-      text += possible.charAt(Math.floor(Math.random() * possible.length));
-    return text;
-  }
+  }, [googleResponse, history, registerInfo, setUser]);
 
   const responseGoogle = (response) => {
     const data = {
       name: response.profileObj.givenName,
       email: response.profileObj.email,
-      password: randomPass(),
+      password: response.profileObj.googleId,
     };
     setRegisterInfo(data);
     setGoogleResponse('true');
