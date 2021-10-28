@@ -12,7 +12,6 @@ import InfoStep3 from '../InfoStep3';
 import InfoStep4 from '../InfoStep4';
 import Login from '../Login';
 import Error from '../Error';
-import ScrollButton from '../ScrollButton/ScrollButton';
 import Map from '../Map';
 import City from '../City';
 import Explore1 from '../Explore1';
@@ -44,7 +43,6 @@ const Main = () => {
           <Route component={Error} />
         </Switch>
       </Router>
-      <ScrollButton />
     </main>
   );
 };
