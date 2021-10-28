@@ -21,13 +21,17 @@ const Profile = ({ history }) => {
     }
   }, [user, history]);
 
-  const handleEditing = () => {
-    setEditing(!editing);
-  };
   // Save changes to database
   useEffect(() => {
     async function saveUpdatedUser() {
-      if (updatedUser) {
+      if (
+        updatedUser.name !== user.name ||
+        updatedUser.age !== user.age ||
+        updatedUser.ocupation !== user.ocupation ||
+        updatedUser.country !== user.country ||
+        updatedUser.language !== user.language ||
+        updatedUser.avatar !== user.avatar
+      ) {
         const config = {
           headers: {
             'Content-Type': 'application/json',
@@ -62,7 +66,7 @@ const Profile = ({ history }) => {
       }
     }
     saveUpdatedUser();
-  }, [updatedUser, setUser, user.token, avatar]);
+  }, [updatedUser, user, setUser]);
 
   const uploadFileHandler = async (e) => {
     const file = e.target.files[0];
@@ -86,6 +90,10 @@ const Profile = ({ history }) => {
     }
   };
 
+  const handleEditing = () => {
+    setEditing(!editing);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setUpdatedUser({
@@ -99,102 +107,227 @@ const Profile = ({ history }) => {
     handleEditing();
   };
 
+  const handleButton = async (e) => {
+    e.preventDefault();
+    history.push('/');
+  };
+
   if (editing === true) {
     return (
       <div className='user_profile_editing'>
-        <Link to='/'> Close </Link>
-        <h1>Profile</h1>{' '}
-        <span>
-          <button onClick={handleEditing}>
-            <i className='far fa-edit'></i>
+        <img src='/assets/images/Vectorprofile.png' alt='vector'></img>
+        <header className='user_profile_editing__header'>
+          <i className='fas fa-chevron-left user_profile_editing__header__icon'>
+            <button className='hidden_button' onClick={handleButton}></button>
+          </i>
+          <button
+            className='user_profile_editing__header__button hidden_button'
+            onClick={handleEditing}
+          >
+            <p className='interests_close'>Close</p>
           </button>
-        </span>
-        <hr />
-        <form onSubmit={handleSubmit}>
+        </header>
+        <form className='user_profile_editing__form' onSubmit={handleSubmit}>
           {user.avatar ? (
-            <img
-              src={`http://localhost:5000${user.avatar}`}
-              alt={`${user.name} Avatar`}
-            />
+            <div className='personal-image'>
+              <label className='label'>
+                <input
+                  type='file'
+                  id='avatar-file'
+                  custom='file'
+                  onChange={uploadFileHandler}
+                />
+                <figure className='personal-figure'>
+                  <img
+                    src={`${user.avatar}`}
+                    className='personal-avatar'
+                    alt='avatar'
+                  />
+                  <figcaption className='personal-figcaption'>
+                    <img
+                      src='/assets/icons/camera-white.png'
+                      alt='camera logo'
+                    />
+                  </figcaption>
+                </figure>
+              </label>
+            </div>
           ) : (
-            <img
-              src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBSosYcX8VPrpuos_y96aBACA795fmUqppmQ&usqp=CAU'
-              alt='Default Avatar'
-            />
+            <div className='personal-image'>
+              <label className='label'>
+                <input
+                  type='file'
+                  id='avatar-file'
+                  custom='file'
+                  onChange={uploadFileHandler}
+                />
+                <figure className='personal-figure'>
+                  <img
+                    src={`https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBSosYcX8VPrpuos_y96aBACA795fmUqppmQ&usqp=CAU`}
+                    className='personal-avatar'
+                    alt='avatar'
+                  />
+                  <figcaption className='personal-figcaption'>
+                    <img
+                      src='/assets/icons/camera-white.png'
+                      alt='camera logo'
+                    />
+                  </figcaption>
+                </figure>
+              </label>
+            </div>
           )}
-          <input
-            type='file'
-            id='avatar-file'
-            custom='file'
-            onChange={uploadFileHandler}
-          />{' '}
+          <h2 className='name__title'>{user.name}</h2>
+          <img
+            className='profile_input_textname'
+            src='/assets/images/name_text.png'
+            alt='name'
+          />
           <input
             type='text'
             placeholder={user.name}
             value={name}
+            className='input__field'
             onChange={(e) => setName(e.target.value)}
+          />
+          <img
+            className='profile_input_textage'
+            src='/assets/images/age_text.png'
+            alt='age'
           />
           <input
             type='number'
             placeholder={user.age}
             value={age}
+            className='input__field2'
             onChange={(e) => setAge(e.target.value)}
+          />
+          <img
+            className='profile_input_textprofesion'
+            src='/assets/images/profesion_text.png'
+            alt='age'
           />
           <input
             type='text'
             placeholder={user.ocupation}
             value={ocupation}
+            className='input__field3'
             onChange={(e) => setOcupation(e.target.value)}
+          />
+          <img
+            className='profile_input_textcountry'
+            src='/assets/images/country_text.png'
+            alt='age'
           />
           <input
             type='text'
             placeholder={user.country}
             value={country}
+            className='input__field4'
             onChange={(e) => setCountry(e.target.value)}
+          />
+          <img
+            className='profile_input_textlanguage'
+            src='/assets/images/language_text.png'
+            alt='age'
           />
           <input
             type='text'
             placeholder={user.language}
             value={language}
+            className='input__field5'
             onChange={(e) => setLanguage(e.target.value)}
           />
-          <button type='submit'>Change Info</button>
+          <button className='secondary_button input__button' type='submit'>
+            Save Changes
+          </button>
         </form>
+        <Link className='interests_profile' to='/infostep2'>
+          {' '}
+          Change interests{' '}
+        </Link>
       </div>
     );
   } else {
     return (
-      <div className='user_profile'>
-        <Link to='/'> Close </Link>
-        <h1>Profile</h1>{' '}
-        <span>
-          <button onClick={handleEditing}>
-            <i className='far fa-edit'></i>
+      <div className='user_profile_editing'>
+        <img src='/assets/images/Vectorprofile.png' alt='vector'></img>
+        <header className='user_profile_editing__header'>
+          <i className='fas fa-chevron-left user_profile_editing__header__icon'>
+            <button className='hidden_button' onClick={handleButton}></button>
+          </i>
+          <button
+            className='user_profile_editing__header__button hidden_button'
+            onClick={handleEditing}
+          >
+            <img src='/assets/icons/EditarPerfil.png' alt='' />
           </button>
-        </span>
-        <hr />
+        </header>
         <div className='user_profile_info'>
           {user.avatar ? (
-            <img
-              src={`http://localhost:5000${user.avatar}`}
-              alt={`${user.name} Avatar`}
-            />
+            <div className='personal-image'>
+              <label className='label'>
+                <figure className='personal-figure'>
+                  <input
+                    type='file'
+                    id='avatar-file'
+                    custom='file'
+                    alt='avatar'
+                    onChange={uploadFileHandler}
+                  />
+                  <img
+                    src={`${user.avatar}`}
+                    className='personal-avatar'
+                    alt='avatar'
+                  />
+                  <figcaption className='personal-figcaption'>
+                    <img
+                      src='/assets/icons/camera-white.png'
+                      alt='camera logo'
+                    />
+                  </figcaption>
+                </figure>
+              </label>
+            </div>
           ) : (
-            <img
-              src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBSosYcX8VPrpuos_y96aBACA795fmUqppmQ&usqp=CAU'
-              alt='Default Avatar'
-            />
+            <div className='personal-image'>
+              <label className='label'>
+                <input
+                  type='file'
+                  id='avatar-file'
+                  custom='file'
+                  alt='avatar'
+                  onChange={uploadFileHandler}
+                />
+                <figure className='personal-figure'>
+                  <img
+                    src={`https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBSosYcX8VPrpuos_y96aBACA795fmUqppmQ&usqp=CAU`}
+                    className='personal-avatar'
+                    alt='avatar'
+                  />
+                  <figcaption className='personal-figcaption'>
+                    <img
+                      src='/assets/icons/camera-white.png'
+                      alt='camera logo'
+                    />
+                  </figcaption>
+                </figure>
+              </label>
+            </div>
           )}
-          <h3>{user.name}</h3>
-          <h3>{user.age}</h3>
-          <h3>{user.ocupation}</h3>
-          <h3>{user.country}</h3>
-          <h3>{user.language}</h3>
+          <h3 className='user_info'>{user.name}</h3>
+          <hr className='user_info_spacer' />
+          <h3 className='user_info2'>{user.age}</h3>
+          <hr className='user_info_spacer' />
+          <h3 className='user_info3'>{user.ocupation}</h3>
+          <hr className='user_info_spacer' />
+          <h3 className='user_info4'>{user.country}</h3>
+          <hr className='user_info_spacer' />
+          <h3 className='user_info5'>{user.language}</h3>
         </div>
-        <Link to='/infostep2'>
-          <button>Change Interests</button>
+        <Link className='interests_profile2' to='/'>
+          Log Out
         </Link>
-        <Link to='/'>Log Out</Link>
       </div>
     );
   }
