@@ -94,7 +94,11 @@ const RegisterStep3 = ({ history }) => {
 
   return (
     <div className='register3'>
-      <h2>We want to know you better</h2>
+      <img
+        src='/assets/images/register3vector.png'
+        className='register3image'
+      />
+      <h2 className='register3title'>We want to know you better</h2>
       <form onSubmit={handleSubmit}>
         <input
           type='number'
@@ -104,12 +108,14 @@ const RegisterStep3 = ({ history }) => {
           id='age'
           value={age}
           placeholder='Your Age'
+          className='register3input'
           onChange={(e) => setAge(e.target.value)}
         />
         <select
           id='language'
           name='language'
           value={language}
+          className='register3input2'
           onChange={(e) => setLanguage(e.target.value)}
         >
           <option value=''>Your Language</option>
@@ -190,6 +196,7 @@ const RegisterStep3 = ({ history }) => {
           id='country'
           name='country'
           value={country}
+          className='register3input3'
           onChange={(e) => setCountry(e.target.value)}
         >
           <option value=''>Your Country</option>
@@ -488,9 +495,12 @@ const RegisterStep3 = ({ history }) => {
           id='ocupation'
           value={ocupation}
           placeholder='Your ocupation'
+          className='register3input4'
           onChange={(e) => setOcupation(e.target.value)}
         />
-        <button type='submit'>Submit</button>
+        <button className='primary_button register3button ' type='submit'>
+          Send
+        </button>
       </form>
     </div>
   );

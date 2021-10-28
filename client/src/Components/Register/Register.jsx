@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { Link } from 'react-router-dom';
 import { UserContext } from '../../Contexts/userContext';
 import axios from 'axios';
 import LoginGoogleComp from '../LoginGoogleComp';
@@ -62,7 +61,7 @@ const Register = ({ location, history }) => {
             );
             setRegisterInfo({});
             history.push('/register/step2');
-          } 
+          }
           // else {
           //   setRegisterInfo({});
           // }
@@ -99,48 +98,100 @@ const Register = ({ location, history }) => {
   };
 
   return (
-    <div className='register'>
-      <button onClick={handleGoHome}>X</button>
-      <h2>Create Account</h2>
+    <section className='regpage'>
+      <a href='/' className='registerclose' onClick={handleGoHome}>
+        Close
+      </a>
+      <h2 className='registertitleacc1'>
+        <span>Create Account</span>
+      </h2>
       <LoginGoogleComp />
-      <p>or with your mail</p>
+      <hr className='spacerreg1' />
+      <p className='registertextmail'>or with your mail</p>
+      <hr className='spacerreg2' />
       <form onSubmit={handleSubmit}>
+        <img
+          className='registertextname'
+          src='/assets/images/text_registername.png'
+          alt='name'
+        />
         <input
           type='text'
           required
           placeholder='Name'
           value={name}
+          className='input_register_field1'
           onChange={(e) => setName(e.target.value)}
+        />
+        <img
+          className='registertextemail'
+          src='/assets/images/text_registeremail.png'
+          alt='email'
         />
         <input
           type='text'
           required
           placeholder='Email'
           value={email}
+          className='input_register_field2 '
           onChange={(e) => setEmail(e.target.value)}
+        />
+        <img
+          className='registertextpass1'
+          src='/assets/images/text_registerpass1.png'
+          alt='pass1'
         />
         <input
           type={passwordShown ? 'text' : 'password'}
           required
           placeholder='Password'
           value={password}
+          className='input_register_field3'
           onChange={(e) => setPassword(e.target.value)}
         />{' '}
-        <i className='fas fa-eye-slash' onClick={togglePassword}></i>
+        {passwordShown ? (
+          <i className='fas fa-eye-slash regeye1' onClick={togglePassword}></i>
+        ) : (
+          <i className='fas fa-eye regeye1' onClick={togglePassword}></i>
+        )}
+        <img
+          className='registertextpass2'
+          src='/assets/images/text_registerpass2.png'
+          alt='pass2'
+        />
         <input
           type={confirmPasswordShown ? 'text' : 'password'}
           required
           placeholder='Confirm Password'
           value={confirmPassword}
+          className='input_register_field4'
           onChange={(e) => setConfirmPassword(e.target.value)}
         />{' '}
-        <i className='fas fa-eye-slash' onClick={toggleConfirmPassword}></i>
-        <input type='checkbox' required /> By signing up, you agree to our{' '}
-        <Link to='/'>Terms</Link> and that you have read our{' '}
-        <Link to='/'>Privacy Policy</Link>
-        <button type='submit'>Sign Up</button>
+        {confirmPasswordShown ? (
+          <i
+            className='fas fa-eye-slash regeye2'
+            onClick={toggleConfirmPassword}
+          ></i>
+        ) : (
+          <i className='fas fa-eye regeye2' onClick={toggleConfirmPassword}></i>
+        )}
+        <div className='container'>
+          <div className='round'>
+            <input className='checkregister' type='checkbox' id='checkbox' />
+            <label htmlFor='checkbox'></label>
+          </div>
+        </div>
+        <p className='checkregistertext'>
+          By signing up, you agree to our{' '}
+          <span className='highlight'>Terms and Conditions</span> and that you
+          have read our <span className='highlight'>Privacy Policy</span>,
+          including the <span className='highlight'>Cookies Policy</span>.
+        </p>
+        <button className='primary_button registerbutton' type='submit'>
+          Sign Up
+        </button>
       </form>
-    </div>
+    </section>
   );
 };
 

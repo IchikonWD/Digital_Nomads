@@ -20,6 +20,10 @@ body {
   }
 }
 
+.primary_button_disabled {
+  @include primary-button-disabled;
+}
+
 .hidden_button {
   border: none;
   background: none;

@@ -236,7 +236,7 @@ const City = ({ location, match, history }) => {
     }
   };
 
-  if (reviewing === true && user.isLoggedIn === true) {
+  if (reviewing === true) {
     return (
       <div className='review'>
         <header className='review__header'>
@@ -440,41 +440,42 @@ const City = ({ location, match, history }) => {
     );
   } else if (reviewing === false) {
     return (
-      <div>
-        <img src={image} alt={`${cityName}`} />
-        <h2>About {cityName}</h2>
-        <p>{description}</p>
-        <button onClick={handleButton}>Write a Review</button>
-
-        <div>
-          <i className='fas fa-wifi'></i>
-          <span>Internet connection speed</span>
-          <span>{internetRating}/5</span>
+      <div className='maincity'>
+        <img className='mainimage' src={image} alt={`${cityName}`} />
+        <h2 className='maintitle1'>About {cityName}</h2>
+        <p className='maindescription'>{description}</p>
+        <button className='primary_button mainbutton' onClick={handleButton}>
+          Write a Review
+        </button>
+        <div className='containercity'>
+          <span className='connection'>Internet connection speed</span>
         </div>
-        <div>
-          <i className='fas fa-meh-blank'></i>
-          <span>Safety</span>
-          <span>{safetyRating}/5</span>
+        <div className='containercity2'>
+          <span className='safety'>Safety</span>
         </div>
-        <div>
-          <i className='fas fa-suitcase'></i>
-          <span>Coworking spaces nearby</span>
-          <span>{coworkingRating === 1 ? 'Yes' : 'No'}</span>
+        <div className='containercity3'>
+          <span className='coworking'>Coworking spaces nearby</span>
         </div>
-        <div>
-          <i className='fas fa-sun'></i>
-          <span>Sunny days a year</span>
-          <span>{sunnyDays}</span>
+        <div className='containercity4'>
+          <span className='sunnydays'>Sunny days a year</span>
         </div>
-        <div>
-          <i className='fas fa-suitcase'></i>
-          <span>Cost of living</span>
-          <span> {livingCostMoney}$</span>
+        <div className='containercity5'>
+          <span className='constofliving'>Cost of living</span>
         </div>
-
+        <img
+          className='fakeheader'
+          src='/assets/images/Rectangle_261.png'
+          alt=''
+        />
+        <img
+          className='review1'
+          src='/assets/images/Andrew_review.png'
+          alt=''
+        />
+        <img className='review2' src='/assets/images/Emily_review.png' alt='' />
         <div className='city__reviews'>
-          <h3>Reviews</h3>
-          {combinedReview.map((review) => (
+          <h3 className='city_reviews_text'>Reviews</h3>
+          {/* {combinedReview.map((review) => (
             <div key={review.review._id}>
               <img
                 src={`${review.userAvatar}`}
@@ -496,8 +497,15 @@ const City = ({ location, match, history }) => {
               </span>
               <p>{review.review.comment}</p>
             </div>
-          ))}
+          ))} */}
         </div>
+        <button className='hidden_button'>
+          <img
+            className='fakeArrow'
+            src='/assets/images/arrow.png'
+            alt='arrow'
+          />
+        </button>
       </div>
     );
   } else {

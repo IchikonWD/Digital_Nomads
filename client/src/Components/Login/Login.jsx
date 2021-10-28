@@ -89,12 +89,20 @@ const Login = ({ history }) => {
 
   return (
     <div className='login'>
+      <p className='loginwelcometext'>Welcome back</p>
+      <img
+        className='loginlogo'
+        src='/assets/images/logoregister2.png'
+        alt='logo'
+      />
       <form onSubmit={handleSubmit}>
+        <img className='formbk' src='/assets/images/form_bk.png' alt='' />
         <input
           type='text'
           required
           placeholder='Email'
           value={email}
+          className='input__login'
           onChange={(e) => setEmail(e.target.value)}
         />
         <input
@@ -102,10 +110,24 @@ const Login = ({ history }) => {
           required
           placeholder='Password'
           value={password}
+          className='input__login2'
           onChange={(e) => setPassword(e.target.value)}
         />
-        <i className='fas fa-eye-slash' onClick={togglePassword}></i>
-        <button type='submit'>Sign In</button>
+        {passwordShown ? (
+          <i className='fas fa-eye-slash hideye' onClick={togglePassword}></i>
+        ) : (
+          <i className='fas fa-eye hideye' onClick={togglePassword}></i>
+        )}
+        <p className='forgottenpassword'>Have you forgotten your password? </p>
+        <p className='accounttext'>
+          You don't have an account?{' '}
+          <a className='signuptext' href='/register'>
+            Sign Up
+          </a>
+        </p>{' '}
+        <button className='primary_button loginbutton' type='submit'>
+          Sign In
+        </button>
       </form>
     </div>
   );

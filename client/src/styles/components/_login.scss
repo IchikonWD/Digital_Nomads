@@ -1,0 +1,108 @@
+.login {
+  height: 660px;
+  background-color: $accent-color;
+}
+
+.loginwelcometext {
+  position: absolute;
+  left: 26.4%;
+  right: 28.53%;
+  top: 20px;
+  bottom: 81.87%;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 32px;
+  text-align: center;
+  color: #fbfbf8;
+}
+
+.loginlogo {
+  position: absolute;
+  width: 256.84px;
+  height: 100.53px;
+  left: 40px;
+  top: 120px;
+}
+.formbk {
+  position: absolute;
+  width: 375px;
+  height: 400.05px;
+  left: 0px;
+  top: 265px;
+  background: #fbfbf8;
+  border-radius: 40px 40px 0 0;
+}
+.loginbutton {
+  position: absolute;
+  width: 328px;
+  height: 56px;
+  left: 21.5px;
+  top: 589px;
+}
+.accounttext {
+  position: absolute;
+  width: 180px;
+  height: 22px;
+  left: 60.06px;
+  top: 536px;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 22px;
+  text-align: center;
+  color: #4d4d4d;
+}
+.signuptext {
+  position: absolute;
+  width: 58px;
+  height: 22px;
+  color: $accent-color;
+}
+.forgottenpassword {
+  position: absolute;
+  width: 232px;
+  height: 22px;
+  left: 71.06px;
+  top: 487px;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 22px;
+  text-align: center;
+  color: #e77c40;
+}
+.input__login {
+  position: absolute;
+  width: 324px;
+  height: 45px;
+  left: 25.5px;
+  top: 325px;
+}
+
+.login input::placeholder {
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  padding: 10px;
+  color: #808080;
+}
+
+.input__login2 {
+  position: absolute;
+  width: 324px;
+  height: 45px;
+  left: 24px;
+  top: 412px;
+}
+.hideye {
+  position: absolute;
+  left: 85.8%;
+  right: 6.79%;
+  top: 64.47%;
+}

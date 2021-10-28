@@ -19,22 +19,43 @@ const RegisterStep2 = ({ history }) => {
     }
   }, [user]);
 
+  // use effect split name into first and last name
+  useEffect(() => {
+    if (name) {
+      const nameArray = name.split(' ');
+      const firstName = nameArray[0];
+      setName(firstName);
+    }
+  }, [name]);
+
   const handleButton = () => {
     history.push('/registerstep3');
   };
 
   return (
     <div className='register2'>
+      <img
+        className='register2image'
+        src='/assets/images/register2vector.png'
+        alt=''
+      />
+      <img
+        className='register2logo'
+        src='/assets/images/logoregister2.png'
+        alt='logo'
+      />
       {name === '' ? (
         <h2>You're not supposed to be seeing this</h2>
       ) : (
-        <h2>Welcome {name}</h2>
+        <h2 className='register2title'>Hi {name}, Welcome</h2>
       )}
-      <p>
+      <p className='register2text'>
         In order to guide your first steps and personalize you experience, we
-        have a couple of questions for you
+        have <br /> a few questions for you
       </p>
-      <button onClick={handleButton}>Next</button>
+      <button className='primary_button register2button' onClick={handleButton}>
+        Next
+      </button>
     </div>
   );
 };
