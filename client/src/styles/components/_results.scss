@@ -1,0 +1,78 @@
+.results {
+    width: 375px;
+}
+.best-matches {
+    position: absolute;
+    left: 5%;
+    top: 10%;
+    bottom: 96.07%;
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 32px;
+    color: #4D4D4D;
+}
+.top-cities {
+    position: absolute;
+    left: 5%;
+    right: 6.4%;
+    top: 15%;
+    bottom: 94.34%;
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 28px;
+    color: #4D4D4D;
+}
+.vector_profile_1 {
+position: absolute;
+width: 375px;
+height: 701.17px;
+left: -59px;
+top: 214px;
+background: #B2CDC4;
+opacity: 0.2;
+}
+
+.results-container {
+    position: absolute;
+    width: 328px;
+    height: 2984px;
+    left: 24px;
+    top: 165px;
+}
+.results-card {
+    margin-bottom: 36px;
+    width: 328px;
+    height: 392px;
+    box-sizing: border-box;
+
+}
+
+.results-image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+
+.results-name {
+    position: relative;
+    height: 64px;
+    width: 100%;
+    left: 0px;
+    top: -65px;
+    // color: #FBFBF8;;
+    color:  black;
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;  
+    text-align: center;
+    box-sizing: border-box;
+    letter-spacing: 0em;
+}

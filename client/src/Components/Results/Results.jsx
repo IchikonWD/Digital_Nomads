@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 import { FilterContext } from '../../Contexts/filterContext';
+import Header from '../Header/Header'
 
 const Results = ({ history }) => {
   const { filters } = useContext(FilterContext);
@@ -55,17 +56,23 @@ const Results = ({ history }) => {
   }, [filters, history]);
 
   return (
-    <div className='results'>
-      <h2>Your best matches</h2>
-      <p>Top best spanish cities</p>
-      {filteredCities.map((city) => (
-        <div key={city.name} className='results__card'>
-          <Link to={`/city/${city.name.replace(/ /g, '_')}`}>
-            <img src={city.image} alt={city.name} />
-          </Link>
-          <h2>{city.name}</h2>
+    <div>
+      <Header />
+      <div className='results'>
+        <h2 className="best-matches">Your best matches</h2>
+        <p className="top-cities">Top best spanish cities</p>
+        <img className="vector_profile_1" src='/assets/images/Vector_profile_1.png' alt='vector'></img>
+        <div className="results-container">
+          {filteredCities.map((city) => (
+            <div key={city.name} className='results-card'>
+              <Link to={`/city/${city.name.replace(/ /g, '_')}`}>
+                <img src={city.image} alt={city.name} className="results-image" />
+              </Link>
+              <p className="results-name">{city.name}</p>
+            </div>
+          ))}
         </div>
-      ))}
+      </div>
     </div>
   );
 };
