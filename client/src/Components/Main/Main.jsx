@@ -22,7 +22,7 @@ import RatingModal from '../RatingModal/RatingModal';
 
 const Main = () => {
   return (
-    <main>
+    <main className="main">
       <Router>
         <Switch>
           <Route path='/' component={Home} exact />

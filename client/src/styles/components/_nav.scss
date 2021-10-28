@@ -1,79 +1,137 @@
-
 .nav {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
+  height: 85px;
+  align-items: center;
+  &__burguermenu {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+
+    height: 14px;
+    width: 20px;
+
+    }
+  &__logo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    // position: absolute;
+    height: 28px;
+    width: 157px;
+    // left: 112px;
+    top: 45px;
+    border-radius: 0px;
+    &__logo1 {
+      // top: 4.76%;
+      // bottom: 4.76%;
+    // position: sticky;
+      width: 37px;
+      height: 25px;
+  
+    }
+    &__logo2 {
+      height: 41px;
+      width: 80px;
+      margin-left: 8px;
+      // top: 43.999755859375px;
+    }
+  }
+  &__login_button {
+    height: 22px;
+    width: 47px;
+    top: 48px;
+  }
+  &__login_button_link {
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: center;
+    text-decoration-line: underline;
+    color: #ff9679;
+  }
 }
 
 //! HERE STARTS BURGUER MENU STYLING
 #page-wrap {
     text-align: center;
-  
-    /* Prevent sidebar from showing a scrollbar on page */
+      /* Prevent sidebar from showing a scrollbar on page */
     overflow: auto;
   }
   
   /* Individual item */
   .bm-item {
     display: inline-block;
-  
-    /* Our sidebar item styling */
+      /* Our sidebar item styling */
     text-decoration: none;
     margin-bottom: 10px;
-    color: #d1d1d1;
+    color: #1A1A1A;
     transition: color 0.2s;
+    height: 14px;
+    width: 20px;
   }
   
   /* Change color on hover */
   .bm-item:hover {
-    color: white;
+    color: #1A1A1A;
   }
   
   /* The rest copied directly from react-burger-menu docs */
-  
-  /* Position and sizing of burger button */
+    /* Position and sizing of burger button */
   .bm-burger-button {
     position: fixed;
-    width: 36px;
-    height: 30px;
-    left: 36px;
-    top: 36px;
+    width: 20px;
+    height: 14px;
+    left: 30px;
   }
   
   /* Color/shape of burger icon bars */
   .bm-burger-bars {
-    background: #373a47;
+    background:#1a1a1a
   }
   
   /* Position and sizing of clickable cross button */
   .bm-cross-button {
     height: 24px;
     width: 24px;
+    color: #1A1A1A;
   }
   
   /* Color/shape of close button cross */
   .bm-cross {
-    background: #bdc3c7;
+    background: #1A1A1A;
+  }
+  .bm-menu-wrap {
+    position: fixed;
+    height: 100%;
   }
   
   /* General sidebar styles */
   .bm-menu {
-    background: #373a47;
+    background: #FBFBF8;;
     padding: 2.5em 1.5em 0;
-    font-size: 1.15em;
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 32px;
   }
   
   /* Morph shape necessary with bubble or elastic */
   .bm-morph-shape {
-    fill: #373a47;
+    fill: #1A1A1A;
   }
   
   /* Wrapper for item list */
   .bm-item-list {
-    color: #b8b7ad;
+    color: #1A1A1A;
   }
   
   /* Styling of overlay */
   .bm-overlay {
     background: rgba(0, 0, 0, 0.3);
   }
+//! HERE ENDS BURGUER MENU STYLING
