@@ -204,6 +204,20 @@ const City = ({ location, match, history }) => {
     setCoworkingReview(true);
   };
 
+  const handleGoToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+  const handleButtonHome = () => {
+    history.push('/');
+  };
+  //! BORRAME
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (completeReview === '') {
@@ -441,32 +455,65 @@ const City = ({ location, match, history }) => {
   } else if (reviewing === false) {
     return (
       <div className='maincity'>
+        <i className='fas fa-chevron-left review__header__icon white'>
+          <button className='hidden_button' onClick={handleButtonHome}></button>
+        </i>
         <img className='mainimage' src={image} alt={`${cityName}`} />
         <h2 className='maintitle1'>About {cityName}</h2>
+        <img className='lacito' src='/assets/images/lacito.png' alt='' />
         <p className='maindescription'>{description}</p>
         <button className='primary_button mainbutton' onClick={handleButton}>
           Write a Review
         </button>
+        <img
+          className='internetlogocity'
+          src='/assets/images/internetcity.png'
+          alt=''
+        />
+        <img className='rating1' src='/assets/images/5.png' alt='' />
+        <img className='rating2' src='/assets/images/5.png' alt='' />
+        <img className='rating3' src='/assets/images/Yes.png' alt='' />
+        <img className='rating4' src='/assets/images/302.png' alt='' />
+        <img className='rating5' src='/assets/images/5.png' alt='' />
+
         <div className='containercity'>
           <span className='connection'>Internet connection speed</span>
         </div>
+        <img
+          className='ladronlogocity'
+          src='/assets/images/ladron.png'
+          alt=''
+        />
         <div className='containercity2'>
           <span className='safety'>Safety</span>
         </div>
+        <img
+          className='coworkinglogocity'
+          src='/assets/images/Coworkings.png'
+          alt=''
+        />
         <div className='containercity3'>
           <span className='coworking'>Coworking spaces nearby</span>
         </div>
+        <img className='sunnylogocity' src='/assets/images/Sunny.png' alt='' />
         <div className='containercity4'>
           <span className='sunnydays'>Sunny days a year</span>
         </div>
+        <img
+          className='livinglogocity'
+          src='/assets/images/costoflife.png'
+          alt=''
+        />
         <div className='containercity5'>
           <span className='constofliving'>Cost of living</span>
         </div>
-        <img
-          className='fakeheader'
-          src='/assets/images/Rectangle_261.png'
-          alt=''
-        />
+        <a href='/'>
+          <img
+            className='fakeheader'
+            src='/assets/images/Rectangle_261.png'
+            alt=''
+          />
+        </a>
         <img
           className='review1'
           src='/assets/images/Andrew_review.png'
@@ -499,7 +546,7 @@ const City = ({ location, match, history }) => {
             </div>
           ))} */}
         </div>
-        <button className='hidden_button'>
+        <button className='hidden_button' onClick={handleGoToTop}>
           <img
             className='fakeArrow'
             src='/assets/images/arrow.png'
