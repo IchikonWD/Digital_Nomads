@@ -1,8 +1,220 @@
 .home {
-  height: 1500px;
+  display: flex;
+  flex-direction: column;
+  height: 1680px;
+  &__home1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background: url(../../assets/img/BubbleCoral1.svg) ;
+    background-size: cover;
+  }
+  &__form_search{
+    margin-top: 18px;
+  }
+  &__input_search {
+    width: 328px;
+    height: 48px;
+    left: 23.59px;
+    padding-left: 50px;
+    background: $light-blue;
+    // background: url(../../assets/img/lupa.png) no-repeat scroll 7px 7px;
+    border: 1px solid $neutrals-color-light;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px -1px rgba(0, 0, 0, 0.12);
+    border-radius: 53px;
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+  }
+  &__home1_core {
+    margin-top: 58px;
+    display: flex;
+    flex-direction: row;
+    width: 375px;
+  }
+  &__home1_imgvertical{
+    height: 250px;
+    max-width:100%;    
+  }
+  &__cta_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__btn_explore {
+    width: 198px;
+    height: 56px;
+    background: #FBFBF8;
+    border: 2px solid #FF9679;
+    box-sizing: border-box;
+    border-radius: 40px;
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    color: #FF9679
+  }
+  &__cta_explore {
+    text-align: center;
+    height: 180px;
+    width: 160px;
+    left: 103.091796875px;
+    top: 74px;
+    font-family: $Raleway;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: $text-color;
+  }
+  &__home1_imghorizontal{
+    margin-top: 25px;
+    height: 145px;
+  }
+  
+}
+.suggestions_container {
+  position: absolute;
+  left: 6.4%;
+  right: 6.13%;
+  top: 24.45%;
+  bottom: 60.99%;
+  margin-top: 5px;
+}
+.suggestion {
+  width: 328px;
+  height: 50px;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+  background: #F8FAFF;
+  border: 1px solid #F4F2EB;
+  box-sizing: border-box;
+  border-radius: 4px;
+  color: #4D4D4D;
+  align-items: center;
+  text-align: center;
+  padding-top: 15px;
+  margin: 0px;
 }
 
-.cDZcFW img {
-  width: 284.5px;
-  height: 354.54px;
+//! HOME 2
+.home__home2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background: url(../../assets/img/Bubble_verde_claro_1.svg);
+  background-size: cover;
+  height: 624px;
 }
+.home__home2_info {
+  height: 128px;
+  width: 309px;
+  font-family: Raleway;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 32px;
+  letter-spacing: 0em;
+  justify-content: center;
+  text-align:left;
+}
+.home__home2_list {
+  position: absolute;
+width: 223px;
+height: 268px;
+left: 40px;
+top: 828px;
+display: flex;
+flex-direction: column;
+
+}
+.home__home2_list > li{
+  list-style-image: url(../../assets/img/list_style.png);
+  margin-bottom:20px ; 
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 28px;
+  color: #4D4D4D;
+  position: static;
+  width: 183px;
+  height: 28px;
+  left: 40px;
+  top: 0px;
+}
+.paddle_surf_img {
+  position: absolute;
+  left: 58.4%;
+  right: -44%;
+  top: 110%;
+  bottom: 35.3%;
+  z-index: -1;
+}
+
+.home3 {
+  position: absolute;
+  width: 513px;
+  height: 395px;
+  left: -9px;
+  top: 1208px;
+  overflow-x: scroll;
+  // background:  url(../../assets/img/Vector7.png);
+  background-position: left center ;
+}
+
+
+.slider_header {
+  position: absolute;
+left: 6.13%;
+right: 6.67%;
+top: -6%;
+bottom: 29.29%;
+
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #4D4D4D;
+}
+.carousel__card img {
+// width: 284.5px;
+height: 354.54px;
+
+}
+.carousel_title {
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color:  black;
+  font-family: Raleway;
+font-style: normal;
+font-weight: bold;
+font-size: 24px;
+line-height: 32px;
+
+text-align: center;
+  }
+
+
+
+
