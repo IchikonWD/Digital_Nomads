@@ -59,12 +59,27 @@ const InfoStep1 = ({ history }) => {
 
   return (
     <div className='info-step1'>
-      <h3>
+      <img
+        className='register2image'
+        src='/assets/images/register2vector.png'
+        alt=''
+      />
+      <img
+        className='register2logo'
+        src='/assets/images/logoregister2.png'
+        alt='logo'
+      />
+      <h3 className='register2title infostep1title'>
         Do you want to meet other digital nomads of your next destination?
       </h3>
 
       <form onSubmit={handleSubmit}>
-        <select name='city' id='city' onChange={handleChange}>
+        <select
+          className='register3input4 infostep1input'
+          name='city'
+          id='city'
+          onChange={handleChange}
+        >
           <option value=''>Select a city</option>
           {cities.map((city) => (
             <option key={city.id} value={city.name}>
@@ -73,14 +88,21 @@ const InfoStep1 = ({ history }) => {
           ))}
         </select>
         {selectedCity !== '' ? (
-          <button>Sure!</button>
+          <button className='primary_button infostep1button'>Sure!</button>
         ) : (
-          <button type='submit' disabled>
+          <button
+            className='primary_button_disabled infostep1button'
+            type='submit'
+            disabled
+          >
             Sure!
           </button>
         )}
       </form>
-      <Link to='/'> Skip </Link>
+      <Link className='interests_close infostepclose' to='/'>
+        {' '}
+        Skip{' '}
+      </Link>
     </div>
   );
 };
