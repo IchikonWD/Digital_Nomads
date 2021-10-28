@@ -1,0 +1,48 @@
+.register2 {
+  height: 100%;
+}
+
+.register2image {
+  position: absolute;
+  top: 70px;
+  z-index: -1;
+}
+.register2logo {
+  position: absolute;
+  width: 256.84px;
+  height: 90.59px;
+  left: 42px;
+  top: 172px;
+}
+.register2title {
+  position: absolute;
+  width: 324px;
+  height: 34px;
+  left: 30px;
+  top: 280px;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 30px;
+  color: #f4f2eb;
+}
+.register2text {
+  position: absolute;
+  top: 360px;
+  left: 35px;
+  width: 80%;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  font-feature-settings: 'liga' off;
+  color: #f4f2eb;
+}
+.register2button {
+  position: absolute;
+  margin-top: 396px;
+  left: 120px;
+}
