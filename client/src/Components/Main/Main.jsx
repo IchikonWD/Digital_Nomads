@@ -17,11 +17,12 @@ import City from '../City';
 import Explore1 from '../Explore1';
 import Explore2 from '../Explore2';
 import Results from '../Results/Results';
-import RatingModal from '../RatingModal/RatingModal';
+import RatingModal from '../RatingModal';
+import Prechat from '../Prechat';
 
 const Main = () => {
   return (
-    <main className="main">
+    <main className='main'>
       <Router>
         <Switch>
           <Route path='/' component={Home} exact />
@@ -37,6 +38,7 @@ const Main = () => {
           <Route path='/infostep3' component={InfoStep3} />
           <Route path='/infostep4' component={InfoStep4} />
           <Route path='/login' component={Login} />
+          <Route path='/people' component={Prechat} />
           <Route path='/explore1' component={Explore1} />
           <Route path='/explore2' component={Explore2} />
           <Route path='/results' component={Results} />
