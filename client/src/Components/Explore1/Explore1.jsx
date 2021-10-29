@@ -121,6 +121,7 @@ const Explore1 = ({ history }) => {
   //! MutiRangeSlider Functions
   return (
     <div className='explore'>
+      <img onClick={handleFilters} className="explore1_image" src="/assets/images/explore_1.png" alt="explore1_image" />
       <h2>Choose your nomad needs</h2>
       <form onSubmit={handleFilters}>
         <div className='needsContainer'>
@@ -147,7 +148,7 @@ const Explore1 = ({ history }) => {
                     minValRefInternet.current = value;
                   }}
                   className='thumb thumb--left'
-                  // style={{ zIndex: minValInternet > 5 - 100 && "5" }}
+                // style={{ zIndex: minValInternet > 5 - 100 && "5" }}
                 />
                 <input
                   type='range'
@@ -195,7 +196,7 @@ const Explore1 = ({ history }) => {
                     minValRefSafety.current = value;
                   }}
                   className='thumb thumb--left'
-                  // style={{ zIndex: minValSafety > 5 - 100 && "5" }}
+                // style={{ zIndex: minValSafety > 5 - 100 && "5" }}
                 />
                 <input
                   type='range'
@@ -244,7 +245,7 @@ const Explore1 = ({ history }) => {
                     minValRefLiving.current = value;
                   }}
                   className='thumb thumb--left'
-                  // style={{ zIndex: minValLiving > 5 - 100 && "5" }}
+                // style={{ zIndex: minValLiving > 5 - 100 && "5" }}
                 />
                 <input
                   type='range'

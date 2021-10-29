@@ -5,7 +5,6 @@ import React, {
   useRef,
   useContext,
 } from 'react';
-
 import ToggleSwitch from '../ToggleSwitch/ToggleSwitch';
 import Explore from '../Explore/Explore';
 import { FilterContext } from '../../Contexts/filterContext';
@@ -105,6 +104,7 @@ const Explore2 = ({ history }) => {
 
   return (
     <div className='explore2'>
+      <img onClick={handleFilters2} className="explore1_image" src="/assets/images/explore_2.png" alt="explore1_image" />
       <h2>Choose your nomad needs</h2>
       <form onSubmit={handleFilters2}>
         <div className='needsContainer'>

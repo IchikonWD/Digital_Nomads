@@ -147,160 +147,196 @@ const InfoStep2 = ({ history }) => {
     );
     history.push('/infostep3');
   };
-
+  const handleButton = async (e) => {
+    e.preventDefault();
+    history.push('/');
+  };
   return (
     <div className='info-step2'>
-      <h2>Meet other digital nomads</h2>
-      <form onSubmit={handleInterests}>
-        <h4>Sport activities</h4>
-        <input
-          type='checkbox'
-          name='Surf'
-          id='Surf'
-          checked={surf}
-          value={surf}
-          onChange={() => setSurf(!surf)}
-        />{' '}
-        Surf
-        <input
-          type='checkbox'
-          name='Fitness'
-          id='Fitness'
-          checked={fitness}
-          value={fitness}
-          onChange={() => setFitness(!fitness)}
-        />{' '}
-        Fitness
-        <input
-          type='checkbox'
-          name='Volley'
-          id='Volley'
-          checked={volley}
-          value={volley}
-          onChange={() => setVolley(!volley)}
-        />{' '}
-        Volley
-        <input
-          type='checkbox'
-          name='Paddle'
-          id='Paddle'
-          checked={paddle}
-          value={paddle}
-          onChange={() => setPaddle(!paddle)}
-        />{' '}
-        Paddle
-        <input
-          type='checkbox'
-          name='Climbing'
-          id='Climbing'
-          checked={climbing}
-          value={climbing}
-          onChange={() => setClimbing(!climbing)}
-        />{' '}
-        Climbing
-        <input
-          type='checkbox'
-          name='Running'
-          id='Running'
-          checked={running}
-          value={running}
-          onChange={() => setRunning(!running)}
-        />{' '}
-        Running
-        <input
-          type='checkbox'
-          name='Football'
-          id='Football'
-          checked={football}
-          value={football}
-          onChange={() => setFootball(!football)}
-        />{' '}
-        Football
-        <input
-          type='checkbox'
-          name='Trecking'
-          id='Trecking'
-          checked={trecking}
-          value={trecking}
-          onChange={() => setTrecking(!trecking)}
-        />{' '}
-        Trecking
-        <h4>Cultural activities</h4>
-        <input
-          type='checkbox'
-          name='Museums'
-          id='Museums'
-          checked={museums}
-          value={museums}
-          onChange={() => setMuseums(!museums)}
-        />{' '}
-        Museums
-        <input
-          type='checkbox'
-          name='Bookstores'
-          id='Bookstores'
-          checked={bookstores}
-          value={bookstores}
-          onChange={() => setBookstores(!bookstores)}
-        />{' '}
-        Bookstores
-        <input
-          type='checkbox'
-          name='Theaters'
-          id='Theaters'
-          checked={theaters}
-          value={theaters}
-          onChange={() => setTheaters(!theaters)}
-        />{' '}
-        Theaters
-        <input
-          type='checkbox'
-          name='Movies'
-          id='Movies'
-          checked={movies}
-          value={movies}
-          onChange={() => setMovies(!movies)}
-        />{' '}
-        Movies
-        <input
-          type='checkbox'
-          name='Guided visits'
-          id='Guided visits'
-          checked={guidedVisits}
-          value={guidedVisits}
-          onChange={() => setGuidedVisits(!guidedVisits)}
-        />{' '}
-        Guided visits
-        <input
-          type='checkbox'
-          name='Concerts'
-          id='Concerts'
-          checked={concerts}
-          value={concerts}
-          onChange={() => setConcerts(!concerts)}
-        />{' '}
-        Concerts
-        <input
-          type='checkbox'
-          name='Parks'
-          id='Parks'
-          checked={parks}
-          value={parks}
-          onChange={() => setParks(!parks)}
-        />{' '}
-        Parks
-        <input
-          type='checkbox'
-          name='Rural tourism'
-          id='Rural tourism'
-          checked={ruralTourism}
-          value={ruralTourism}
-          onChange={() => setRuralTourism(!ruralTourism)}
-        />{' '}
-        Rural tourism
-        <InfoSteps step1 />
-        <button type='submit'>Next</button>
-      </form>
+      <header className='user_profile_editing__header'>
+        <i className='fas fa-chevron-left user_profile_editing__header__icon'>
+          <button className='hidden_button' onClick={handleButton}></button>
+        </i>
+        <button
+          className='info-step2-close-button hidden_button'
+          onClick={handleButton}
+        >
+          <p className='info-step2-close-caption'>Close</p>
+        </button>
+      </header>
+      <div className="info-step2-core">
+        <h2 className="info-step2-cta">Meet other digital nomads</h2>
+        <form onSubmit={handleInterests}>
+          <div className="sports">
+            <h4 className="sports-title">Sport activities</h4>
+            <input
+              type='checkbox'
+              name='Surf'
+              id='Surf'
+              checked={surf}
+              value={surf}
+              onChange={() => setSurf(!surf)}
+              className="surf"
+            />{' '}
+            <h3 className="textsurf step2text">Surf</h3>
+            <input
+              type='checkbox'
+              name='Fitness'
+              id='Fitness'
+              checked={fitness}
+              value={fitness}
+              onChange={() => setFitness(!fitness)}
+              className="fitness"
+            />{' '}
+            <h3 className="textfitness step2text">Fitness</h3>
+            <input
+              type='checkbox'
+              name='Volley'
+              id='Volley'
+              checked={volley}
+              value={volley}
+              onChange={() => setVolley(!volley)}
+              className="volley"
+            />{' '}
+            <h3 className="textvolley step2text">Volley</h3>
+            <input
+              type='checkbox'
+              name='Paddle'
+              id='Paddle'
+              checked={paddle}
+              value={paddle}
+              onChange={() => setPaddle(!paddle)}
+              className="paddle"
+            />{' '}
+            <h3 className="textpaddle step2text">Paddle</h3>
+            <input
+              type='checkbox'
+              name='Climbing'
+              id='Climbing'
+              checked={climbing}
+              value={climbing}
+              onChange={() => setClimbing(!climbing)}
+              className="climbing"
+            />{' '}
+            <h3 className="textclimbing step2text">Climbing</h3>
+            <input
+              type='checkbox'
+              name='Running'
+              id='Running'
+              checked={running}
+              value={running}
+              onChange={() => setRunning(!running)}
+              className="running"
+            />{' '}
+            <h3 className="textrunning step2text">Running</h3>
+            <input
+              type='checkbox'
+              name='Football'
+              id='Football'
+              checked={football}
+              value={football}
+              onChange={() => setFootball(!football)}
+              className="football"
+            />{' '}
+            <h3 className="textfootball step2text">Football</h3>
+            <input
+              type='checkbox'
+              name='Trecking'
+              id='Trecking'
+              checked={trecking}
+              value={trecking}
+              onChange={() => setTrecking(!trecking)}
+              className="trecking"
+            />{' '}
+            <h3 className="texttrecking step2text">Trecking</h3>
+          </div>
+          <div className="cultural">
+            <h4 className="cultural-title">Cultural activities</h4>
+            <input
+              type='checkbox'
+              name='Museums'
+              id='Museums'
+              checked={museums}
+              value={museums}
+              onChange={() => setMuseums(!museums)}
+              className="museums"
+            />{' '}
+            <h3 className="textmuseums step2text">Museums</h3>
+            <input
+              type='checkbox'
+              name='Bookstores'
+              id='Bookstores'
+              checked={bookstores}
+              value={bookstores}
+              onChange={() => setBookstores(!bookstores)}
+              className="bookstores"
+            />{' '}
+            <h3 className="textbookstores step2text">Bookstores</h3>
+            <input
+              type='checkbox'
+              name='Theaters'
+              id='Theaters'
+              checked={theaters}
+              value={theaters}
+              onChange={() => setTheaters(!theaters)}
+              className="theaters"
+            />{' '}
+            <h3 className="texttheaters step2text">Theaters</h3>
+            <input
+              type='checkbox'
+              name='Movies'
+              id='Movies'
+              checked={movies}
+              value={movies}
+              onChange={() => setMovies(!movies)}
+              className="movies"
+            />{' '}
+            <h3 className="textmovies step2text">Movies</h3>
+            <input
+              type='checkbox'
+              name='Guided visits'
+              id='Guided visits'
+              checked={guidedVisits}
+              value={guidedVisits}
+              onChange={() => setGuidedVisits(!guidedVisits)}
+              className="guided_visits"
+            />{' '}
+            <h3 className="textguided_visits step2text">Guided visits</h3>
+            <input
+              type='checkbox'
+              name='Concerts'
+              id='Concerts'
+              checked={concerts}
+              value={concerts}
+              onChange={() => setConcerts(!concerts)}
+              className="concerts"
+            />{' '}
+            <h3 className="textconcerts step2text">Concerts</h3>
+            <input
+              type='checkbox'
+              name='Parks'
+              id='Parks'
+              checked={parks}
+              value={parks}
+              onChange={() => setParks(!parks)}
+              className="parks"
+            />{' '}
+            <h3 className="textparks step2text">Parks</h3>
+            <input
+              type='checkbox'
+              name='Rural tourism'
+              id='Rural tourism'
+              checked={ruralTourism}
+              value={ruralTourism}
+              onChange={() => setRuralTourism(!ruralTourism)}
+              className="rural_tourism"
+            />{' '}
+            <h3 className="textrural_tourism step2text">Rural tourism</h3>
+          </div>
+          {/* <InfoSteps step1 /> */}
+          <button className="info-step2_button" type='submit'>Next</button>
+        </form>
+      </div>
     </div>
   );
 };

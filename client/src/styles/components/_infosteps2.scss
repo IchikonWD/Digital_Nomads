@@ -1,0 +1,455 @@
+.info-step2 {
+    width: 375px;
+    height: 731px;
+    background: #F4F2EB;
+}
+.info-step2 input[type='checkbox'] {
+    filter: invert(39%) hue-rotate(18deg) brightness(1.7);
+  }
+.info-step2-close-button {
+    position: absolute;
+    width: 44px;
+    height: 22px;
+    left: 304px;
+    top: 48px;
+    color: #FF9679;
+}
+
+.info-step2-close-caption {
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: -125%;
+    bottom: 0%;    
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: center;
+    text-decoration-line: underline;
+    color: #FF9679;
+}
+.info-step2-cta {
+    height: 70.14092254638672px;
+    width: 327px;
+    position: absolute;
+    left: 6.4%;
+    right: 6.4%;
+    top: 11.5%;
+    bottom: 77.64%;
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 32px;
+    color: #4D4D4D;
+}
+
+.sports-title {
+    position: absolute;
+    height: 24px;
+    width: 227px;
+    left: 24px;
+    top: 130px;
+    font-family: Raleway;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 22px;
+    color: #4D4D4D;
+    text-align: left;
+    font-weight: 700;
+    letter-spacing: 0em;
+}
+
+.surf {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    left: 24px;
+    top: 191px;
+    background-color: #FE8248;
+    border: 1px solid #FE8248;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+.fitness {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    left: 24px;
+    top: 233px;
+    background: #FE8248;
+    border: 1px solid #FE8248;
+    box-sizing: border-box;
+    border-radius: 4px;;
+}
+.volley {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    left: 24px;
+    top: 278px;
+    background: #FFFFFF;
+    border: 1px solid #FE8248;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+.paddle {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    left: 24px;
+    top: 321px;
+    
+    background: #FFFFFF;
+    /* Acento/light */
+    
+    border: 1px solid #FE8248;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+.climbing {
+    position: absolute;
+width: 24px;
+height: 24px;
+left: 193px;
+top: 191px;
+
+background: #FFFFFF;
+/* Acento/light */
+
+border: 1px solid #FE8248;
+box-sizing: border-box;
+border-radius: 4px;
+}
+.running {
+    position: absolute;
+width: 24px;
+height: 24px;
+left: 193px;
+top: 233px;
+
+background: #FFFFFF;
+/* Acento/light */
+
+border: 1px solid #FE8248;
+box-sizing: border-box;
+border-radius: 4px;
+}
+.football {
+    position: absolute;
+width: 24px;
+height: 24px;
+left: 193px;
+top: 278px;
+
+/* Acento/light */
+
+background: #FE8248;
+/* Acento/light */
+
+border: 1px solid #FE8248;
+box-sizing: border-box;
+border-radius: 4px;
+
+}
+.trecking {
+    position: absolute;
+width: 24px;
+height: 24px;
+left: 193px;
+top: 321px;
+
+background: #FFFFFF;
+/* Acento/light */
+
+border: 1px solid #FE8248;
+box-sizing: border-box;
+border-radius: 4px;
+
+}
+.cultural-title {
+    position: absolute;
+width: 227px;
+height: 24px;
+left: 24px;
+top: 370px;
+
+/* Body 2/Bold 14px 22HL Raleway */
+
+font-family: Raleway;
+font-style: normal;
+font-weight: bold;
+font-size: 14px;
+line-height: 22px;
+/* or 157% */
+
+
+/* Texto/greydark */
+
+color: #4D4D4D;
+}
+.museums {
+    position: absolute;
+width: 24px;
+height: 24px;
+left: 24px;
+top: 431px;
+
+background: #FFFFFF;
+/* Acento/light */
+
+border: 1px solid #FE8248;
+box-sizing: border-box;
+border-radius: 4px;
+}
+.bookstores {
+    position: absolute;
+width: 24px;
+height: 24px;
+left: 24px;
+top: 473px;
+
+/* Acento/light */
+
+background: #FE8248;
+/* Acento/light */
+
+border: 1px solid #FE8248;
+box-sizing: border-box;
+border-radius: 4px;
+}
+.theaters {
+    position: absolute;
+width: 24px;
+height: 24px;
+left: 24px;
+top: 518px;
+
+background: #FFFFFF;
+/* Acento/light */
+
+border: 1px solid #FE8248;
+box-sizing: border-box;
+border-radius: 4px;
+}
+.movies {
+    position: absolute;
+width: 24px;
+height: 24px;
+left: 24px;
+top: 561px;
+
+background: #FFFFFF;
+/* Acento/light */
+
+border: 1px solid #FE8248;
+box-sizing: border-box;
+border-radius: 4px;
+}
+.guided_visits {
+    position: absolute;
+width: 24px;
+height: 24px;
+left: 193px;
+top: 431px;
+
+background: #FFFFFF;
+/* Acento/light */
+
+border: 1px solid #FE8248;
+box-sizing: border-box;
+border-radius: 4px;
+}
+
+.concerts {
+    position: absolute;
+width: 24px;
+height: 24px;
+left: 193px;
+top: 473px;
+
+background: #FFFFFF;
+border: 1px solid #FE8248;
+box-sizing: border-box;
+border-radius: 4px;
+}
+.parks {
+    position: absolute;
+width: 24px;
+height: 24px;
+left: 193px;
+top: 518px;
+
+/* Acento/light */
+
+background: #FE8248;
+/* Acento/light */
+
+border: 1px solid #FE8248;
+box-sizing: border-box;
+border-radius: 4px;
+}
+.rural_tourism {
+    position: absolute;
+width: 24px;
+height: 24px;
+left: 193px;
+top: 561px;
+
+background: #FFFFFF;
+/* Acento/light */
+
+border: 1px solid #FE8248;
+box-sizing: border-box;
+border-radius: 4px;
+}
+.info-step2_button {
+    position: absolute;
+width: 198px;
+height: 56px;
+left: 89px;
+top: 640px;
+    width: 198px;
+    height: 56px;
+    background: #FBFBF8;
+    border: 2px solid #FF9679;
+    box-sizing: border-box;
+    border-radius: 40px;
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    color: #FF9679
+}
+.step2text {
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 22px;
+    color: #4D4D4D;
+  }
+.textsurf {
+    position: absolute;
+width: 32px;
+height: 28px;
+left: 64px;
+top: 182px;
+}
+.textfitness {
+    position: absolute;
+width: 54px;
+height: 28px;
+left: 64px;
+top: 224px;
+
+
+}
+.textvolley {
+    position: absolute;
+    width: 43px;
+    height: 28px;
+    left: 64px;
+    top: 269px;
+}
+.textpaddle {
+    position: absolute;
+width: 54px;
+height: 28px;
+left: 64px;
+top: 312px;
+}
+.textclimbing {
+    position: absolute;
+width: 68px;
+height: 28px;
+left: 233px;
+top: 182px;
+}
+.textrunning {
+    position: absolute;
+    width: 63px;
+    height: 28px;
+    left: 233px;
+    top: 224px
+}
+.textfootball {
+    position: absolute;
+width: 63px;
+height: 28px;
+left: 233px;
+top: 269px;
+}
+.texttrecking {
+    position: absolute;
+width: 66px;
+height: 28px;
+left: 233px;
+top: 312px;
+}
+.textmuseums {
+    position: absolute;
+width: 74px;
+height: 28px;
+left: 64px;
+top: 422px;
+}
+.textbookstores {
+    position: absolute;
+    width: 86px;
+    height: 28px;
+    left: 64px;
+    top: 464px;
+}
+.texttheaters {
+    position: absolute;
+width: 68px;
+height: 28px;
+left: 64px;
+top: 509px;
+}
+.textmovies {
+    position: absolute;
+width: 54px;
+height: 28px;
+left: 64px;
+top: 552px;
+}
+.textguided_visits {
+    position: absolute;
+width: 97px;
+height: 28px;
+left: 233px;
+top: 422px;   
+}
+.textconcerts {
+    position: absolute;
+width: 69px;
+height: 28px;
+left: 233px;
+top: 464px;
+}
+.textparks {
+    position: absolute;
+width: 42px;
+height: 28px;
+left: 233px;
+top: 509px;
+    
+}
+.textrural_tourism {
+    position: absolute;
+width: 102px;
+height: 28px;
+left: 233px;
+top: 552px;
+
+}
+
+
+
+
