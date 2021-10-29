@@ -31,7 +31,6 @@ app.use('/api/upload', uploadRoutes);
 //path.join(__dirname, '../client/build/index.html')
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
-  app.use(express.static('/uploads'));
   app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
   });
@@ -42,9 +41,10 @@ if (process.env.NODE_ENV === 'development') {
     res.send('API is running...');
   });
   app.use(morgan('dev'));
-  const __dirname = path.resolve();
-  app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
 }
+
+const __dirname = path.resolve();
+app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
 
 app.use(notFound);
 app.use(errorHandler);
