@@ -1,0 +1,242 @@
+.info-step3 {
+  width: 375px;
+  height: 731px;
+  background: #f4f2eb;
+}
+.info-step2-close-button {
+  position: absolute;
+  width: 44px;
+  height: 22px;
+  left: 304px;
+  top: 48px;
+  color: #ff9679;
+}
+.info-step2-close-caption {
+  position: absolute;
+  left: 0%;
+  right: 0%;
+  top: -125%;
+  bottom: 0%;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 22px;
+  text-align: center;
+  text-decoration-line: underline;
+  color: #ff9679;
+}
+.info-step3-cta {
+  height: 70.14092254638672px;
+  width: 327px;
+  position: absolute;
+  left: 6.4%;
+  right: 6.4%;
+  top: 10%;
+  bottom: 77.64%;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 32px;
+  color: #4d4d4d;
+}
+
+.checkboxstep3 {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+}
+
+.burguercheck {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  left: 24px;
+  top: 191px;
+}
+.indiancheck {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  left: 24px;
+  top: 233px;
+}
+.sushicheck {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  left: 24px;
+  top: 278px;
+}
+.italiancheck {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  left: 193px;
+  top: 278px;
+}
+.mediterraneancheck {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  left: 193px;
+  top: 191px;
+}
+.chinesecheck {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  left: 193px;
+  top: 233px;
+}
+.japanesecheck {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  left: 193px;
+  top: 321px;
+}
+.drinkscheck {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  left: 193px;
+  top: 431px;
+}
+.coffeecheck {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  left: 24px;
+  top: 473px;
+}
+.sunsetscheck {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  left: 24px;
+  top: 431px;
+}
+.partiescheck {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  left: 193px;
+  top: 473px;
+}
+.step3text {
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 22px;
+  color: #4d4d4d;
+}
+.textburguers {
+  position: absolute;
+  width: 70px;
+  height: 28px;
+  left: 64px;
+  top: 182px;
+}
+.textmediterranean {
+  position: absolute;
+  width: 112px;
+  height: 28px;
+  left: 233px;
+  top: 182px;
+}
+.textindian {
+  position: absolute;
+  width: 47px;
+  height: 28px;
+  left: 64px;
+  top: 222px;
+}
+.textsushi {
+  position: absolute;
+  width: 41px;
+  height: 28px;
+  left: 64px;
+  top: 267px;
+}
+.textchinese {
+  position: absolute;
+  width: 61px;
+  height: 28px;
+  left: 233px;
+  top: 222px;
+}
+.textitalian {
+  position: absolute;
+  width: 38px;
+  height: 28px;
+  left: 233px;
+  top: 267px;
+}
+.textdrinks {
+  position: absolute;
+  width: 110px;
+  height: 28px;
+  left: 233px;
+  top: 420px;
+}
+.textcoffee {
+  position: absolute;
+  width: 50px;
+  height: 28px;
+  left: 64px;
+  top: 463px;
+}
+.textsunsets {
+  position: absolute;
+  width: 61px;
+  height: 28px;
+  left: 64px;
+  top: 420px;
+}
+.textparties {
+  position: absolute;
+  width: 53px;
+  height: 28px;
+  left: 233px;
+  top: 463px;
+}
+.infostep3button {
+  position: absolute;
+  width: 198px;
+  height: 56px;
+  left: 88.5px;
+  top: 552px;
+}
+.leisuretime {
+  position: absolute;
+  width: 227px;
+  height: 24px;
+  left: 24px;
+  top: 344px;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 22px;
+  color: #4d4d4d;
+}
+.foodstep3 {
+  position: absolute;
+  width: 227px;
+  height: 24px;
+  left: 24px;
+  top: 124px;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 22px;
+  color: #4d4d4d;
+}
+
+.info-step3 input[type='checkbox'] {
+  filter: invert(39%) hue-rotate(18deg) brightness(1.7);
+}

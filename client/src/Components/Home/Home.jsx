@@ -3,8 +3,8 @@ import Flickity from 'react-flickity-component';
 import { DataContext } from '../../Contexts/dataContext';
 import axios from 'axios';
 
-import Header from '../Header/Header'
-import Footer from '../Footer/Footer'
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 
 const Home = ({ history }) => {
   const { setData } = useContext(DataContext);
@@ -59,45 +59,65 @@ const Home = ({ history }) => {
       <Header />
       <div className='home'>
         <div className='home__home1'>
-          <form className="home__form_search" onSubmit={submitHandler}>
+          <form className='home__form_search' onSubmit={submitHandler}>
             <input
               type='text'
               name='city'
               onChange={(e) => onChangeHandler(e.target.value)}
               value={text}
-              placeholder="Where are you going?"
-              className="home__input_search"
-              autoComplete="off"
+              placeholder='Where are you going?'
+              className='home__input_search'
+              autoComplete='off'
             />
           </form>
-          {suggestions
-            ? (
-              <div className="suggestions_container">
-                {
-                  suggestions.map((suggestions, i) => (
-                    <p key={i} className="suggestion" onClick={() => onSuggestHandler(suggestions.name)}>{suggestions.name}</p>
-                  ))
-                }
-              </div>
-            )
-            : ''}
-          <div className="home__home1_core">
-            <img className="home__home1_imgvertical" src="/assets/images/Ordenador_chico.png" alt="PC Nomad" />
-            <div className="home__cta_container">
-              <p className="home__cta_explore">Choose your next nomad destination according to your needs</p>
-              <button className="home__btn_explore" onClick={handleGoExplore}>Explore now</button>
+          {suggestions ? (
+            <div className='suggestions_container'>
+              {suggestions.map((suggestions, i) => (
+                <p
+                  key={i}
+                  className='suggestion'
+                  onClick={() => onSuggestHandler(suggestions.name)}
+                >
+                  {suggestions.name}
+                </p>
+              ))}
             </div>
-            <img className="home__home1_imgvertical" src="/assets/images/Caminantes.png" alt="Caravan Nomad" />
+          ) : (
+            ''
+          )}
+          <div className='home__home1_core'>
+            <img
+              className='home__home1_imgvertical'
+              src='/assets/images/Ordenador_chico.png'
+              alt='PC Nomad'
+            />
+            <div className='home__cta_container'>
+              <p className='home__cta_explore'>
+                Choose your next nomad destination according to your needs
+              </p>
+              <button className='home__btn_explore' onClick={handleGoExplore}>
+                Explore now
+              </button>
+            </div>
+            <img
+              className='home__home1_imgvertical'
+              src='/assets/images/Caminantes.png'
+              alt='Caravan Nomad'
+            />
           </div>
-          <img className="home__home1_imghorizontal" src="/assets/images/Caravana.png" alt="Walker Nomad" />
+          <img
+            className='home__home1_imghorizontal'
+            src='/assets/images/Caravana.png'
+            alt='Walker Nomad'
+          />
         </div>
         <div className='home__home2'>
-          <p className="home__home2_info">
+          <p className='home__home2_info'>
             Matching the needs of digital nomads and remote workers to the best
             place in Spain.
           </p>
-          <div>            
-            <ul className="home__home2_list">
+          <div>
+            <ul className='home__home2_list'>
               <li>Sunny places</li>
               <li>Safety</li>
               <li>Surf places</li>
@@ -106,28 +126,32 @@ const Home = ({ history }) => {
               <li>Meet other nomads</li>
             </ul>
           </div>
-          <img className="paddle_surf_img" src="/assets/images/paddle_surf.png" alt="Walker Nomad" />
+          <img
+            className='paddle_surf_img'
+            src='/assets/images/paddle_surf.png'
+            alt='Walker Nomad'
+          />
         </div>
         <div className='home3'>
-          <p className="slider_header">Best nomad places</p>
+          <p className='slider_header'>Best nomad places</p>
         </div>
-          <Flickity
-            className={'carousel'} // default ''
-            elementType={'div'} // default 'div'
-            options={flickityOptions} // takes flickity options {}
-            disableImagesLoaded={false} // default false
-            reloadOnUpdate // default false
-            static // default false
-            prevNextButtons={false}
-            pageDots={false}
-          >
-            {cities.map((city) => (
-              <div key={city.name} className='carousel__card'>
-                <img src={city.image} alt={city.name} />
-                <h3 className="carousel_title">{city.name}</h3>
-              </div>
-            ))}
-          </Flickity>
+        <Flickity
+          className={'carousel'} // default ''
+          elementType={'div'} // default 'div'
+          options={flickityOptions} // takes flickity options {}
+          disableImagesLoaded={false} // default false
+          reloadOnUpdate // default false
+          static // default false
+          prevNextButtons={false}
+          pageDots={false}
+        >
+          {cities.map((city) => (
+            <div key={city.name} className='carousel__card'>
+              <img src={city.image} alt={city.name} />
+              <h3 className='carousel_title'>{city.name}</h3>
+            </div>
+          ))}
+        </Flickity>
       </div>
       <Footer />
     </>

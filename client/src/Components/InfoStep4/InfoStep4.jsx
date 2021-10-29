@@ -14,7 +14,7 @@ const InfoStep4 = ({ history }) => {
         </i>
       </header>
       <img
-        className='register2image'
+        className='register2image infostep4vector'
         src='/assets/images/register2vector.png'
         alt=''
       />
@@ -32,7 +32,13 @@ const InfoStep4 = ({ history }) => {
         You can always change your <br />
         preferences in your profile
       </p>
-      <button className='primary_button info4button'> Chat Nomads</button>
+      <button
+        className='primary_button info4button'
+        onClick={() => history.push('/people')}
+      >
+        {' '}
+        See People
+      </button>
       <Link className='infotext4' to='/'>
         Maybe later
       </Link>

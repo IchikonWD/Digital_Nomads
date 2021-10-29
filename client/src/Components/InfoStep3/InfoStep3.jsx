@@ -255,104 +255,132 @@ const InfoStep3 = ({ history }) => {
     history.push('/infostep4');
   };
 
+  const handleButton = async (e) => {
+    e.preventDefault();
+    history.goBack();
+  };
+
   return (
     <div className='info-step3'>
-      <h2>Meet other digital nomads</h2>
+      <header className='user_profile_editing__header'>
+        <i className='fas fa-chevron-left user_profile_editing__header__icon'>
+          <button className='hidden_button' onClick={handleButton}></button>
+        </i>
+        <button
+          className='info-step2-close-button hidden_button'
+          onClick={handleButton}
+        >
+          <p className='info-step2-close-caption'>Close</p>
+        </button>
+      </header>
+      <h2 className='info-step3-cta'>Meet other digital nomads</h2>
       <form onSubmit={handleInterests}>
-        <h4>Food</h4>
+        <h4 className='foodstep3'>Food</h4>
         <input
           type='checkbox'
           name='Burguers'
           id='Burguers'
           checked={burguers}
           value={burguers}
+          className='checkboxstep3 burguercheck'
           onChange={() => setBurguers(!burguers)}
         />
-        Burguers
+        <h3 className='step3text textburguers'>Burguers</h3>
         <input
           type='checkbox'
           name='Mediterranean'
           id='Mediterranean'
           checked={mediterranean}
           value={mediterranean}
+          className='checkboxstep3 mediterraneancheck'
           onChange={() => setMediterranean(!mediterranean)}
         />
-        Mediterranean
+        <h3 className='step3text textmediterranean'> Mediterranean </h3>
         <input
           type='checkbox'
           name='Indian'
           id='Indian'
           value={indian}
           checked={indian}
+          className='checkboxstep3 indiancheck'
           onChange={() => setIndian(!indian)}
         />
-        Indian
+        <h3 className='step3text textindian'>Indian</h3>
         <input
           type='checkbox'
           name='Sushi'
           id='Sushi'
           checked={sushi}
           value={sushi}
+          className='checkboxstep3 sushicheck'
           onChange={() => setSushi(!sushi)}
         />{' '}
-        Sushi
+        <h3 className='step3text textsushi'>Sushi</h3>
         <input
           type='checkbox'
           name='Italian'
           id='Italian'
           checked={italian}
           value={italian}
+          className='checkboxstep3 italiancheck'
           onChange={() => setItalian(!italian)}
         />
-        Italian
+        <h3 className='step3text textitalian'>Italian</h3>
         <input
           type='checkbox'
           name='Chinese'
           id='Chinese'
           checked={chinese}
           value={chinese}
+          className='checkboxstep3 chinesecheck'
           onChange={() => setChinese(!chinese)}
         />
-        Chinese
-        <h4>Leisure time</h4>
+        <h3 className='step3text textchinese'>Chinese</h3>
+        <h4 className='leisuretime'>Leisure time</h4>
         <input
           type='checkbox'
           name='Drinks at night'
           id='Drinks at night'
           checked={drinks}
           value={drinks}
+          className='checkboxstep3 drinkscheck'
           onChange={() => setDrinks(!drinks)}
         />
-        Drinks at night
+        <h3 className='step3text textdrinks'> Drinks at night</h3>
         <input
           type='checkbox'
           name='Coffee'
           id='Coffee'
           checked={coffee}
           value={coffee}
+          className='checkboxstep3 coffeecheck'
           onChange={() => setCoffee(!coffee)}
         />
-        Coffee
+        <h3 className='step3text textcoffee'>Coffee</h3>
         <input
           type='checkbox'
           name='Sunsets'
           id='Sunsets'
           checked={sunsets}
           value={sunsets}
+          className='checkboxstep3 sunsetscheck'
           onChange={() => setSunsets(!sunsets)}
         />
-        Sunsets
+        <h3 className='step3text textsunsets'>Sunsets</h3>
         <input
           type='checkbox'
           name='Parties'
           id='Parties'
           checked={parties}
           value={parties}
+          className='checkboxstep3 partiescheck'
           onChange={() => setParties(!parties)}
         />
-        Parties
-        <InfoSteps step1 step2 />
-        <button type='submit'>Done</button>
+        <h3 className='step3text textparties'> Parties</h3>
+        {/* <InfoSteps step1 step2 /> */}
+        <button className='primary_button infostep3button' type='submit'>
+          Done
+        </button>
       </form>
     </div>
   );
