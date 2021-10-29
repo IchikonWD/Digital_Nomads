@@ -13,7 +13,7 @@
     "update": "npm install && npm install --prefix client",
     "data:import": "node server/fakeData",
     "data:destroy": "node server/fakeData -d",
-    "heroku:postinstall": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "heroku:postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "repository": {
     "type": "git",
