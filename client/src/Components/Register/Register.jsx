@@ -28,10 +28,6 @@ const Register = ({ location, history }) => {
     }
   }, [user, history]);
 
-  const handleNext = (e) => {
-    e.preventDefault();
-    history.push('/registerstep2');
-  };
   // Post register info to server
   useEffect(() => {
     async function fetchData() {
@@ -75,7 +71,7 @@ const Register = ({ location, history }) => {
       }
     }
     fetchData();
-  }, [registerInfo, setUser, history]);
+  }, [registerInfo, history]);
 
   // Button click handler
   const handleGoHome = () => {
@@ -191,11 +187,7 @@ const Register = ({ location, history }) => {
           have read our <span className='highlight'>Privacy Policy</span>,
           including the <span className='highlight'>Cookies Policy</span>.
         </p>
-        <button
-          onClick={handleNext}
-          className='primary_button registerbutton'
-          type='submit'
-        >
+        <button className='primary_button registerbutton' type='submit'>
           Sign Up
         </button>
       </form>
