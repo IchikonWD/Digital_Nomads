@@ -19,15 +19,10 @@ const BurguerMenu = ({ props, logout }) => {
       <a className='menu-item' href='/'>
         Settings
       </a>
-      {user.isLoggedIn ? (
-        <button className='secondary_button logoutmenubutton' onClick={logout}>
-          Logout
-        </button>
-      ) : (
-        <a className='menu-item' href='/'>
-          Login
-        </a>
-      )}
+
+      <button className='secondary_button logoutmenubutton' onClick={logout}>
+        Logout
+      </button>
     </Menu>
   );
 };

@@ -60,6 +60,11 @@ const Home = ({ history }) => {
       <div className='home'>
         <div className='home__home1'>
           <form className='home__form_search' onSubmit={submitHandler}>
+            <img
+              className='searchicon'
+              src='/assets/images/Lupa.png'
+              alt='lupa'
+            />
             <input
               type='text'
               name='city'

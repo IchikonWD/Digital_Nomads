@@ -21,6 +21,11 @@ const Profile = ({ history }) => {
     }
   }, [user, history]);
 
+  const handleLogout = () => {
+    localStorage.removeItem('user');
+    document.location.href = '/login';
+  };
+
   // Save changes to database
   useEffect(() => {
     async function saveUpdatedUser() {
@@ -325,9 +330,9 @@ const Profile = ({ history }) => {
           <hr className='user_info_spacer' />
           <h3 className='user_info5'>{user.language}</h3>
         </div>
-        <Link className='interests_profile2' to='/'>
+        <a className='interests_profile2' onClick={handleLogout}>
           Log Out
-        </Link>
+        </a>
       </div>
     );
   }
