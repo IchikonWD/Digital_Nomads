@@ -28,6 +28,7 @@ app.use('/api/cities', cityRoutes);
 app.use('/api/data', dataRoutes);
 app.use('/api/upload', uploadRoutes);
 
+//path.join(__dirname, '../client/build/index.html')
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('/client/build'));
   app.get('*', (req, res) => {
